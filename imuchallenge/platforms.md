@@ -1,12 +1,12 @@
 ---
-title: IMU Challenge
-subtitle: Coming soon
+title: IMU Challenge Platforms
 layout: page
 show_sidebar: false
 hide_footer: false
+permalink: /imuchallenge/platforms/
 ---
 
-# IMU Challenge
+# Platforms
 
 This page is under construction.
 
