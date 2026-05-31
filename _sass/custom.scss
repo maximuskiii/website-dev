@@ -97,6 +97,83 @@ body.imuchallenge-site .content h3 {
   margin: 0.8rem 0 1.2rem;
 }
 
+.imu-hero-stats-overlay {
+  margin-top: -12rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  z-index: 5;
+}
+
+.imu-hero-kpis-in-hero {
+  margin-top: 1.2rem;
+}
+
+.imu-kpi-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.imu-kpi-button {
+  background-color: #cc002b !important;
+  border: 1px solid transparent !important;
+  color: #fff !important;
+  height: auto;
+  min-width: 190px;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1.2;
+  white-space: normal;
+  text-align: left;
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+.imu-kpi-value {
+  display: block !important;
+  width: 100%;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.15rem;
+  line-height: 1.05;
+}
+
+.imu-kpi-label {
+  display: block !important;
+  width: 100%;
+  font-size: 0.78rem;
+  opacity: 0.96;
+  line-height: 1.2;
+}
+
+.imu-kpi-button:hover,
+.imu-kpi-button:focus,
+.imu-kpi-button:active {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  background-color: #cc002b !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .imu-hero-stats-overlay {
+    margin-top: -6.5rem;
+  }
+  .imu-hero-kpis-in-hero {
+    margin-top: 0.8rem;
+  }
+}
+
 .imu-metric {
   background: #fff;
   border: 1px solid #cfe6f7;
@@ -134,5 +211,110 @@ body.imuchallenge-site .content h3 {
   letter-spacing: 0.02em;
   margin-bottom: 1rem;
 }
+
+.imu-media-placeholder {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px dashed #78acd1;
+  background: #f5fbff;
+  padding: 0.5rem;
+}
+
+.imu-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.imu-link-grid a {
+  display: block;
+  background: #fff;
+  border: 1px solid #d8ebf9;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  color: #13496d;
+  font-weight: 600;
+}
+
+.imu-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #d8ebf9;
+  border-radius: 10px;
+  background: #fff;
+}
+
+table.imu-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+table.imu-data-table th,
+table.imu-data-table td {
+  border-bottom: 1px solid #eef5fb;
+  padding: 0.45rem 0.5rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+table.imu-data-table th {
+  position: sticky;
+  top: 0;
+  background: #f0f8ff;
+  z-index: 2;
+  cursor: pointer;
+  color: #123e5d;
+}
+
+.imu-filter-row input {
+  width: 100%;
+  min-width: 96px;
+  border: 1px solid #c5deef;
+  border-radius: 6px;
+  padding: 0.26rem 0.35rem;
+  font-size: 0.78rem;
+}
+
+.imu-table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0.6rem 0;
+  font-size: 0.86rem;
+  color: #355268;
+}
+
+pre code.language-bibtex {
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.imu-link-list {
+  margin: 0 0 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.imu-platform-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.12rem 0.55rem;
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: #fff;
+}
+
+body.imuchallenge-site .imu-p-car { background: #d97706 !important; }
+body.imuchallenge-site .imu-p-drone { background: #0ea5e9 !important; }
+body.imuchallenge-site .imu-p-quadruped { background: #16a34a !important; }
+body.imuchallenge-site .imu-p-handheld { background: #a855f7 !important; }
+body.imuchallenge-site .imu-p-human { background: #a855f7 !important; }
+
+body.imuchallenge-site .imu-data-table tr.imu-row-car td { background: #fff7ed !important; }
+body.imuchallenge-site .imu-data-table tr.imu-row-drone td { background: #e8f4ff !important; }
+body.imuchallenge-site .imu-data-table tr.imu-row-quadruped td { background: #f0fdf4 !important; }
+body.imuchallenge-site .imu-data-table tr.imu-row-handheld td,
+body.imuchallenge-site .imu-data-table tr.imu-row-human td { background: #faf5ff !important; }
 
 /* end custom scss snippet */

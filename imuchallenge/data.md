@@ -9,51 +9,54 @@ permalink: /imuchallenge/data/
 
 # Data
 
-This page is the official data hub for the IMU Challenge. All dataset releases, download links, and updates live here.
+## Downloads
 
-## Downloads (Placeholder)
+<ul class="imu-link-list">
+  <li><a href="https://huggingface.co/Tartan-IMU" target="_blank" rel="noopener">Main Hugging Face Organization (Tartan-IMU)</a></li>
+  <li><a href="https://huggingface.co/datasets/Tartan-IMU/Car/tree/main" target="_blank" rel="noopener">Car Dataset</a></li>
+  <li><a href="https://huggingface.co/datasets/Tartan-IMU/Drone/tree/main" target="_blank" rel="noopener">Drone Dataset</a></li>
+  <li><a href="https://huggingface.co/datasets/Tartan-IMU/Quadruped/tree/main" target="_blank" rel="noopener">Quadruped Dataset</a></li>
+  <li><a href="https://huggingface.co/datasets/Tartan-IMU/Handheld/tree/main" target="_blank" rel="noopener">Handheld Dataset</a></li>
+  <li><a href="#" aria-disabled="true">Humanoid Dataset (Placeholder: coming soon)</a></li>
+</ul>
 
-<div class="imu-card"><strong>Core Dataset Package:</strong> <a href="#">Download (Coming Soon)</a></div>
-<div class="imu-card"><strong>Validation Package:</strong> <a href="#">Download (Coming Soon)</a></div>
-<div class="imu-card"><strong>Metadata + Calibration:</strong> <a href="#">Download (Coming Soon)</a></div>
-<div class="imu-card"><strong>Starter Loader + Eval Tools:</strong> <a href="#">Download (Coming Soon)</a></div>
+*Licensing note: licensing details are still being finalized with the maintainers and are currently WIP.*
 
-## Splits
+## Dataset Schema
 
-- Train: for model development and training
-- Validation: for tuning and ablations
-- Test: held-out for official benchmark ranking
+Each trajectory `.npz` includes:
 
-## Data Explorer (Preview)
+- `retargetted_ts`
+- `retargetted_imu` (`[:, :3]` acceleration, `[:, 3:]` gyroscope)
+- `retargetted_pos`
+- `retargetted_quat`
 
-The explorer section below is a first draft layout for trajectory browsing.
+Ground truth alignment is included in the prepared files, and split organization is train/val/test.
 
-<div class="imu-card">
-<strong>Trajectory Preview:</strong> interactive trajectory/map preview widget (coming soon)
-<br>
-<strong>Example:</strong> sequence id, path shape, duration, motion category, and platform tag.
+## Data Explorer
+
+<div class="imu-table-toolbar">
+  <div id="imu-row-count">Loading metadata...</div>
 </div>
 
-<div class="imu-card">
-<strong>Metadata Panel:</strong>
-<br>
-Platform, sensor model, sampling rates, sequence origin, environment type, and split assignment.
+<div class="imu-table-wrap">
+  <table class="imu-data-table" id="imu-data-table" data-endpoint="{{ site.baseurl }}/assets/data/imuchallenge_metadata.json">
+    <thead>
+      <tr>
+        <th data-col="platform">platform</th>
+        <th data-col="split">split</th>
+        <th data-col="traj_id">traj_id</th>
+        <th data-col="npz_relpath">npz_relpath</th>
+        <th data-col="inferred_source">source</th>
+        <th data-col="n_samples">n_samples</th>
+        <th data-col="duration_s">duration_s</th>
+        <th data-col="sample_rate_hz">sample_rate_hz</th>
+        <th data-col="file_size_bytes">file_size_bytes</th>
+      </tr>
+      <tr class="imu-filter-row" id="imu-filter-row"></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 </div>
 
-<div class="imu-card">
-<strong>Trajectory Metrics:</strong>
-<br>
-Duration, path length, mean velocity, angular-rate statistics, acceleration range, and motion diversity tags.
-</div>
-
-## Platforms Covered
-
-- Car
-- Drone
-- Quadruped
-- Handheld
-- Humanoid
-
-## Notes
-
-For release timing and change logs, see [Announcements](/imuchallenge/announcements/).
+<script src="{{ site.baseurl }}/assets/js/imuchallenge-data-explorer.js"></script>

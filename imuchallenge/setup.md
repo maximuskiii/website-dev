@@ -31,7 +31,7 @@ permalink: /imuchallenge/setup/
 
 1. Start from a known baseline.
 2. Validate per platform first, then test cross-platform transfer.
-3. Track both aggregate and per-platform failure modes.
+3. Platform both aggregate and per-platform failure modes.
 4. Freeze your final model and produce reproducible inference logs.
 
 ## System Requirements (Preliminary)

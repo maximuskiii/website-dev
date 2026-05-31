@@ -6,7 +6,14 @@ show_sidebar: false
 hide_footer: false
 hide_hero: false
 hero_height: is-medium
-hero_image: /img/place_holder_01.png
+hero_image: /img/datasets/dataset_video_short.gif
+hero_kpis:
+  - value: "359"
+    label: "Trajectories"
+  - value: "41.39 h"
+    label: "Total Duration"
+  - value: "5"
+    label: "Platforms"
 permalink: /imuchallenge/
 ---
 
@@ -16,17 +23,15 @@ The IMU Challenge is a CMU AirLab competition and benchmark for cross-platform i
 
 Participants train and evaluate models on shared train/validation splits and are ranked on held-out test sets. The benchmark is motivated by the Tartan IMU direction: large-scale pretraining, efficient adaptation, and robust generalization across platforms.
 
-## Dataset At A Glance
+## Placeholder Intro Video: Learning IMU Odometry
 
-<div class="imu-metrics">
-  <div class="imu-metric"><span class="value">5</span><span class="label">Platform Tracks</span></div>
-  <div class="imu-metric"><span class="value">100+ h</span><span class="label">Multi-Platform IMU Data</span></div>
-  <div class="imu-metric"><span class="value">3</span><span class="label">Primary Splits (Train/Val/Test)</span></div>
-  <div class="imu-metric"><span class="value">1</span><span class="label">Unified Benchmark Hub</span></div>
-</div>
+<video controls preload="metadata" style="display:block; width:100%; border-radius:12px; border:1px solid #d8ebf9; margin:0 0 1rem 0;">
+  <source src="/img/science_robotics/learning_imu_odometry_intro.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <div class="imu-note">
-All official dataset packages, download links, and split details are published on <a href="/imuchallenge/data/"><strong>/imuchallenge/data</strong></a>.
+All official dataset packages, download links, and the live metadata explorer are published on <a href="/imuchallenge/data/"><strong>/imuchallenge/data</strong></a>.
 </div>
 
 ## Challenge Goal
@@ -47,7 +52,24 @@ Build IMU models that improve cross-platform robustness and beat current state-o
 - [Announcements](/imuchallenge/announcements/)
 - [About](/imuchallenge/about/)
 
-## Reference
+## References
 
-- Tartan IMU (CVPR 2025): https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf
-- TartanIMU project page: https://superodometry.com/tartanimu
+```bibtex
+@inproceedings{zhao2025tartanimu,
+  title={Tartan IMU: A Light Foundation Model for Inertial Positioning in Robotics},
+  author={Zhao, Shibo and Yagnyatinskiy, Maxim and others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2025},
+  url={https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf}
+}
+```
+
+```bibtex
+@misc{imuchallenge2026,
+  title={IMU Challenge: Cross-Platform Inertial Positioning Benchmark},
+  author={CMU AirLab and Super Odometry Group},
+  year={2026},
+  howpublished={\url{https://superodometry.com/imuchallenge}},
+  note={Dataset and benchmark challenge page}
+}
+```

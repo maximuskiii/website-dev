@@ -17,6 +17,12 @@
 <html>
 {% include head.html %}
 <body{% if page.url == '/imuchallenge/' or page.url contains '/imuchallenge/' %} class="imuchallenge-site"{% endif %}>
+    {% if page.url == '/imuchallenge/' or page.url contains '/imuchallenge/' %}
+    <style>
+      body.imuchallenge-site { background: linear-gradient(180deg, #f4faff 0%, #eef7ff 100%) !important; }
+      body.imuchallenge-site .navbar.is-imuchallenge { background: linear-gradient(90deg, #0a1f30 0%, #1b5f8a 100%) !important; }
+    </style>
+    {% endif %}
     {% include header.html %} {% unless page.hide_hero %} {% include hero.html %} {% endunless %} {% include callouts.html %}
     <section class="section">
         <div class="container">

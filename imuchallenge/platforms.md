@@ -9,7 +9,7 @@ permalink: /imuchallenge/platforms/
 
 # Platforms
 
-This challenge is organized across platform tracks to measure both in-domain performance and cross-platform generalization.
+This challenge is organized across multiple platforms to measure both in-domain performance and cross-platform generalization.
 
 <div class="imu-card"><strong>Car:</strong> wheeled vehicle motion, including turns, starts, stops, and variable speed regimes.</div>
 <div class="imu-card"><strong>Drone:</strong> aerial dynamics with aggressive attitude changes, hover, and translational maneuvers.</div>
@@ -19,8 +19,8 @@ This challenge is organized across platform tracks to measure both in-domain per
 
 ## Evaluation Perspective
 
-- Per-track accuracy and robustness
-- Cross-track transfer performance
+- Per-platform accuracy and robustness
+- Cross-platform transfer performance
 - Generalization to held-out motion domains
 
 Use the dropdown in the navbar to open each platform page.
