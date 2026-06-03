@@ -1,13 +1,15 @@
 ---
-title: IMU Challenge Platform - Humanoid
+title: Humanoid Platform
+subtitle: IMU Challenge
 layout: page
 show_sidebar: false
+platform_sidebar: true
 hide_footer: false
-hide_hero: true
+hide_hero: false
+hero_height: is-small
+hero_image: /img/place_holder_01.png
 permalink: /imuchallenge/platforms/humanoid/
 ---
-
-# Humanoid Platform
 
 ## Data Summary
 

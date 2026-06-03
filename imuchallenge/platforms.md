@@ -2,6 +2,7 @@
 title: IMU Challenge Platforms
 layout: page
 show_sidebar: false
+platform_sidebar: true
 hide_footer: false
 hide_hero: true
 permalink: /imuchallenge/platforms/
@@ -11,16 +12,31 @@ permalink: /imuchallenge/platforms/
 
 This challenge is organized across multiple platforms to measure both in-domain performance and cross-platform generalization.
 
-<div class="imu-card"><strong>Car:</strong> wheeled vehicle motion, including turns, starts, stops, and variable speed regimes.</div>
-<div class="imu-card"><strong>Drone:</strong> aerial dynamics with aggressive attitude changes, hover, and translational maneuvers.</div>
-<div class="imu-card"><strong>Quadruped:</strong> legged motion with gait-dependent inertial signatures and contact transitions.</div>
-<div class="imu-card"><strong>Handheld:</strong> human-carried device dynamics with abrupt orientation shifts and non-smooth trajectories.</div>
-<div class="imu-card"><strong>Humanoid:</strong> full-body locomotion and high-dynamic motions relevant to embodied control.</div>
+<div class="imu-platform-feature-grid">
+  <a href="/imuchallenge/platforms/car/" class="imu-platform-feature">
+    <img src="/img/tartanimu/car_overview.png" alt="Car IMU platform overview">
+    <span>Car</span>
+  </a>
+  <a href="/imuchallenge/platforms/drone/" class="imu-platform-feature">
+    <img src="/img/tartanimu/drone_overview.png" alt="Drone IMU platform overview">
+    <span>Drone</span>
+  </a>
+  <a href="/imuchallenge/platforms/quadruped/" class="imu-platform-feature">
+    <img src="/img/tartanimu/dog_overview.png" alt="Quadruped IMU platform overview">
+    <span>Quadruped</span>
+  </a>
+  <a href="/imuchallenge/platforms/handheld/" class="imu-platform-feature">
+    <img src="/img/tartanimu/human_overview.png" alt="Handheld IMU platform overview">
+    <span>Handheld</span>
+  </a>
+  <a href="/imuchallenge/platforms/humanoid/" class="imu-platform-feature">
+    <img src="/img/place_holder_01.png" alt="Humanoid IMU platform placeholder">
+    <span>Humanoid</span>
+  </a>
+</div>
 
 ## Evaluation Perspective
 
 - Per-platform accuracy and robustness
 - Cross-platform transfer performance
 - Generalization to held-out motion domains
-
-Use the dropdown in the navbar to open each platform page.

@@ -4,17 +4,6 @@
   link: /imuchallenge/setup/
 - name: Platforms
   link: /imuchallenge/platforms/
-  dropdown:
-    - name: Car
-      link: /imuchallenge/platforms/car/
-    - name: Drone
-      link: /imuchallenge/platforms/drone/
-    - name: Quadruped
-      link: /imuchallenge/platforms/quadruped/
-    - name: Handheld
-      link: /imuchallenge/platforms/handheld/
-    - name: Humanoid
-      link: /imuchallenge/platforms/humanoid/
 - name: Data
   link: /imuchallenge/data/
 - name: Announcements

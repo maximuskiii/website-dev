@@ -3,6 +3,7 @@ title: Car Platform
 subtitle: IMU Challenge
 layout: page
 show_sidebar: false
+platform_sidebar: true
 hide_footer: false
 hide_hero: false
 hero_height: is-small

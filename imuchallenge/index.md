@@ -7,13 +7,14 @@ hide_footer: false
 hide_hero: false
 hero_height: is-medium
 hero_image: /img/datasets/dataset_video_short.gif
-hero_kpis:
-  - value: "359"
-    label: "Trajectories"
-  - value: "41.39 h"
-    label: "Total Duration"
-  - value: "5"
-    label: "Platforms"
+hero_link: /imuchallenge/setup/
+hero_link_text: GET STARTED
+hero_link2: /imuchallenge/data/
+hero_link_text2: DATASET
+hero_announcement_title: "IMU Challenge"
+hero_announcement_text: "Prelude to the Beyond Exteroception workshop"
+hero_announcement_link: /interoception/
+hero_announcement_link_text: VIEW WORKSHOP
 permalink: /imuchallenge/
 ---
 
@@ -22,6 +23,8 @@ permalink: /imuchallenge/
 The IMU Challenge is a CMU AirLab competition and benchmark for cross-platform inertial positioning.
 
 Participants train and evaluate models on shared train/validation splits and are ranked on held-out test sets. The benchmark is motivated by the Tartan IMU direction: large-scale pretraining, efficient adaptation, and robust generalization across platforms.
+
+This challenge also serves as a technical prelude to the [IROS'26 Workshop: Beyond Exteroception](/interoception/), which focuses on interoceptive perception for resilient robotics.
 
 ## Placeholder Intro Video: Learning IMU Odometry
 
@@ -36,7 +39,7 @@ All official dataset packages, download links, and the live metadata explorer ar
 
 ## Challenge Goal
 
-Build IMU models that improve cross-platform robustness and beat current state-of-the-art transfer performance under a common benchmark protocol.
+Build IMU models that improve cross-platform robustness and beat current state-of-the-art transfer performance under a common benchmark protocol, while surfacing research questions for the workshop discussion on interoceptive robot perception.
 
 ## Benchmark Structure
 

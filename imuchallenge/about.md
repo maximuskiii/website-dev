@@ -11,6 +11,8 @@ permalink: /imuchallenge/about/
 
 The IMU Challenge is hosted by **CMU AirLab**, with organization led by the TartanIMU and Super Odometry contributors.
 
+The challenge is also designed as a technical prelude to the [IROS'26 Workshop: Beyond Exteroception](/interoception/), which centers on interoceptive perception for resilient robotics.
+
 ## Motivation
 
 Learning-based inertial methods have shown strong progress, but robust cross-platform generalization remains a major open problem.
@@ -28,6 +30,8 @@ This challenge is aligned with the Tartan IMU direction:
 - Large-scale multi-platform IMU pretraining
 - Efficient adaptation to unseen domains
 - Online adaptation for deployment-time robustness
+
+The benchmark is intended to surface concrete modeling, adaptation, and evaluation questions that can feed into the workshop discussion around robot self-sensing and robustness beyond exteroceptive perception alone.
 
 ## Contact
 

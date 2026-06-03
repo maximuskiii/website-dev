@@ -20,6 +20,17 @@
                 <a href="{{ page.hero_link2 | prepend: site.baseurl  }}" class="button is-info is-large">{{ page.hero_link_text2 }}</a>
             {% endif %}
         </p>
+        {% if page.hero_announcement_title %}
+        <div class="imu-hero-announcement">
+            <div class="imu-hero-announcement-copy">
+                <strong>{{ page.hero_announcement_title }}</strong>
+                <span>{{ page.hero_announcement_text }}</span>
+            </div>
+            {% if page.hero_announcement_link %}
+            <a href="{{ page.hero_announcement_link | prepend: site.baseurl }}" class="imu-hero-announcement-button">{{ page.hero_announcement_link_text }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
         {% if page.hero_kpis %}
         <div class="imu-hero-kpis-in-hero">
             <div class="imu-kpi-buttons">
