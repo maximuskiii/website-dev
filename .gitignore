@@ -10,6 +10,7 @@
 *.log.*
 
 iros_results/
+generate_previews.py
 
 /.vscode/
 
