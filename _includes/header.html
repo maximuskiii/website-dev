@@ -1,5 +1,11 @@
+{% assign nav_items = site.data.navigation %}
+{% assign is_imuchallenge_nav = false %}
+{% if page.url == '/imuchallenge/' or page.url contains '/imuchallenge/' %}
+    {% assign nav_items = site.data.navigation_imuchallenge %}
+    {% assign is_imuchallenge_nav = true %}
+{% endif %}
 
-<nav class="navbar is-primary" >
+<nav class="navbar is-primary {% if is_imuchallenge_nav %}is-imuchallenge{% endif %}" >
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ site.baseurl }}/" class="navbar-item navbar-logo">
@@ -13,8 +19,8 @@
         </div>
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-start">
-                {% if site.data.navigation %}
-                {% for item in site.data.navigation %}
+                {% if nav_items %}
+                {% for item in nav_items %}
                     {% if item.dropdown %}
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a href="{{ item.link | prepend: site.baseurl }}" class="navbar-link {% if item.link == page.url %}is-active{% endif %}">{{ item.name }}</a>
@@ -30,6 +36,19 @@
                 {% endfor %}
                 {% endif %}
             </div>
+            {% if is_imuchallenge_nav %}
+            <div class="navbar-end imuchallenge-navbar-actions">
+                <a href="https://github.com/shibowing/website-dev" class="navbar-item imuchallenge-navbar-icon" target="_blank" rel="noopener" aria-label="GitHub repository">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://huggingface.co/Tartan-IMU" class="navbar-item imuchallenge-navbar-icon imuchallenge-navbar-hf" target="_blank" rel="noopener" aria-label="Tartan-IMU on Hugging Face">
+                    <img src="{{ site.baseurl }}/img/logos/huggingface-logo.png" alt="" aria-hidden="true">
+                </a>
+                <a href="https://www.kaggle.com/" class="navbar-item imuchallenge-navbar-icon" target="_blank" rel="noopener" aria-label="Kaggle competition">
+                    <i class="fab fa-kaggle" aria-hidden="true"></i>
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </nav>

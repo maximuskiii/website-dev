@@ -10,6 +10,7 @@
                 {% else %}
                 <p class="title is-2">{{ page.title }}</p>
                 <p class="subtitle is-3">{{ page.subtitle }}</p>
+                {% if page.hero_subtitle2 %}<p class="subtitle" style="font-size:1rem; opacity:0.88; margin-top:-0.75rem; font-style:italic;">{{ page.hero_subtitle2 }}</p>{% endif %}
                 {% endif %}
                 <p class="subtitle is-3">
             {% endunless %}
@@ -20,6 +21,35 @@
                 <a href="{{ page.hero_link2 | prepend: site.baseurl  }}" class="button is-info is-large">{{ page.hero_link_text2 }}</a>
             {% endif %}
         </p>
+        {% if page.hero_announcement_text %}
+        <div class="imu-hero-announcement">
+            <div class="imu-hero-announcement-copy">
+                {% if page.hero_announcement_title %}<strong>{{ page.hero_announcement_title }}</strong>{% endif %}
+                <span>{{ page.hero_announcement_text }}</span>
+            </div>
+            {% if page.hero_announcement_link %}
+            <a href="{{ page.hero_announcement_link | prepend: site.baseurl }}" class="imu-hero-announcement-button">{{ page.hero_announcement_link_text }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if page.hero_kpis %}
+        <div class="imu-hero-kpis-in-hero">
+            <div class="imu-kpi-buttons">
+                <div class="imu-kpi-button" style="background:#cc002b;color:#fff;border-radius:10px;padding:0.7rem 1rem;min-width:190px;display:inline-block;">
+                    <div class="imu-kpi-value" style="display:block;font-size:1.35rem;font-weight:800;line-height:1.05;">{{ page.hero_kpis[0].value }}</div>
+                    <div class="imu-kpi-label" style="display:block;font-size:0.78rem;line-height:1.2;">{{ page.hero_kpis[0].label }}</div>
+                </div>
+                <div class="imu-kpi-button" style="background:#cc002b;color:#fff;border-radius:10px;padding:0.7rem 1rem;min-width:190px;display:inline-block;">
+                    <div class="imu-kpi-value" style="display:block;font-size:1.35rem;font-weight:800;line-height:1.05;">{{ page.hero_kpis[1].value }}</div>
+                    <div class="imu-kpi-label" style="display:block;font-size:0.78rem;line-height:1.2;">{{ page.hero_kpis[1].label }}</div>
+                </div>
+                <div class="imu-kpi-button" style="background:#cc002b;color:#fff;border-radius:10px;padding:0.7rem 1rem;min-width:190px;display:inline-block;">
+                    <div class="imu-kpi-value" style="display:block;font-size:1.35rem;font-weight:800;line-height:1.05;">{{ page.hero_kpis[2].value }}</div>
+                    <div class="imu-kpi-label" style="display:block;font-size:0.78rem;line-height:1.2;">{{ page.hero_kpis[2].label }}</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         </div>
     </div>
 </section>
