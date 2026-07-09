@@ -1,3 +1,5 @@
+import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.3.1/dist/index.js";
+
 (function(){
   const root=document.getElementById('imu-preview-root');
   if(!root) return;
@@ -5,6 +7,8 @@
   const platform=params.get('platform')||'';
   const split=params.get('split')||'';
   const traj=params.get('traj_id')||'';
+
+  const SPACE_ID='Tartan-IMU/internal-leaderboard';
 
   function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
 
@@ -24,7 +28,6 @@
         root.innerHTML='<p>Trajectory not found. Please return to <a href="/imuchallenge/data/">Data Explorer</a>.</p>';
         return;
       }
-      const thumb=item.thumbnail || '/img/place_holder_01.png';
       const platformLabel=item.platform==='dog'?'Quadruped':(item.platform==='human'?'Handheld':(item.platform.charAt(0).toUpperCase()+item.platform.slice(1)));
       const modelUrl=SPECIALIST_MODEL_URL[item.platform];
       const modelNote=modelUrl
@@ -39,7 +42,7 @@
         :'';
       root.innerHTML=`
         <h2 style="margin-top:0;">${esc(item.traj_id)}</h2>
-        <img src="${esc(thumb)}" alt="trajectory thumbnail" style="width:100%;max-width:980px;border-radius:12px;border:1px solid #d8ebf9;margin:0.5rem 0 1rem 0;"/>
+        <div id="imu-preview-thumb" style="width:100%;max-width:980px;aspect-ratio:16/9;border-radius:12px;border:1px solid #d8ebf9;margin:0.5rem 0 1rem 0;display:flex;align-items:center;justify-content:center;color:#5f7f99;background:#f2f9ff;">Loading model preview…</div>
         ${modelNote}
         ${trainNote}
         <div class="imu-metrics" style="margin-top:0;">
@@ -51,8 +54,36 @@
         <div class="imu-card"><strong>Source:</strong> ${esc(item.inferred_source)}<br><strong>Samples:</strong> ${esc(item.n_samples)}<br><strong>Relative Path:</strong> <code>${esc(item.npz_relpath)}</code><br><strong>File Size:</strong> ${(Number(item.file_size_bytes)/(1024*1024)).toFixed(2)} MiB</div>
         <p><a href="/imuchallenge/data/">Back to Data Explorer</a></p>
       `;
+      loadLivePreview(item);
     })
     .catch(err=>{
       root.innerHTML='Failed to load metadata: '+esc(err);
     });
+
+  async function loadLivePreview(item){
+    const box=document.getElementById('imu-preview-thumb');
+    if(!box) return;
+    try{
+      const client=await Client.connect(SPACE_ID);
+      const trajStem=`${item.platform}_${item.split}_${item.traj_id}`;
+      const job=client.submit('/request_preview',{split:item.split,platform:item.platform,traj_id:trajStem});
+      let final=null;
+      for await (const msg of job){
+        if(msg.type==='data') final=msg.data;
+        else if(msg.type==='status' && msg.stage==='error') throw new Error(msg.message||'Preview request failed');
+      }
+      if(!final) throw new Error('No response from model server');
+      if(!final[2]) throw new Error(final[1]||'Preview failed');
+      const url=final[2].url;
+      if(!url) throw new Error('No image returned');
+      const img=document.createElement('img');
+      img.id='imu-preview-thumb';
+      img.src=url;
+      img.alt='trajectory preview';
+      img.style.cssText='width:100%;max-width:980px;border-radius:12px;border:1px solid #d8ebf9;margin:0.5rem 0 1rem 0;';
+      box.replaceWith(img);
+    }catch(err){
+      box.textContent='Failed to load live preview: '+(err&&err.message?err.message:err);
+    }
+  }
 })();

@@ -54,12 +54,6 @@ Splits are deduplicated at the trajectory level (SHA-256 of raw IMU content); tr
 
 ## Data Explorer
 
-<div class="imu-card" style="text-align:center; padding:2.5rem 1.5rem;">
-  <strong style="font-size:1.1rem; letter-spacing:0.05em;">🚧 WORK IN PROGRESS</strong>
-  <p style="margin-top:0.5rem;">The interactive data explorer is being finalized and will be back shortly.</p>
-</div>
-
-<!-- Data Explorer temporarily disabled — re-enable by restoring the block below.
 All trajectories are sampled at **200 Hz**. Each 1-second window contains exactly 200 IMU samples.
 
 <div class="imu-table-toolbar">
@@ -86,4 +80,3 @@ All trajectories are sampled at **200 Hz**. Each 1-second window contains exactl
 </div>
 
 <script src="{{ site.baseurl }}/assets/js/imuchallenge-data-explorer.js"></script>
--->
