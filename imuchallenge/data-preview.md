@@ -11,4 +11,4 @@ permalink: /imuchallenge/data/preview/
 
 <div id="imu-preview-root" class="imu-card">Loading trajectory preview...</div>
 
-<script src="{{ site.baseurl }}/assets/js/imuchallenge-preview.js"></script>
+<script type="module" src="{{ site.baseurl }}/assets/js/imuchallenge-preview.js"></script>
