@@ -497,7 +497,7 @@ hide_hero: true
           </div>
           <div class="scene-item">
             <video class="auto-play" src="/video/supermap/wheelchair_print_edited.mp4" poster="/img/supermap/posters/wheelchair_print_edited.jpg" controls playsinline preload="none" muted loop></video>
-            <div class="scene-label">Spatio-temporal query</div>
+            <div class="scene-label">Finding my print</div>
           </div>
         </div>
       </div>
