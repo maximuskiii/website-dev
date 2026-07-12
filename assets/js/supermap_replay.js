@@ -221,9 +221,11 @@ function buildCards(viewer) {
   for (const seg of segments) {
     const card = document.createElement('div');
     card.className = 'seg-card';
-    const thumb = seg.thumbnail
-      ? `<img class="seg-thumb" src="${seg.thumbnail}" alt="${cleanTitle(seg)}" loading="lazy">`
-      : `<div class="seg-thumb seg-thumb-missing">no preview</div>`;
+    const thumb = seg.preview
+      ? `<video class="seg-thumb" src="${seg.preview}" ${seg.thumbnail ? `poster="${seg.thumbnail}"` : ''} muted loop playsinline preload="none"></video>`
+      : seg.thumbnail
+        ? `<img class="seg-thumb" src="${seg.thumbnail}" alt="${cleanTitle(seg)}" loading="lazy">`
+        : `<div class="seg-thumb seg-thumb-missing">no preview</div>`;
     const badge = segLabel(seg);
     card.innerHTML = `
       ${thumb}
@@ -242,6 +244,19 @@ function buildCards(viewer) {
     });
     card.addEventListener('click', () => openModal(seg));
     grid.appendChild(card);
+  }
+
+  // Play preview videos only while visible — starting a dozen decoders at once
+  // exhausts the browser's media resources and the first cards never play.
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const v = e.target;
+        if (e.isIntersecting) { v.muted = true; v.play().catch(() => {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.15 });
+    grid.querySelectorAll('video.seg-thumb').forEach((v) => io.observe(v));
   }
 }
 

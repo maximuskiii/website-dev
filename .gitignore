@@ -30,3 +30,8 @@ _site/
 .jekyll-cache/
 video/superloc/overview1.mp4
 potree.html
+
+/.ccshim/
+Gemfile.lock.ruby40
+/.local-build.sh
+/.superpowers/

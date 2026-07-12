@@ -32,8 +32,8 @@
       link: /superloc
     - name: TP-TIO
       link: /tptio
-# - name: SuperMap
-#   link: /supermap
+    - name: SuperMap
+      link: /supermap
 # - name: HERO
 #   link: /hero
 # - name: SuperLoc_supp

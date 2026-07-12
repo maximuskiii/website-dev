@@ -4,8 +4,7 @@ subtitle: "A Spatio-Temporal SLAM System for Visual-Language Navigation"
 layout: page
 show_sidebar: false
 hide_footer: false
-hero_height: is-large
-hero_image: /img/place_holder_01.png
+hide_hero: true
 ---
 
 <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans" rel="stylesheet">
@@ -41,147 +40,179 @@ hero_image: /img/place_holder_01.png
   }
   @media (max-width: 768px) { #main-title { font-size: clamp(1.4rem, 7vw, 2rem) !important; } }
 
+  /* Accent color for SuperMap — HumanEgo burnt orange */
+  :root { --accent: #C45A0E; --accent-dark: #9C3F00; --accent-tint: #fdf3ec; --ink: #333; --muted: #666; --hair: #eaeaea; }
+
+  /* ===== Minimalist restyle (HumanEgo-inspired) ===== */
+  body { color: var(--ink); background: #fff; }
+
+  /* Page-scoped navbar override: burnt orange on this page only */
+  nav.navbar.is-primary { background-color: var(--accent) !important; }
+  nav.navbar.is-primary .navbar-dropdown { background-color: var(--accent) !important; }
+
+  /* Narrow paper column for text; media breaks out wider */
+  .content-section .container { max-width: 800px !important; }
+  .breakout {
+    position: relative; width: min(1100px, 94vw);
+    left: 50%; transform: translateX(-50%);
+  }
+
   .publication-authors { font-family: 'Google Sans', sans-serif; word-wrap: break-word; }
-  .publication-authors a { color: #555 !important; text-decoration: none; }
+  .publication-authors a { color: var(--accent) !important; text-decoration: none; }
   .publication-authors a:hover { text-decoration: underline; }
-  .author-block { display: inline-block; margin: 0.5rem 0.25rem !important; font-size: clamp(0.9rem, 2vw, 1.1rem) !important; }
+  .author-block { display: inline-block; margin: 0.15rem 0.35rem !important; font-size: clamp(0.9rem, 2vw, 1.05rem) !important; }
 
-  .publication-links { margin: 2rem 0 !important; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-  .link-block { margin: 0.25rem !important; flex-shrink: 0; }
+  /* Publication links as HumanEgo dark rounded pills */
+  .publication-links { margin: 2rem 0 0.5rem !important; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .link-block { margin: 0 !important; flex-shrink: 0; }
+  .publication-links a.paper-link {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    background: #363636; color: #fff; text-decoration: none;
+    font-size: 0.95rem; font-weight: 500;
+    padding: 0.5rem 1.2rem; border-radius: 999px;
+    transition: background .15s, transform .1s;
+  }
+  .publication-links a.paper-link:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+  .publication-links a.paper-link .icon { color: #fff; }
 
-  /* Accent color for SuperMap */
-  :root { --accent: #1a6fc4; }
+  /* Sections: mostly white, hairline separators, roomy padding (HumanEgo-style) */
+  section.content-section { border-top: 1px solid var(--hair); padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .content-section .title.is-2 {
+    font-weight: 800; letter-spacing: -0.3px; color: var(--accent); text-align: left;
+    margin-bottom: 1.75rem !important; font-size: clamp(1.45rem, 3vw, 1.9rem) !important;
+    position: relative; padding-bottom: 0.6rem;
+  }
+  .content-section .title.is-2::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 64px; height: 3px; background: var(--accent); border-radius: 2px;
+  }
+  .content-section .title.is-2.has-text-centered { text-align: center; }
+  .content-section .title.is-2.has-text-centered::after { left: 50%; transform: translateX(-50%); }
 
-  .section-card {
-    margin: 2rem 0; padding: 2.5rem; background: #fdfdfd;
-    border-radius: 20px; border: 1px solid #eee;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative;
-  }
-  .section-badge {
-    position: absolute; top: -15px; left: 30px;
-    background: var(--accent); color: white;
-    padding: 5px 20px; border-radius: 20px;
-    font-weight: 800; font-family: monospace; font-size: 0.9rem;
-  }
-  .section-card p { font-size: 1.05rem; color: #333; line-height: 1.8; text-align: justify; margin-bottom: 0.8rem; }
-  .section-card p:last-child { margin-bottom: 0; }
+  /* Quote block (HumanEgo-style) */
+  .quote-block { max-width: 720px; margin: 2.5rem auto 0.5rem; text-align: center; position: relative; padding: 0 2.5rem; }
+  .quote-block .qmark { font-family: Georgia, serif; font-size: 3.5rem; color: #F4D3BB; position: absolute; line-height: 1; }
+  .quote-block .qmark.open { left: 0; top: -8px; }
+  .quote-block .qmark.close { right: 0; bottom: -14px; }
+  .quote-block p.qtext { font-style: italic; color: #444; font-size: 1.08rem; line-height: 1.8; margin: 0; }
+  .quote-block .qattr { color: var(--accent); font-size: 0.95rem; font-weight: 600; margin-top: 0.8rem; }
 
-  .contribution-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem; margin-top: 1rem;
-  }
-  .contribution-card {
-    background: white; border-left: 5px solid var(--accent);
-    padding: 1.25rem 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-radius: 0 10px 10px 0;
-  }
-  .contribution-card h4 { font-weight: 700; color: var(--accent); margin: 0 0 0.5rem 0; font-size: 1rem; }
-  .contribution-card p { font-size: 0.95rem; color: #444; line-height: 1.6; margin: 0; text-align: left; }
+  /* Plain prose blocks (replaces .section-card) */
+  .prose p { font-size: 1.05rem; color: var(--ink); line-height: 1.85; margin-bottom: 1rem; }
+  .prose p:last-child { margin-bottom: 0; }
 
-  .pipeline-step {
-    display: flex; align-items: flex-start; gap: 1.25rem;
-    margin-bottom: 1.25rem; padding: 1.25rem 1.5rem;
-    background: white; border-radius: 12px;
-    border: 1px solid #e9ecef; transition: transform 0.2s;
-  }
-  .pipeline-step:hover { transform: translateX(4px); }
+  /* Insights: three flat takeaways */
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  .insight { }
+  .insight .num { font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+  .insight h4 { margin: 0.4rem 0 0.5rem; font-size: 1.1rem; font-weight: 700; color: #1a1a1a; }
+  .insight p { margin: 0; font-size: 0.98rem; color: var(--muted); line-height: 1.7; }
+
+  /* Contributions: hairline numbered list */
+  .contrib-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; }
+  .contrib-item { padding: 1.25rem 0; border-top: 1px solid var(--hair); }
+  .contrib-item h4 { margin: 0 0 0.4rem; font-size: 1.02rem; font-weight: 700; color: #1a1a1a; }
+  .contrib-item p { margin: 0; font-size: 0.96rem; color: var(--muted); line-height: 1.65; }
+
+  /* Pipeline: minimal numbered rows */
+  .pipeline-step { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.1rem 0; border-top: 1px solid var(--hair); }
+  .pipeline-step:first-child { border-top: none; }
   .step-num {
-    min-width: 38px; height: 38px; background: var(--accent); color: white;
+    min-width: 30px; height: 30px; border: 1.5px solid var(--accent); color: var(--accent);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0; background: #fff;
   }
-  .step-body h4 { margin: 0 0 6px 0; font-size: 1.05rem; font-weight: 700; color: #2c3e50; }
-  .step-body p { margin: 0; font-size: 0.97rem; color: #555; line-height: 1.65; text-align: left; }
+  .step-body h4 { margin: 3px 0 6px 0; font-size: 1.02rem; font-weight: 700; color: #1a1a1a; }
+  .step-body p { margin: 0; font-size: 0.97rem; color: var(--muted); line-height: 1.65; text-align: left; }
 
-  /* Results tables */
-  .results-table {
-    width: 100%; border-collapse: separate; border-spacing: 0;
-    margin: 1rem 0; border-radius: 12px; overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  }
-  .results-table th {
-    background: var(--accent); color: white; font-weight: 600;
-    padding: 12px 14px; text-align: center; font-size: 0.9rem;
-  }
-  .results-table td { padding: 10px 14px; border-bottom: 1px solid #e9ecef; color: #444; text-align: center; font-size: 0.9rem; }
+  /* Results tables: flat, hairline */
+  .results-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+  .results-table th { color: #1a1a1a; font-weight: 700; padding: 10px 14px; text-align: center; border-bottom: 2px solid #1a1a1a; }
+  .results-table td { padding: 9px 14px; border-bottom: 1px solid var(--hair); color: var(--ink); text-align: center; }
   .results-table tr:last-child td { border-bottom: none; }
-  .results-table tr:nth-child(even) { background: #f8f9fa; }
-  .results-table tr.ours td { font-weight: 700; background: #e8f4fd !important; }
+  .results-table tr.ours td { font-weight: 700; background: var(--accent-tint); color: var(--accent); }
 
-  /* Citation */
-  .citation-box {
-    background: #f8f9fa; border-radius: 12px; border-left: 4px solid var(--accent);
-    padding: 2rem;
-  }
+  /* Citation: plain code block */
   .citation-box pre {
-    background: white; padding: 1.25rem; border-radius: 8px;
-    border: 1px solid #e9ecef; overflow-x: auto; font-size: 0.92rem; margin: 0;
+    background: #fafafa; padding: 1.25rem; border-radius: 6px; border: 1px solid var(--hair);
+    overflow-x: auto; font-size: 0.9rem; margin: 0; color: var(--ink);
   }
 
-  .section { padding: 1.5rem; }
-  .section p { text-align: justify; }
+  .section p { text-align: left; }
 
-  /* TOC */
+  /* Demo video block */
+  .demo-video-wrap { max-width: 960px; margin: 0 auto; }
+  .demo-video-frame {
+    position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--hair);
+    border-radius: 8px; overflow: hidden; background: #0a0a0f;
+  }
+  .demo-video-frame iframe, .demo-video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .demo-video-placeholder {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 0.6rem; color: #93a0ad; text-align: center; padding: 1rem;
+  }
+  .demo-video-placeholder .icon-lg { font-size: 2.4rem; color: #55606b; }
+  .demo-caption { color: var(--muted); font-size: 0.9rem; text-align: center; margin-top: 0.8rem; }
+
+  /* Seg + 3D bbox side-by-side strip (below replay cards) */
+  .seg-bbox-strip { margin-top: 1.5rem; }
+  .seg-bbox-strip video {
+    width: 100%; display: block; border-radius: 8px;
+    border: 1px solid var(--hair); background: #0a0a0f;
+  }
+
+  /* Scene demo video gallery */
+  .scene-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 0.5rem; }
+  .scene-item { }
+  .scene-item video {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px;
+    border: 1px solid var(--hair); display: block; background: #0a0a0f;
+  }
+  .scene-item .scene-label { margin-top: 0.5rem; font-size: 1rem; font-weight: 700; color: var(--accent); text-align: center; }
+
+  /* Mobile: single-column grids, avoid horizontal overflow, tighter padding */
+  @media (max-width: 640px) {
+    .scene-gallery { grid-template-columns: 1fr; gap: 1rem; }
+    .insight-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .contrib-list { grid-template-columns: 1fr; }
+    section.content-section { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    .prose p { font-size: 1rem; line-height: 1.75; }
+    .publication-links { gap: 0.25rem 1rem; }
+    .results-table { font-size: 0.8rem; }
+    .results-table th, .results-table td { padding: 7px 8px; }
+  }
+  /* Results tables scroll horizontally instead of overflowing on small screens */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* TOC: left-fixed mini sidebar (HumanEgo style), appears after scrolling past title */
   .toc {
-    width: 280px;
-    font-family: 'Google Sans', sans-serif;
-    position: fixed;
-    top: 100px;
-    display: none;
-    z-index: 1000;
-    max-height: calc(100vh - 280px);
-    overflow-y: auto;
-    padding-right: 10px;
-    box-sizing: border-box;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  @media (min-width: 1400px) {
-    .toc.show {
-      left: max(20px, calc(25vw - 400px));
-      display: block !important;
-      opacity: 1;
-    }
+    width: 210px; font-family: 'Google Sans', sans-serif;
+    position: fixed; top: 110px; display: none; z-index: 900;
+    max-height: calc(100vh - 200px); overflow-y: auto;
+    border-left: 2px solid var(--hair); padding-left: 14px;
+    scrollbar-width: none; opacity: 0; transition: opacity 0.3s ease-in-out;
   }
   .toc::-webkit-scrollbar { display: none; }
-  .toc h3 {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 10px;
+  @media (min-width: 1400px) {
+    .toc.show { left: max(16px, calc(50vw - 690px)); display: block !important; opacity: 1; }
   }
-  .toc hr { border: 0; height: 1px; background-color: #ccc; margin-bottom: 15px; }
+  .toc h3 { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; }
+  .toc hr { display: none; }
   .toc ul { list-style: none; padding: 0; margin: 0; }
-  .toc li { margin-bottom: 6px; }
+  .toc li { margin: 0 0 7px; }
   .toc a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: color 0.2s ease, font-weight 0.2s ease;
+    text-decoration: none; color: var(--muted); font-size: 0.88rem; font-weight: 500;
+    transition: color 0.15s ease;
   }
-  .toc a:hover { color: #000; text-decoration: underline; }
-  .toc a.active {
-    color: var(--accent);
-    font-weight: 700;
-    position: relative;
-    padding-left: 12px;
-  }
-  .toc a.active::before {
-    content: "|";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
-  }
+  .toc a:hover { color: var(--accent); }
+  .toc a.active { color: var(--accent); font-weight: 700; }
 
   /* ===== Interactive merged-map viewer (namespaced under #sm-viewer) ===== */
   #sm-viewer { --sm-accent: var(--accent); }
   #sm-viewer .sm-shell {
     position: relative; display: grid; grid-template-columns: 230px 1fr;
-    height: 620px; border-radius: 16px; overflow: hidden;
-    background: #0a0a0f; box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    height: 620px; border-radius: 8px; overflow: hidden;
+    background: #0a0a0f; border: 1px solid var(--hair);
   }
   @media (max-width: 820px) {
     #sm-viewer .sm-shell { grid-template-columns: 1fr; height: 540px; }
@@ -203,10 +234,11 @@ hero_image: /img/place_holder_01.png
   #sm-viewer #sm-ctl input[type=range] { width: 100%; }
   #sm-viewer #sm-ctl .btnrow { margin-top: 8px; display: flex; gap: 6px; }
   #sm-viewer #sm-ctl button {
-    background: #1e1e2e; color: #aac4e0; border: 1px solid #2a3a50;
-    border-radius: 8px; padding: 6px 12px; font-size: 0.85rem; cursor: pointer;
+    background: #16181d; color: #aac4e0; border: 1px solid #2a3a50;
+    border-radius: 6px; padding: 6px 12px; font-size: 0.85rem; cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
   }
-  #sm-viewer #sm-ctl button:hover { background: #2a3a50; color: #fff; }
+  #sm-viewer #sm-ctl button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
   #sm-viewer .sm-map-area { position: relative; }
   #sm-viewer #map-canvas { position: absolute; inset: 0; }
   #sm-viewer #map-canvas canvas { width: 100%; height: 100%; display: block; cursor: grab; }
@@ -226,17 +258,17 @@ hero_image: /img/place_holder_01.png
     display: none; z-index: 4000; color: #fff;
   }
   #sm-viewer .sm-caption { color: #888; font-size: 0.9rem; margin: 1rem 0 0.5rem; text-align: center; }
-  #segment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
-  @media (max-width: 820px) { #segment-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { #segment-grid { grid-template-columns: 1fr; } }
+  #segment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 14px; }
+  @media (max-width: 640px) { #segment-grid { grid-template-columns: 1fr; } }
   #segment-grid .seg-card {
-    background: #fff; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;
+    background: #fff; border: 1px solid var(--hair); border-radius: 8px; overflow: hidden;
     cursor: pointer; transition: border-color .12s, transform .12s, box-shadow .12s;
   }
   #segment-grid .seg-card:hover, #segment-grid .seg-card.active {
     border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26,111,196,0.18);
   }
-  #segment-grid .seg-thumb { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: #0a0a0f; }
+  #segment-grid .seg-thumb { width: 100%; aspect-ratio: 5/1; object-fit: contain; display: block; background: #0a0a0f; }
+  @media (max-width: 820px) { #segment-grid .seg-thumb { aspect-ratio: 5/1; } }
   #segment-grid .seg-thumb-missing { display: flex; align-items: center; justify-content: center; color: #999; font-size: 13px; }
   #segment-grid .seg-meta { padding: 9px 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   #segment-grid .seg-title { font-size: 0.92rem; font-weight: 600; color: #2c3e50; }
@@ -282,14 +314,17 @@ hero_image: /img/place_holder_01.png
 <!-- Title Section -->
 <section class="section title-section">
   <div class="toc" id="toc">
-    <h3>Content</h3><hr>
+    <h3>SuperMap</h3><hr>
     <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#demos">Scene Demonstrations</a></li>
+      <li><a href="#demo">Interactive 3D Map</a></li>
+      <li><a href="#insights">Insights</a></li>
       <li><a href="#abstract">Abstract</a></li>
       <li><a href="#contributions">Contributions</a></li>
-      <li><a href="#method">System Architecture</a></li>
-      <li><a href="#demo">Interactive 3D Map</a></li>
+      <li><a href="#method">Architecture</a></li>
       <li><a href="#results">Results</a></li>
-      <li><a href="#bibtex">Citation</a></li>
+      <li><a href="#bibtex">BibTeX</a></li>
     </ul>
   </div>
 
@@ -297,32 +332,198 @@ hero_image: /img/place_holder_01.png
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h1 class="title is-1 publication-title" id="main-title">
-          <span style="color: var(--accent);">SuperMap</span>: A Spatio-Temporal SLAM System<br>for Visual-Language Navigation
+          <span style="color:#1a1a1a;">Super</span><span style="color: var(--accent);">Map</span><span style="color:#1a1a1a;">: A Spatio-Temporal SLAM System<br>for Visual-Language Navigation</span>
         </h1>
 
         <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
+          <span class="author-block">Shibo Zhao,</span>
+          <span class="author-block">Guofei Chen,</span>
+          <span class="author-block">Honghao Zhu,</span>
+          <span class="author-block">Zhiheng Li,</span>
+          <span class="author-block">Changwei Yao,</span>
+          <span class="author-block">Nader Zantout,</span>
+          <span class="author-block">Seungchan Kim,</span>
+          <span class="author-block">Wenshan Wang,</span>
+          <span class="author-block">Ji Zhang,</span>
+          <span class="author-block">Sebastian Scherer</span>
+        </div>
+        <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: #777;">
           <span class="author-block">Carnegie Mellon University — AirLab</span>
         </div>
 
         <div class="publication-links">
           <span class="link-block">
-            <a href="https://github.com/gfchen01/semantic_mapping" class="external-link button is-normal is-rounded is-dark" target="_blank">
-              <span class="icon"><i class="fab fa-github"></i></span>
-              <span>Code</span>
+            <a href="https://www.roboticsproceedings.org/rss22/p052.pdf" class="paper-link" target="_blank">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
             </a>
           </span>
           <span class="link-block">
-            <a href="#" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon"><i class="fas fa-file-pdf"></i></span>
-              <span>Paper</span>
+            <a href="#" class="paper-link">
+              <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
             </a>
           </span>
           <span class="link-block">
-            <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon"><i class="fas fa-quote-left"></i></span>
-              <span>Citation</span>
+            <a href="https://github.com/gfchen01/semantic_mapping" class="paper-link" target="_blank">
+              <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
             </a>
           </span>
+          <span class="link-block">
+            <a href="#" class="paper-link">
+              <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="#bibtex" class="paper-link">
+              <span class="icon"><i class="fas fa-quote-left"></i></span><span>BibTeX</span>
+            </a>
+          </span>
+        </div>
+
+        <div class="quote-block">
+          <span class="qmark open">&ldquo;</span>
+          <p class="qtext">Spatial intelligence is not merely seeing the world&mdash;it is understanding how it is structured, remembering how it changes, and knowing how to act within it.</p>
+          <span class="qmark close">&rdquo;</span>
+          <div class="qattr">&mdash; SLAM Handbook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Video -->
+<section class="section content-section" id="overview">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered">Overview</h2>
+    <div class="demo-video-wrap breakout" style="max-width:960px;">
+      <div class="demo-video-frame">
+        <video class="auto-play" src="/video/supermap/video1_v4.mp4" controls playsinline preload="metadata" muted loop autoplay poster="/img/supermap/campus_segments.png"></video>
+      </div>
+      <p class="demo-caption">SuperMap builds a queryable 4D scene memory online — explore the live reconstruction below.</p>
+    </div>
+    <div class="demo-video-wrap breakout" style="max-width:960px; margin-top:2rem;">
+      <div class="demo-video-frame">
+        <video class="auto-play" src="/video/supermap/video2_v2.mp4" controls playsinline preload="none" muted loop poster="/img/supermap/posters/video2_v2.jpg"></video>
+      </div>
+      <p class="demo-caption">Language-guided navigation — the robot follows natural-language commands grounded in the 4D scene memory.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Scene Demonstrations -->
+<section class="section content-section" id="demos">
+  <div class="container">
+    <h2 class="title is-2">Scene Demonstrations</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <p class="prose" style="color:var(--muted); margin-bottom:1.5rem;">Real-robot runs across dynamic indoor scenes — objects appearing, disappearing, and relocating while SuperMap keeps a consistent 4D memory.</p>
+        <div class="scene-gallery breakout">
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/mecanum_boardgame_shelf.mp4" poster="/img/supermap/posters/mecanum_boardgame_shelf.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Board game &amp; shelf</div>
+          </div>
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/mecanum_bookshelf_plant.mp4" poster="/img/supermap/posters/mecanum_bookshelf_plant.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Bookshelf &amp; plant</div>
+          </div>
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/mecanum_bulletin.mp4" poster="/img/supermap/posters/mecanum_bulletin.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Bulletin board</div>
+          </div>
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/mecanum_painting_fridge.mp4" poster="/img/supermap/posters/mecanum_painting_fridge.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Painting &amp; fridge</div>
+          </div>
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/wheelchair_plant_fire_edited.mp4" poster="/img/supermap/posters/wheelchair_plant_fire_edited.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Wheelchair · plant · fire extinguisher</div>
+          </div>
+          <div class="scene-item">
+            <video class="auto-play" src="/video/supermap/video3_v2.mp4" poster="/img/supermap/posters/video3_v2.jpg" controls playsinline preload="none" muted loop></video>
+            <div class="scene-label">Spatio-temporal query</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive 3D Map Explorer -->
+<section class="section content-section" id="demo">
+  <div class="container">
+    <h2 class="title is-2">Interactive 3D Map Explorer — CMU Campus</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <p class="sm-caption" style="margin-top:0; margin-bottom:1rem;">
+          Explore the merged, semantically-annotated 3D map (drag to orbit, scroll to zoom,
+          right-drag to pan; hover a box for its label, click to pin). <strong>Hover a replay
+          card</strong> below to light up the robot's trajectory and the region it mapped;
+          <strong>click</strong> to play the dynamic reconstruction.
+        </p>
+
+        <div id="sm-viewer" class="breakout">
+          <div class="sm-shell">
+            <div id="sm-panel">
+              <h3>Merged 3D Map</h3>
+              <div id="stats">loading…</div>
+              <div id="legend"></div>
+              <div id="sm-ctl">
+                <label>point size
+                  <input id="psize" type="range" min="0.05" max="2" step="0.05" value="0.3">
+                </label>
+                <div class="btnrow">
+                  <button id="reset">reset view</button>
+                  <button id="clearpins">clear pins</button>
+                </div>
+              </div>
+            </div>
+            <div class="sm-map-area">
+              <div id="map-canvas"></div>
+              <div id="map-hint">drag: orbit · scroll: zoom · right-drag: pan · hover a card to highlight</div>
+              <div id="map-loading">Loading map… (large, please be patient)</div>
+            </div>
+          </div>
+
+          <p class="sm-caption">Dynamic replays — hover to locate, click to play:</p>
+          <div id="segment-grid"></div>
+        </div>
+
+        <div class="seg-bbox-strip breakout">
+          <video class="auto-play" src="/video/supermap/seg_bbox_strip.mp4" poster="/img/supermap/posters/seg_bbox_strip.jpg" controls playsinline preload="none" muted loop></video>
+          <p class="sm-caption" style="margin-top:0.6rem;">
+            Online perception, side by side — <strong>left:</strong> RGB with open-vocabulary instance segmentation ·
+            <strong>right:</strong> tracked 3D bounding boxes with persistent instance IDs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="tooltip"></div>
+
+<!-- Insights -->
+<section class="section content-section" id="insights">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="insight-grid">
+          <div class="insight">
+            <div class="num">01</div>
+            <h4>Consistency-driven mapping</h4>
+            <p>3D-aware instance association plus an existence-and-label confidence update keep object identities stable and prune stale content under occlusion and scene change.</p>
+          </div>
+          <div class="insight">
+            <div class="num">02</div>
+            <h4>Queryable 4D scene graph</h4>
+            <p>A spatio-temporal scene graph interfaces naturally with Vision-Language Models, supporting compositional queries over object semantics, relations, and history.</p>
+          </div>
+          <div class="insight">
+            <div class="num">03</div>
+            <h4>Fully online, open-source</h4>
+            <p>High-frequency geometric SLAM fused with asynchronous open-vocabulary perception runs onboard in real time — released as a deployable baseline.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -335,8 +536,7 @@ hero_image: /img/place_holder_01.png
     <h2 class="title is-2">Abstract</h2>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <div class="section-card">
-          <div class="section-badge">SuperMap</div>
+        <div class="prose">
           <p>Robotic navigation in human environments requires a spatio-temporal semantic representation that can reconcile open-vocabulary perception with long-term environmental changes. While foundation models provide strong zero-shot recognition, their predictions are intermittent and view-dependent, and naively integrating them into mapping pipelines leads to identity drift and stale semantics over time.</p>
           <p>We present <strong>SuperMap</strong>, a 4D spatio-temporal mapping framework for language-guided navigation that integrates high-frequency geometric SLAM with asynchronous open-vocabulary perception. Our core contribution is a <em>consistency-driven mapping engine</em> that combines 3D-aware instance association and re-activation with a principled existence-and-label confidence update to maintain stable object identities and prune outdated map content under occlusions and scene changes.</p>
           <p>SuperMap produces a queryable 4D scene-graph representation that interfaces naturally with Vision-Language Models by supporting compositional queries over object semantics, relations, and history. We demonstrate SuperMap on benchmarks and real robots, including dynamic scenes with appearance/disappearance and relocation, and provide ablations and runtime analysis. We will release the full system as open-source to provide the community with a deployable baseline for open-vocabulary spatio-temporal mapping.</p>
@@ -352,20 +552,20 @@ hero_image: /img/place_holder_01.png
     <h2 class="title is-2">Contributions</h2>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <div class="contribution-grid">
-          <div class="contribution-card">
+        <div class="contrib-list">
+          <div class="contrib-item">
             <h4>Open-Vocabulary Spatio-Temporal SLAM</h4>
             <p>An online robotic system that builds a persistent, queryable open-vocabulary 4D scene memory suitable for downstream language-conditioned tasks — running fully onboard in real time.</p>
           </div>
-          <div class="contribution-card">
+          <div class="contrib-item">
             <h4>Spatio-Temporal Object Tracking</h4>
             <p>An online pipeline that integrates 2D–3D association, validation, and change-aware updates to maintain instance consistency under occlusions, partial observations, label variability, and scene change.</p>
           </div>
-          <div class="contribution-card">
+          <div class="contrib-item">
             <h4>Instance-level Scene Graph</h4>
             <p>A 4D scene graph that incorporates spatial and temporal information for each object, equipping robots with instance-level reasoning — e.g., locating moved objects, recalling past scenes.</p>
           </div>
-          <div class="contribution-card">
+          <div class="contrib-item">
             <h4>Open-Source Framework</h4>
             <p>Full release of the change-detection benchmark, comprehensive ablations, runtime profiling, and the real-robot visual–language navigation pipeline to facilitate reproducible research.</p>
           </div>
@@ -381,9 +581,9 @@ hero_image: /img/place_holder_01.png
     <h2 class="title is-2">System Architecture</h2>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <div class="section-card">
-          <div class="section-badge">Three-Layer Pipeline</div>
-          <div style="margin-top: 1rem;">
+        <div class="prose">
+          <p style="color:var(--muted); margin-bottom:1.5rem;">A three-layer pipeline — geometric, instance, and topological.</p>
+          <div>
             <div class="pipeline-step">
               <div class="step-num">1</div>
               <div class="step-body">
@@ -412,51 +612,7 @@ hero_image: /img/place_holder_01.png
   </div>
 </section>
 
-<!-- Interactive 3D Map Explorer -->
-<section class="section content-section" id="demo">
-  <div class="container">
-    <h2 class="title is-2">Interactive 3D Map Explorer — CMU Campus</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <p class="sm-caption" style="margin-top:0; margin-bottom:1rem;">
-          Explore the merged, semantically-annotated 3D map (drag to orbit, scroll to zoom,
-          right-drag to pan; hover a box for its label, click to pin). <strong>Hover a replay
-          card</strong> below to light up the robot's trajectory and the region it mapped;
-          <strong>click</strong> to play the dynamic reconstruction.
-        </p>
 
-        <div id="sm-viewer">
-          <div class="sm-shell">
-            <div id="sm-panel">
-              <h3>Merged 3D Map</h3>
-              <div id="stats">loading…</div>
-              <div id="legend"></div>
-              <div id="sm-ctl">
-                <label>point size
-                  <input id="psize" type="range" min="0.05" max="2" step="0.05" value="0.3">
-                </label>
-                <div class="btnrow">
-                  <button id="reset">reset view</button>
-                  <button id="clearpins">clear pins</button>
-                </div>
-              </div>
-            </div>
-            <div class="sm-map-area">
-              <div id="map-canvas"></div>
-              <div id="map-hint">drag: orbit · scroll: zoom · right-drag: pan · hover a card to highlight</div>
-              <div id="map-loading">Loading map… (large, please be patient)</div>
-            </div>
-          </div>
-
-          <p class="sm-caption">Dynamic replays — hover to locate, click to play:</p>
-          <div id="segment-grid"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div id="tooltip"></div>
 
 <!-- Results -->
 <section class="section content-section" id="results">
@@ -465,36 +621,36 @@ hero_image: /img/place_holder_01.png
     <div class="columns is-centered">
       <div class="column is-four-fifths">
 
-        <div class="section-card" style="margin-bottom: 2rem;">
-          <div class="section-badge">Class-level Segmentation — ScanNet</div>
-          <p style="margin: 1.5rem 0 1rem;">SuperMap achieves competitive accuracy against state-of-the-art object-level mapping methods while running fully online.</p>
-          <table class="results-table">
+        <div style="margin-bottom: 2.5rem;">
+          <h3 style="font-size:1.1rem; font-weight:700; color:#1a1a1a; margin-bottom:0.5rem;">Class-level Segmentation — ScanNet</h3>
+          <p style="color:var(--muted); margin:0 0 0.75rem;">SuperMap achieves competitive accuracy against state-of-the-art object-level mapping methods while running fully online.</p>
+          <div class="table-scroll"><table class="results-table">
             <thead><tr><th>Method</th><th>Approach</th><th>mIoU (%)</th><th>f-mIoU (%)</th><th>Acc (%)</th></tr></thead>
             <tbody>
               <tr><td>ConceptGraphs</td><td>object-level</td><td>21.62</td><td>24.32</td><td>31.05</td></tr>
               <tr><td>HOV-SG</td><td>object-level</td><td>26.79</td><td>36.05</td><td>35.17</td></tr>
               <tr class="ours"><td>SuperMap (Ours)</td><td>object-level</td><td>27.42</td><td>43.50</td><td>55.48</td></tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
 
-        <div class="section-card" style="margin-bottom: 2rem;">
-          <div class="section-badge">Instance-level Segmentation — ScanNet (mAP<sub>50</sub>)</div>
-          <p style="margin: 1.5rem 0 1rem;">SuperMap significantly outperforms prior scene-graph methods on instance-level detection.</p>
-          <table class="results-table">
+        <div style="margin-bottom: 2.5rem;">
+          <h3 style="font-size:1.1rem; font-weight:700; color:#1a1a1a; margin-bottom:0.5rem;">Instance-level Segmentation — ScanNet (mAP<sub>50</sub>)</h3>
+          <p style="color:var(--muted); margin:0 0 0.75rem;">SuperMap significantly outperforms prior scene-graph methods on instance-level detection.</p>
+          <div class="table-scroll"><table class="results-table">
             <thead><tr><th>Method</th><th>Chair</th><th>Window</th><th>Refrigerator</th><th>Sofa</th><th>Door</th></tr></thead>
             <tbody>
               <tr><td>HOV-SG</td><td>4.58</td><td>0.00</td><td>0.00</td><td>30.00</td><td>9.70</td></tr>
               <tr><td>ConceptGraphs</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
               <tr class="ours"><td>SuperMap (Ours)</td><td>63.76</td><td>42.20</td><td>62.50</td><td>33.35</td><td>10.00</td></tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
 
-        <div class="section-card">
-          <div class="section-badge">Spatio-Temporal Change Detection Recall</div>
-          <p style="margin: 1.5rem 0 1rem;">SuperMap achieves perfect recall on appearance events and strong recall on disappearance events, significantly outperforming prior methods.</p>
-          <table class="results-table">
+        <div>
+          <h3 style="font-size:1.1rem; font-weight:700; color:#1a1a1a; margin-bottom:0.5rem;">Spatio-Temporal Change Detection Recall</h3>
+          <p style="color:var(--muted); margin:0 0 0.75rem;">SuperMap achieves perfect recall on appearance events and strong recall on disappearance events, significantly outperforming prior methods.</p>
+          <div class="table-scroll"><table class="results-table">
             <thead>
               <tr><th>Method</th><th>Appeared (Bucket)</th><th>Appeared (Cart)</th><th>Appeared (Sign)</th><th>Disappeared (Plant)</th><th>Disappeared (Trash)</th><th>Disappeared (Chair)</th></tr>
             </thead>
@@ -503,7 +659,7 @@ hero_image: /img/place_holder_01.png
               <tr><td>DualMap</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.310</td><td>0.000</td><td>0.000</td></tr>
               <tr class="ours"><td>SuperMap (Ours)</td><td>1.000</td><td>0.262</td><td>0.583</td><td>0.755</td><td>0.434</td><td>1.000</td></tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
 
       </div>
@@ -518,10 +674,10 @@ hero_image: /img/place_holder_01.png
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="citation-box">
-          <pre>@inproceedings{supermap2026,
+          <pre>@inproceedings{zhao2026supermap,
   title     = {SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation},
-  author    = {Anonymous},
-  booktitle = {Robotics: Science and Systems (RSS)},
+  author    = {Zhao, Shibo and Chen, Guofei and Zhu, Honghao and Li, Zhiheng and Yao, Changwei and Zantout, Nader and Kim, Seungchan and Wang, Wenshan and Zhang, Ji and Scherer, Sebastian},
+  booktitle = {Proceedings of Robotics: Science and Systems (RSS)},
   year      = {2026}
 }</pre>
         </div>
@@ -600,5 +756,21 @@ hero_image: /img/place_holder_01.png
 
     window.addEventListener('scroll', updateActiveTocLink);
     updateActiveTocLink();
+  });
+</script>
+
+<!-- Autoplay scene demonstration videos when scrolled into view -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var vids = document.querySelectorAll('video.auto-play');
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { v.muted = true; v.play().catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.2 });
+    vids.forEach(function (v) { v.muted = true; io.observe(v); });
   });
 </script>
