@@ -360,14 +360,14 @@ hide_hero: true
 
         <div class="publication-authors author-rows" style="margin-top: 1.6rem;">
           <div class="author-row">
-            <span class="author-block">Shibo Zhao<sup>*</sup></span><span class="author-sep">·</span>
-            <span class="author-block">Guofei Chen<sup>*</sup></span><span class="author-sep">·</span>
-            <span class="author-block">Honghao Zhu</span><span class="author-sep">·</span>
-            <span class="author-block">Zhiheng Li</span><span class="author-sep">·</span>
-            <span class="author-block">Changwei Yao</span>
+            <span class="author-block"><a href="https://shibowing.github.io/" target="_blank">Shibo Zhao</a><sup>*&dagger;</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Guofei Chen<sup>*&dagger;</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Honghao Zhu<sup>&dagger;</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Zhiheng Li<sup>&dagger;</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Changwei Yao<sup>&dagger;</sup></span>
           </div>
           <div class="author-row">
-            <span class="author-block">Nader Zantout</span><span class="author-sep">·</span>
+            <span class="author-block">Nader Zantout<sup>&dagger;</sup></span><span class="author-sep">·</span>
             <span class="author-block">Seungchan Kim</span><span class="author-sep">·</span>
             <span class="author-block">Wenshan Wang</span><span class="author-sep">·</span>
             <span class="author-block">Ji Zhang</span><span class="author-sep">·</span>
@@ -378,7 +378,7 @@ hide_hero: true
           Carnegie Mellon University — AirLab
         </div>
         <div style="margin-top: 0.35rem; color: #999; font-size: 0.85rem;">
-          <sup>*</sup> Equal contribution; author order decided by coin flip.
+          <sup>*</sup> Equal contribution; author order decided by coin flip. &nbsp; <sup>&dagger;</sup> Core contributor.
         </div>
 
         <div class="publication-links">
@@ -403,7 +403,7 @@ hide_hero: true
             </a>
           </span>
           <span class="link-block">
-            <a href="#" class="paper-link">
+            <a href="https://shibowing.github.io/" class="paper-link" target="_blank">
               <span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span>
             </a>
           </span>
