@@ -62,6 +62,15 @@ hide_hero: true
   .publication-authors a:hover { text-decoration: underline; }
   .author-block { display: inline-block; margin: 0.15rem 0.35rem !important; font-size: clamp(0.9rem, 2vw, 1.05rem) !important; }
 
+  /* Author rows: two balanced centered lines with dot separators */
+  .author-rows .author-row {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+    gap: 0 0.55rem; line-height: 1.9;
+  }
+  .author-rows .author-block { margin: 0 !important; font-size: clamp(0.95rem, 2vw, 1.1rem) !important; color: #222; font-weight: 500; }
+  .author-rows .author-block sup { color: var(--accent); font-weight: 700; }
+  .author-rows .author-sep { color: #c9c9c9; font-weight: 400; }
+
   /* Publication links as HumanEgo dark rounded pills */
   .publication-links { margin: 2rem 0 0.5rem !important; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
   .link-block { margin: 0 !important; flex-shrink: 0; }
@@ -339,22 +348,26 @@ hide_hero: true
           <span style="color:#1a1a1a;">Super</span><span style="color: var(--accent);">Map</span><span style="color:#1a1a1a;">: A Spatio-Temporal SLAM System<br>for Visual-Language Navigation</span>
         </h1>
 
-        <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
-          <span class="author-block">Shibo Zhao<sup>*</sup>,</span>
-          <span class="author-block">Guofei Chen<sup>*</sup>,</span>
-          <span class="author-block">Honghao Zhu,</span>
-          <span class="author-block">Zhiheng Li,</span>
-          <span class="author-block">Changwei Yao,</span>
-          <span class="author-block">Nader Zantout,</span>
-          <span class="author-block">Seungchan Kim,</span>
-          <span class="author-block">Wenshan Wang,</span>
-          <span class="author-block">Ji Zhang,</span>
-          <span class="author-block">Sebastian Scherer</span>
+        <div class="publication-authors author-rows" style="margin-top: 1.6rem;">
+          <div class="author-row">
+            <span class="author-block">Shibo Zhao<sup>*</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Guofei Chen<sup>*</sup></span><span class="author-sep">·</span>
+            <span class="author-block">Honghao Zhu</span><span class="author-sep">·</span>
+            <span class="author-block">Zhiheng Li</span><span class="author-sep">·</span>
+            <span class="author-block">Changwei Yao</span>
+          </div>
+          <div class="author-row">
+            <span class="author-block">Nader Zantout</span><span class="author-sep">·</span>
+            <span class="author-block">Seungchan Kim</span><span class="author-sep">·</span>
+            <span class="author-block">Wenshan Wang</span><span class="author-sep">·</span>
+            <span class="author-block">Ji Zhang</span><span class="author-sep">·</span>
+            <span class="author-block">Sebastian Scherer</span>
+          </div>
         </div>
-        <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: #777;">
-          <span class="author-block">Carnegie Mellon University — AirLab</span>
+        <div class="is-size-6" style="margin-top: 0.9rem; color: #555; font-weight: 500;">
+          Carnegie Mellon University — AirLab
         </div>
-        <div class="is-size-7" style="margin-top: 0.4rem; color: #999; font-size: 0.85rem;">
+        <div style="margin-top: 0.35rem; color: #999; font-size: 0.85rem;">
           <sup>*</sup> Equal contribution; author order decided by coin flip.
         </div>
 
@@ -377,6 +390,11 @@ hide_hero: true
           <span class="link-block">
             <a href="https://www.youtube.com/watch?v=TQjTTqEewNQ" class="paper-link" target="_blank">
               <span class="icon"><i class="fab fa-youtube"></i></span><span>Summary Video</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="#" class="paper-link">
+              <span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span>
             </a>
           </span>
           <span class="link-block">
