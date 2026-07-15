@@ -23,7 +23,7 @@
       link: /iccv23_challenge_LiI
     - name: Sensor Fusion Track
       link: /iccv23_challenge_Mul
-- name: Papers
+- name: Research
   link: /tartanimu
   dropdown:
     - name: TartanIMU

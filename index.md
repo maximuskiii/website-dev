@@ -7,8 +7,19 @@ hide_hero: false
 hide_footer: false
 hero_height: is-large
 hero_image: img/super_odometry/superodom_video.gif
-hero_link: https://github.com/superxslam/SuperOdom
-hero_link_text: See Our Code
+hero_buttons:
+  - text: See Our Code
+    link: https://github.com/superxslam/SuperOdom
+    icon: fab fa-github
+    color: "#24292e"
+  - text: Join Discord
+    link: https://discord.gg/GUh9zfXz
+    icon: fab fa-discord
+    color: "#5865F2"
+  - text: Follow on X
+    link: https://x.com/ShiboZhaoSLAM
+    icon: fab fa-twitter
+    color: "#000000"
 ---
 
 <!-- Additional fonts and styles (loaded after theme's default styles) -->

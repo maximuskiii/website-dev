@@ -14,6 +14,14 @@
                 {% endif %}
                 <p class="subtitle is-3">
             {% endunless %}
+            {% if page.hero_buttons %}
+                {% for btn in page.hero_buttons %}
+                <a href="{{ btn.link }}" class="button is-large hero-social-btn" target="_blank" rel="noopener" {% if btn.color %}style="background-color:{{ btn.color }};"{% endif %}>
+                    {% if btn.icon %}<span class="icon"><i class="{{ btn.icon }}"></i></span>{% endif %}
+                    <span>{{ btn.text }}</span>
+                </a>
+                {% endfor %}
+            {% endif %}
             {% if page.hero_link %}
                 <a href="{{ page.hero_link | prepend: site.baseurl  }}" class="button is-info is-large">{{ page.hero_link_text }}</a>
             {% endif %}
@@ -64,5 +72,29 @@
      background-color:#cc002b;
      border-color:transparent;
      color:#fff
+    }
+    .hero-social-btn {
+     background-color:#cc002b;
+     border-color:transparent;
+     color:#fff;
+     margin-right:0.5rem;
+     margin-bottom:0.5rem;
+     border-radius:9999px;
+     transition:transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+    .hero-social-btn:hover {
+     color:#fff;
+     transform:translateY(-2px);
+     box-shadow:0 6px 18px rgba(0,0,0,0.3);
+     filter:brightness(1.1);
+    }
+    .hero-social-btn .icon {
+     margin-right:0.15rem;
+    }
+    @media (max-width: 768px) {
+     .hero-social-btn {
+      font-size:1rem;
+      padding:0.5rem 1rem;
+     }
     }
 </style>
