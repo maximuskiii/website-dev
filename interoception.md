@@ -1,6 +1,6 @@
 ---
 title: "IROS'26 Workshop: Beyond Exteroception"
-subtitle: "Interoceptive Perception for Resilient Robotics — Sep 27, 2026"
+subtitle: "Interoceptive Perception for Resilient Robotics — Tentative: Sep 27, 2026"
 layout: page
 show_sidebar: false
 hide_footer: true
@@ -103,14 +103,14 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     margin-bottom: 1.5rem !important;
     padding: 0 1rem !important;
     font-weight: 800 !important;
-    letter-spacing: -1px !important;
+    letter-spacing: 0 !important;
   }
 
   @media (max-width: 768px) {
     #main-title {
       font-size: clamp(1.5rem, 8vw, 2.2rem) !important;
       line-height: 1.2 !important;
-      letter-spacing: -0.5px !important;
+      letter-spacing: 0 !important;
     }
   }
 
@@ -217,7 +217,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
   }
 
   .toc a.active {
-    color: #76b900;
+    color: #4f7a00;
     font-weight: 700;
     position: relative;
     padding-left: 12px;
@@ -227,7 +227,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     content: "|";
     position: absolute;
     left: 0;
-    color: #76b900;
+    color: #4f7a00;
     font-weight: 700;
   }
 
@@ -252,7 +252,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     position: absolute;
     top: -15px;
     left: 30px;
-    background: #76b900;
+    background: #4f7a00;
     color: white;
     padding: 5px 20px;
     border-radius: 20px;
@@ -301,7 +301,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
   /* Speaker grid */
   .speaker-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 2rem;
     margin-top: 1.5rem;
   }
@@ -337,7 +337,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
   }
 
   .speaker-card .speaker-name a:hover {
-    color: #76b900;
+    color: #4f7a00;
     text-decoration: underline;
   }
 
@@ -354,7 +354,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
 
   .speaker-card .speaker-topic {
     font-size: 0.8rem;
-    color: #76b900;
+    color: #4f7a00;
     font-style: italic;
     margin-top: 4px;
   }
@@ -379,7 +379,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     padding: 10px 16px;
     background: #f8f9fa;
     border-radius: 8px;
-    border-left: 4px solid #76b900;
+    border-left: 4px solid #4f7a00;
     font-size: 0.95rem;
     color: #333;
   }
@@ -394,6 +394,217 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
       padding: 3rem 1.5rem !important;
     }
   }
+
+  .challenge-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    background: #4f7a00;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .challenge-cta:hover {
+    background: #3e6100;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .tentative-date {
+    margin: 0;
+    color: #4d4d4d;
+    font-size: 1rem;
+    text-align: center !important;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  .challenge-cta.is-secondary {
+    background: #fff;
+    color: #2f4900;
+    border: 1px solid #4f7a00;
+    box-shadow: none;
+  }
+
+  .challenge-cta.is-secondary:hover {
+    background: #f2f7e9;
+    color: #223600;
+  }
+
+  .cta-status {
+    flex-basis: 100%;
+    margin: 0.15rem 0 0;
+    color: #555;
+    font-size: 0.9rem;
+    text-align: center !important;
+  }
+
+  .mobile-section-nav {
+    display: none;
+    max-width: 760px;
+    margin: 1.25rem auto 0;
+    text-align: left;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mobile-section-nav summary {
+    padding: 0.75rem 0;
+    color: #222;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .mobile-section-nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding: 0 0 0.85rem;
+  }
+
+  .mobile-section-nav a {
+    color: #2f4900;
+    font-weight: 600;
+  }
+
+  .dates-list {
+    border-top: 1px solid #d8d8d8;
+  }
+
+  .date-row {
+    display: grid;
+    grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d8d8d8;
+  }
+
+  .date-row time {
+    color: #2f4900;
+    font-weight: 700;
+  }
+
+  .date-row p {
+    margin: 0;
+    text-align: left;
+  }
+
+  .timeline-note,
+  .section-intro {
+    color: #555;
+    text-align: left !important;
+  }
+
+  .timeline-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .section-intro {
+    max-width: 800px;
+    margin: 0 0 1.5rem;
+  }
+
+  @media (max-width: 1399px) {
+    .mobile-section-nav {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section p {
+      text-align: left;
+    }
+
+    .date-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .cta-row {
+      align-items: stretch;
+    }
+
+    .challenge-cta {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .schedule-table {
+      display: block;
+      overflow: visible;
+      box-shadow: none;
+    }
+
+    .schedule-table tbody,
+    .schedule-table tr,
+    .schedule-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .schedule-table tr:first-child {
+      display: none;
+    }
+
+    .schedule-table tr {
+      margin-bottom: 0.85rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .schedule-table td {
+      display: grid;
+      grid-template-columns: 5.25rem minmax(0, 1fr);
+      gap: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .schedule-table td:last-child {
+      border-bottom: 0;
+    }
+
+    .schedule-table td::before {
+      color: #555;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .schedule-table td:nth-child(1)::before {
+      content: "Time";
+    }
+
+    .schedule-table td:nth-child(2)::before {
+      content: "Speaker";
+    }
+
+    .schedule-table td:nth-child(3)::before {
+      content: "Topic";
+    }
+
+    .schedule-table .break-row td[colspan]::before {
+      content: "Session";
+    }
+  }
 </style>
 
 <!-- Main Title Section -->
@@ -404,21 +615,46 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     <hr>
     <ul>
       <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#content">Content of the Workshop</a></li>
+      <li><a href="#important-dates">Important Dates</a></li>
+      <li><a href="#scope">Workshop Scope</a></li>
+      <li><a href="#speakers">Invited Speakers</a></li>
       <li><a href="#program">Program</a></li>
       <li><a href="#organizers">Organizers</a></li>
-      <li><a href="#student-organizers">Student Organizers</a></li>
-      <li><a href="#attendance">Estimated Attendance</a></li>
-      <li><a href="#structure">Structure of the Event</a></li>
-      <li><a href="#format">Format</a></li>
     </ul>
   </div>
 
   <div class="container">
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h1 class="title is-1 publication-title" id="main-title"><span style="color:#76b900;">Beyond Exteroception</span>: Interoceptive Perception <br>for Resilient Robotics</h1>
-        <p style="font-size: 1.3rem; color: #555; margin-bottom: 0.5rem;">IROS 2026 Workshop &mdash; September 27, 2026 &mdash; Pittsburgh, PA</p>
+        <h1 class="title is-1 publication-title" id="main-title"><span style="color:#4f7a00;">Beyond Exteroception</span>: Interoceptive Perception <br>for Resilient Robotics</h1>
+        <p style="font-size: 1.3rem; color: #555; margin-bottom: 0.35rem;">IROS 2026 Workshop &mdash; Pittsburgh, PA</p>
+        <p class="tentative-date"><strong>Tentative date:</strong> September 27, 2026</p>
+        <div class="cta-row" aria-label="Workshop actions">
+          <a class="challenge-cta" href="/imuchallenge/">
+            <span class="icon" aria-hidden="true"><i class="fas fa-trophy"></i></span>
+            <span>Explore Challenge</span>
+          </a>
+          <a class="challenge-cta is-secondary" href="https://forms.gle/oRr4rCNxqTP1U6uS8" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
+            <span>Register Team</span>
+          </a>
+          <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartanimu-iros2026/submissions" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true"><i class="fas fa-upload"></i></span>
+            <span>Submit on Kaggle</span>
+          </a>
+          <p class="cta-status"><span class="icon" aria-hidden="true"><i class="fas fa-clock"></i></span> Workshop registration and poster submission details are coming soon.</p>
+        </div>
+        <details class="mobile-section-nav">
+          <summary>On this page</summary>
+          <nav aria-label="Workshop sections">
+            <a href="#abstract">Abstract</a>
+            <a href="#important-dates">Important Dates</a>
+            <a href="#scope">Workshop Scope</a>
+            <a href="#speakers">Speakers</a>
+            <a href="#program">Program</a>
+            <a href="#organizers">Organizers</a>
+          </nav>
+        </details>
       </div>
     </div>
   </div>
@@ -441,59 +677,137 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
   </div>
 </section>
 
-<!-- Content of the Workshop Section -->
-<section class="section content-section" id="content" style="padding-top: 1rem !important;">
+<!-- Important Dates Section -->
+<section class="section content-section" id="important-dates" style="padding-top: 1rem !important;">
   <div class="container">
-    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Content of the Workshop</h2>
+    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Important Dates</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="dates-list">
+          <div class="date-row">
+            <time datetime="2026-03">March 2026</time>
+            <p>Challenge website launch and team pre-registration opens.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-04">April 2026</time>
+            <p>Training data, baseline code, and evaluation toolkit released.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-05">May–August 2026</time>
+            <p>Open development phase with public leaderboard updates.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-08-15">August 15, 2026</time>
+            <p>Final challenge submission deadline.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-09-01">September 1, 2026</time>
+            <p>Top teams notified and spotlight invitations issued.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-09-27">September 27, 2026</time>
+            <p>Workshop, challenge spotlight talks, and award announcements (tentative).</p>
+          </div>
+        </div>
+        <p class="timeline-note">The workshop date is tentative. Live competition rules and submission deadlines on Kaggle remain the source of truth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Workshop Scope Section -->
+<section class="section content-section" id="scope" style="padding-top: 1rem !important;">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Workshop Scope</h2>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p style="font-size: 1.0rem; color: #222; line-height: 1.8;">
-          Humans and animals rely on both internal and external perception to understand the world: vision and hearing are complemented by vestibular and proprioceptive feedback that continually informs self-motion and body state. This always-on internal sensing is the foundation of resilience in the face of degradation, ambiguity, motion, and occlusion.
+          Robots need to understand both the world around them and the state of their own bodies. This workshop examines inertial measurement units, joint encoders, force/torque sensing, and other proprioceptive signals as primary sources of perceptual intelligence—not merely auxiliary inputs to vision and LiDAR pipelines.
         </p>
         <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          In robotics, however, decades of progress have prioritized exteroceptive models, while internal perception is often relegated to a secondary signal that stabilizes visual or geometric pipelines. We argue that this imbalance is a core vulnerability: when external sensors degrade due to darkness, dust, smoke, featureless terrain, or dynamic occlusion, the entire state estimation stack can fail catastrophically. Internal perception should be elevated to an important role alongside external sensing if we want robots that remain reliable in the real world.
+          The program connects state estimation, legged locomotion, inertial navigation, humanoid robotics, and learning-based perception. Invited talks, challenge spotlights, contributed posters, a panel discussion, and open networking will focus on systems that remain reliable when external sensing is degraded or unavailable.
         </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Historically, IMU and proprioceptive signals have been challenging to use as primary sources for state estimation because of drift over time and limited generalization in learning-based inertial odometry. These challenges stem from several factors, including insufficient data diversity, limited scale, and model design constraints. The central theme of this workshop is to investigate whether internal sensing (IMU and proprioception) can serve as an independent and robust source of state estimation, and to push the limits of internal perception. This includes developing learning-based inertial models that generalize across motions, platforms, and environments; designing sensor fusion frameworks that adapt to degradation; and understanding the limits and failure modes of internal sensing. We will highlight learning-based IMU odometry, network design, proprioceptive state estimation, and cross-embodiment transfer as key technical pillars.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          The speakers will each share their recent work and perspectives on internal perception from the viewpoints of state estimation, legged locomotion, learning-based inertial navigation, and robust autonomy. Their talks and subsequent discussions will give a concrete picture of the current research landscape and promote new insights and directions for future work. Q&A sessions after each talk as well as a panel discussion at the end of the workshop will allow the audience to engage with speakers and discuss ideas.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Another key element of this workshop is the <strong>Learning IMU Odometry Challenge</strong>. We will provide large-scale IMU datasets across multiple robot platforms, including quadrupeds, humanoids, UAVs, and UGVs. The challenge will identify robust solutions for learning IMU odometry across diverse motion patterns and investigate network designs that generalize across platforms and behaviors. In particular, the humanoid subset will include paired IMU and proprioceptive data to study accurate root-velocity regression across highly dynamic motions, including forward and backward walking, running, dancing, and large-scale locomotion.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Challenge participants are evaluated across four scenarios: <strong>quadruped motion estimation</strong>, <strong>humanoid motion estimation</strong>, <strong>UAV/UGV motion estimation</strong>, and <strong>cross-robot generalization</strong>. All datasets, evaluation tools, and starter code are open-sourced, and the challenge is open to anyone. We plan to present the results during this workshop alongside spotlight talks from the top teams. We will also release a public leaderboard and invite participants to submit short papers describing their final solutions. Finally, we will synthesize lessons across different motion types and discuss limitations and future directions for this research area.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          This not only gives top participants—often students—a chance to spotlight their work to a diverse and global workshop audience, but also helps garner interest in the months leading up to the workshop.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          We have prior evidence of strong community interest: our ICCV 2023 SLAM Challenge workshop attracted approximately 120 attendees. To further differentiate this event, the IMU odometry competition will be held asynchronously in the months leading up to the workshop, with results announced and showcased during the workshop program.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          In summary, the workshop will feature eight invited leading researchers presenting their relevant work, spotlight talks and poster presentations from top challenge teams, an interactive poster session for contributed abstracts, and a panel discussion on the future of internal perception. The workshop will conclude with an <strong>open networking session</strong> and the option for attendees to share their profiles in a compiled contact book to encourage connections beyond the workshop.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Topics of discussion and open questions include but are not limited to the following:
-        </p>
-        <ul class="topic-list" style="margin-top: 1rem;">
+        <h3 class="title is-4" style="text-align: left; margin-top: 2rem; margin-bottom: 1rem;">Topics</h3>
+        <ul class="topic-list">
           <li>Learning-based inertial odometry and navigation</li>
           <li>IMU foundation models and cross-platform generalization</li>
           <li>Proprioceptive state estimation for legged and humanoid robots</li>
-          <li>Multi-IMU fusion and automatic spatial-temporal calibration</li>
+          <li>Multi-IMU fusion and spatial-temporal calibration</li>
           <li>Adaptive sensor fusion under environmental degradation</li>
-          <li>Self-supervised and bilevel optimization for online IMU adaptation</li>
+          <li>Online adaptation and self-supervised learning</li>
           <li>Vestibular and proprioceptive inspiration from neuroscience</li>
-          <li>Sim-to-real transfer for inertial and proprioceptive models</li>
-          <li>Benchmarks and metrics for internal perception robustness</li>
-          <li>Contact-rich perception and force-aware state estimation</li>
-          <li>Differentiable factor graphs for learning to optimize</li>
-          <li>Integration of internal sensing with visual/geometric foundation models</li>
+          <li>Sim-to-real transfer for internal perception</li>
+          <li>Robustness benchmarks and evaluation metrics</li>
+          <li>Contact-rich and force-aware state estimation</li>
+          <li>Differentiable factor graphs and learned optimization</li>
+          <li>Integration with visual and geometric foundation models</li>
         </ul>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Overall, this workshop will provide a common meeting point for researchers and stakeholders working on internal perception to communicate about how their approaches are shaping the field. In doing so, it will not only provide new ideas and insights for established researchers but also motivate early-career students and researchers to get more involved. This, in turn, will be reflected in the improvement of application areas that internal perception can enable, such as search and rescue, infrastructure inspection, planetary exploration, humanoid locomotion, and industrial automation.
+        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1.5rem;">
+          <strong>Who should attend:</strong> researchers, students, and practitioners working in state estimation, inertial navigation, robot learning, legged or humanoid robotics, sensor fusion, and resilient autonomy. No specialized workshop prerequisite is required.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Invited Speakers Section -->
+<section class="section content-section" id="speakers" style="padding-top: 1rem !important;">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: left; margin-bottom: 0.75rem;">Invited Speakers</h2>
+    <p class="section-intro">The current invited lineup spans locomotion, state estimation, learning, and resilient perception. Additional program updates will be posted as they are finalized.</p>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="speaker-grid">
+          <div class="speaker-card">
+            <img src="/img/invited_speakers/marco_hutter.jpeg" alt="Marco Hutter"/>
+            <p class="speaker-name"><a href="https://rsl.ethz.ch/the-lab/people/person-detail.hutter.html">Marco Hutter</a></p>
+            <p class="speaker-role">Professor of Robotic Systems</p>
+            <p class="speaker-affiliation">ETH Zurich</p>
+            <p class="speaker-topic">Learning-based Locomotion and Control for Legged Robots</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/slam_series/davides.jpg" alt="Davide Scaramuzza"/>
+            <p class="speaker-name">Davide Scaramuzza</p>
+            <p class="speaker-role">Professor of Robotics and Perception</p>
+            <p class="speaker-affiliation">University of Zurich</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Maani_Ghaffari.jpg" alt="Maani Ghaffari"/>
+            <p class="speaker-name"><a href="https://robotics.umich.edu/people/faculty/maani-ghaffari/">Maani Ghaffari</a></p>
+            <p class="speaker-role">Assistant Professor, Naval Architecture and Marine Engineering and Robotics</p>
+            <p class="speaker-affiliation">University of Michigan</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Chen_Feng.jpg" alt="Chen Feng"/>
+            <p class="speaker-name"><a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a></p>
+            <p class="speaker-role">Institute Associate Professor</p>
+            <p class="speaker-affiliation">NYU Tandon School of Engineering</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Koushil_Sreenath.jpg" alt="Koushil Sreenath"/>
+            <p class="speaker-name"><a href="https://vcresearch.berkeley.edu/faculty/koushil-sreenath">Koushil Sreenath</a></p>
+            <p class="speaker-role">Professor, Mechanical Engineering</p>
+            <p class="speaker-affiliation">University of California, Berkeley</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Carmelo_Sferrazza.jpg" alt="Carmelo Sferrazza"/>
+            <p class="speaker-name"><a href="https://sferrazza.cc/">Carmelo (Carlo) Sferrazza</a></p>
+            <p class="speaker-role">Incoming Assistant Professor, Mechanical Engineering</p>
+            <p class="speaker-affiliation">The University of Texas at Austin</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/yuheng2024.jpg" alt="Yuheng Qiu"/>
+            <p class="speaker-name"><a href="http://yuhengqiu.com/">Yuheng Qiu</a></p>
+            <p class="speaker-role">Ph.D. Student, Mechanical Engineering</p>
+            <p class="speaker-affiliation">Carnegie Mellon University</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -518,18 +832,18 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>8:40 - 9:10 AM</td>
-            <td><strong>Luca Carlone</strong><br><span style="color:#999; font-size:0.85rem;">MIT</span></td>
-            <td>Certifiable Perception and Robust State Estimation</td>
+            <td><strong>Marco Hutter</strong><br><span style="color:#999; font-size:0.85rem;">ETH Zurich</span></td>
+            <td>Learning-based Locomotion and Control for Legged Robots</td>
           </tr>
           <tr>
             <td>9:10 - 9:40 AM</td>
             <td><strong>Davide Scaramuzza</strong><br><span style="color:#999; font-size:0.85rem;">University of Zurich</span></td>
-            <td>Proprioceptive State Estimation for Legged Robots</td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>9:40 - 10:10 AM</td>
-            <td><strong>Carmelo Sferrazza</strong><br><span style="color:#999; font-size:0.85rem;">Amazon FAR</span></td>
-            <td>TBD</td>
+            <td><strong>Carmelo Sferrazza</strong><br><span style="color:#999; font-size:0.85rem;">The University of Texas at Austin</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>10:10 - 10:30 AM</td>
@@ -542,13 +856,13 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>11:00 - 11:30 AM</td>
-            <td><strong>TBD Speaker 0</strong></td>
-            <td>TBD</td>
+            <td><strong>Maani Ghaffari</strong><br><span style="color:#999; font-size:0.85rem;">University of Michigan</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>11:30 - 12:00 PM</td>
-            <td><strong>TBD Speaker 1</strong></td>
-            <td>TBD</td>
+            <td><strong>Chen Feng</strong><br><span style="color:#999; font-size:0.85rem;">NYU Tandon School of Engineering</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr class="break-row">
             <td>12:00 - 1:30 PM</td>
@@ -556,13 +870,13 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>1:30 - 2:00 PM</td>
-            <td><strong>TBD Speaker 2</strong></td>
-            <td>TBD</td>
+            <td><strong>Koushil Sreenath</strong><br><span style="color:#999; font-size:0.85rem;">University of California, Berkeley</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>2:00 - 2:30 PM</td>
-            <td><strong>TBD Speaker 3</strong></td>
-            <td>TBD</td>
+            <td><strong>Yuheng Qiu</strong><br><span style="color:#999; font-size:0.85rem;">Carnegie Mellon University</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>2:30 - 3:00 PM</td>
@@ -575,13 +889,13 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>3:30 - 4:00 PM</td>
-            <td><strong>TBD Speaker 4</strong></td>
-            <td>TBD</td>
+            <td><strong>Invited Speaker</strong><br><span style="color:#777; font-size:0.85rem;">To be announced</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>4:00 - 4:30 PM</td>
-            <td><strong>Daniel Gehrig</strong><br><span style="color:#999; font-size:0.85rem;">University of Pennsylvania</span></td>
-            <td>TBD</td>
+            <td><strong>Wenshan Wang</strong><br><span style="color:#999; font-size:0.85rem;">Carnegie Mellon University</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr>
             <td>4:30 - 5:00 PM</td>
@@ -609,13 +923,8 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Organizers</h2>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
+        <h3 class="title is-4" style="text-align: left; margin-bottom: 1rem;">Corresponding Organizers</h3>
         <div class="speaker-grid">
-          <div class="speaker-card">
-            <img src="/img/team/shibozNew.png" alt="Shibo Zhao"/>
-            <p class="speaker-name"><a href="https://shibowing.github.io/">Shibo Zhao</a></p>
-            <p class="speaker-role">Ph.D. Candidate, Robotics Institute</p>
-            <p class="speaker-affiliation">Carnegie Mellon University</p>
-          </div>
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/Guanya_Commencement.jpg" alt="Guanya Shi"/>
             <p class="speaker-name"><a href="https://www.gshi.me/">Guanya Shi</a></p>
@@ -629,8 +938,30 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
             <p class="speaker-affiliation">Carnegie Mellon University</p>
           </div>
           <div class="speaker-card">
-            <img src="/img/IROS_2026_tab/Muqing_Cao.jpg" alt="Muqin Cao"/>
-            <p class="speaker-name"><a href="https://caomuqing.github.io/">Muqin Cao</a></p>
+            <img src="/img/team/shibozNew.png" alt="Shibo Zhao"/>
+            <p class="speaker-name"><a href="https://shibowing.github.io/">Shibo Zhao</a></p>
+            <p class="speaker-role">Ph.D. Candidate, Robotics Institute</p>
+            <p class="speaker-affiliation">Carnegie Mellon University</p>
+          </div>
+        </div>
+
+        <h3 class="title is-4" style="text-align: left; margin-top: 3rem; margin-bottom: 1rem;">Main Organizers</h3>
+        <div class="speaker-grid">
+          <div class="speaker-card">
+            <img src="/img/invited_speakers/basti.jpg" alt="Sebastian Scherer"/>
+            <p class="speaker-name"><a href="https://www.ri.cmu.edu/ri-faculty/sebastian-scherer/">Sebastian Scherer</a></p>
+            <p class="speaker-role">Research Professor, Robotics Institute</p>
+            <p class="speaker-affiliation">Carnegie Mellon University</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/invited_speakers/chenwang.jpg" alt="Chen Wang"/>
+            <p class="speaker-name"><a href="https://chenwang.site/">Chen Wang</a></p>
+            <p class="speaker-role">Assistant Professor, Computer Science and Engineering</p>
+            <p class="speaker-affiliation">University at Buffalo</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Muqing_Cao.jpg" alt="Muqing Cao"/>
+            <p class="speaker-name"><a href="https://caomuqing.github.io/">Muqing Cao</a></p>
             <p class="speaker-role">Postdoc, Robotics Institute</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
           </div>
@@ -641,109 +972,18 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
             <p class="speaker-affiliation">Pennsylvania State University</p>
           </div>
           <div class="speaker-card">
-            <img src="/img/invited_speakers/chenwang.jpg" alt="Chen Wang"/>
-            <p class="speaker-name"><a href="https://chenwang.site/">Chen Wang</a></p>
-            <p class="speaker-role">Assistant Professor, CSE</p>
-            <p class="speaker-affiliation">University at Buffalo</p>
-          </div>
-          <div class="speaker-card">
-            <img src="/img/invited_speakers/basti.jpg" alt="Sebastian Scherer"/>
-            <p class="speaker-name"><a href="https://www.ri.cmu.edu/ri-faculty/sebastian-scherer/">Sebastian Scherer</a></p>
-            <p class="speaker-role">Research Professor, Robotics Institute</p>
-            <p class="speaker-affiliation">Carnegie Mellon University</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Student Organizers Section -->
-<section class="section content-section" id="student-organizers" style="padding-top: 1rem !important;">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Student Organizers</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="speaker-grid">
-          <div class="speaker-card">
             <img src="/img/IROS_2026_tab/yuheng2024.jpg" alt="Yuheng Qiu"/>
             <p class="speaker-name"><a href="http://yuhengqiu.com/">Yuheng Qiu</a></p>
-            <p class="speaker-role">Ph.D. Student</p>
+            <p class="speaker-role">Ph.D. Student, Mechanical Engineering</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
           </div>
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/Sifan Zhou.jpg" alt="Sifan Zhou"/>
-            <p class="speaker-name"><a href="https://scholar.google.com/citations?hl=en&user=kSdqoi0AAAAJ">Sifan Zhou</a></p>
-            <p class="speaker-role">Ph.D. Student</p>
-            <p class="speaker-affiliation">Carnegie Mellon University</p>
-          </div>
-          <div class="speaker-card">
-            <img src="/img/IROS_2026_tab/junbin.jpg" alt="Junbin Yuan"/>
-            <p class="speaker-name"><a href="https://theairlab.org/team/junbiny/">Junbin Yuan</a></p>
+            <p class="speaker-name"><a href="https://scholar.google.com/citations?hl=en&amp;user=kSdqoi0AAAAJ">Sifan Zhou</a></p>
             <p class="speaker-role">Ph.D. Student</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Estimated Attendance Section -->
-<section class="section content-section" id="attendance" style="padding-top: 1rem !important;">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Estimated Attendance</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8;">
-          The workshop would be beneficial to a wide range of people. This includes academic researchers, both students and senior researchers, specializing in state estimation, inertial navigation, legged robotics, and robot learning; industry professionals working on autonomous systems, particularly those deploying robots in GPS-denied or degraded environments; and robotics developers and newcomers interested in the emerging field of internal perception.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          While an audience with a strong background in state estimation, resilient robotics, and humanoid robotics would benefit most, we believe that the presented material will also give the general robotics community a complete picture of current work and inspire them to learn more about this field. The workshop is designed to be self-contained, so no specific background knowledge is assumed. However, it would be advantageous for attendees to know basic sensor fusion, deep learning technologies, and inertial measurement principles. We will provide a suggested reading list and dataset samples on our website.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          Given the strong and growing interest in internal perception (evidenced by recent publications in <em>Science Robotics</em>, CVPR, and ICRA on this topic), and the broad appeal across state estimation, locomotion, and learning communities, we expect the workshop to attract <strong>80–120 in-person attendees</strong>. The Learning IMU Odometry Challenge is expected to attract additional participation from teams worldwide, further increasing attendance.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          The main targeted RAS Technical Committees include <em>Autonomous Ground Vehicles and Intelligent Transportation Systems</em>, <em>Humanoid Robotics</em>, <em>Robot Learning</em>, <em>Cognitive Robotics</em>, <em>Computer and Robot Vision</em>, <em>Machine Learning for Automation</em>, <em>Search and Rescue Robotics</em>, <em>Sensor Fusion</em>, and <em>Mobile Manipulation</em>.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Structure of the Event Section -->
-<section class="section content-section" id="structure" style="padding-top: 1rem !important;">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Structure of the Event</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8;">
-          This workshop will be a one-day workshop. The workshop aims to bring together five distinguished speakers from various universities and industry to share their expertise and insights on internal perception, inertial intelligence, and proprioceptive state estimation for resilient robotics. Additionally, we will present a comprehensive summary of results from our learning IMU Odometry Challenge and highlight the top-performing systems.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          The workshop aims to foster discussion, share insights, and encourage collaborations among attendees from academia, industry, and government research institutions, as well as to identify the key challenges and opportunities in the advancement of internal perception for autonomous robots. To promote active discussion between established experts and early-career researchers, we have put together a diverse Organizing Committee with individuals from academia spanning from early-stage graduate students to senior experts in robotics who will work together to ensure an inclusive workshop that engages participants at varying levels of seniority and one that is welcoming for newcomers. Throughout the workshop presentations and talks, we will have opportunities for all participants to ask questions and engage in discussion with speakers. Each invited talk (20 minutes) is followed by a dedicated 10-minute Q&A, moderated by an organizer to ensure diverse voices are heard. The open panel discussion at the end will further promote open-ended discussion by participants, and we will have prompt questions prepared to use as guidance. Key discussion topics include: <em>Can IMU-centric perception replace visual odometry in specific regimes? What are the fundamental limits of inertial intelligence? How should we benchmark proprioceptive systems across embodiments?</em>
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          By providing opportunities for challenge teams to present their work, we are able to spotlight individuals who may be early-career researchers or students in addition to established senior researchers in the field. The workshop will conclude with an <strong>open networking session</strong> where participants can engage with one another, exchange contacts in a contact book we compile, and chat with speakers and organizers. From community feedback, we know that attendees—especially those in early career stages—value networking opportunities. We hope that setting aside explicit time for this at the end will encourage more interaction among participants. We will also compile an opt-in contact book for attendees that will be shared with other workshop attendees.
-        </p>
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8; margin-top: 1rem;">
-          We have designed the workshop to prioritize in-person attendance. As of now, all organizers plan to attend IROS in person, and all speakers will be confirmed for in-person attendance.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Format Section -->
-<section class="section content-section" id="format" style="padding-top: 1rem !important;">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: left; margin-bottom: 2rem;">Format</h2>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <p style="font-size: 1.0rem; color: #222; line-height: 1.8;">
-          This workshop will be a one-day workshop. The preferred date is September 27, 2026.
-        </p>
       </div>
     </div>
   </div>
