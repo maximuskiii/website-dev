@@ -35,6 +35,7 @@ permalink: /imuchallenge/
   <a class="imu-gt-button" href="/imuchallenge/setup/">Setup</a>
   <a class="imu-gt-button" href="/imuchallenge/platforms/">Platforms</a>
   <a class="imu-gt-button" href="/imuchallenge/data/">Data Overview</a>
+  <a class="imu-gt-button" href="/imuchallenge/data/explorer/">Data Explorer</a>
   <a class="imu-gt-button" href="/imuchallenge/about/">About</a>
 </div>
 
@@ -43,8 +44,8 @@ permalink: /imuchallenge/
 <div class="imu-gt-stats-band">
   <dl class="imu-gt-stats">
     <div><dt>Platforms</dt><dd>4</dd></div>
-    <div><dt>Windows</dt><dd>~175K</dd></div>
-    <div><dt>Total Duration</dt><dd>29.5 hrs</dd></div>
+    <div><dt>Windows</dt><dd>~136K</dd></div>
+    <div><dt>Total Duration</dt><dd>37.9 hrs</dd></div>
     <div><dt>Sample Rate</dt><dd>200 Hz</dd></div>
   </dl>
 </div>
