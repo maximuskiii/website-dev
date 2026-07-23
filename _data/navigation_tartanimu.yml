@@ -6,5 +6,7 @@
   link: "#method"
 - name: Dataset
   link: "#dataset"
+- name: Limitations
+  link: "#limitations"
 - name: Citation
   link: "#citation"

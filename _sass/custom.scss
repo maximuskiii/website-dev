@@ -2298,6 +2298,8 @@ body.tartanimu-site .navbar.is-tartanimu .navbar-menu {
   padding-right: 0.72rem;
   padding-left: 0.72rem;
   font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 .navbar.is-tartanimu .tartanimu-navbar-section::after {
@@ -2308,6 +2310,7 @@ body.tartanimu-site .navbar.is-tartanimu .navbar-menu {
   left: 0.72rem;
   height: 3px;
   background: transparent;
+  transition: background-color 150ms ease;
 }
 
 .navbar.is-tartanimu .tartanimu-navbar-section:hover::after,
@@ -2548,6 +2551,12 @@ body.imuchallenge-site .navbar.is-imuchallenge .navbar-dropdown .navbar-item.is-
     min-height: 44px;
     padding: 0.7rem 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .navbar.is-tartanimu .tartanimu-navbar-section.active {
+    padding-left: calc(0.8rem - 3px);
+    border-left: 3px solid #ffffff;
+    background: rgba(255, 255, 255, 0.12) !important;
   }
 
   .navbar.is-tartanimu .tartanimu-navbar-section::after {

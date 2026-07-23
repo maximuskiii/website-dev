@@ -693,47 +693,6 @@ body_class: tartanimu-site
     color: rgba(255, 255, 255, 0.72);
   }
 
-  .timu-toc {
-    display: none;
-    position: fixed;
-    top: 110px;
-    z-index: 900;
-    width: 180px;
-    max-height: calc(100vh - 180px);
-    padding-left: 0.8rem;
-    overflow-y: auto;
-    border-left: 2px solid var(--timu-line);
-    background: rgba(255, 255, 255, 0.96);
-  }
-
-  .timu-toc strong {
-    display: block;
-    margin-bottom: 0.6rem;
-    color: var(--timu-ink);
-    font-size: 0.86rem;
-  }
-
-  .timu-toc a {
-    display: block;
-    margin: 0.45rem 0;
-    color: var(--timu-muted) !important;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-decoration: none !important;
-  }
-
-  .timu-toc a:hover,
-  .timu-toc a.active {
-    color: var(--timu-accent-dark) !important;
-  }
-
-  @media (min-width: 1560px) {
-    .timu-toc {
-      display: block;
-      left: max(12px, calc(50vw - 760px));
-    }
-  }
-
   @media (max-width: 1024px) {
     .timu-hero h1 {
       font-size: 3.8rem;
@@ -873,16 +832,6 @@ body_class: tartanimu-site
 </style>
 
 <div class="timu-page">
-  <nav class="timu-toc" aria-label="TartanIMU page sections">
-    <strong>On this page</strong>
-    <a href="#results">Results</a>
-    <a href="#overview">Overview</a>
-    <a href="#method">Method</a>
-    <a href="#dataset">Dataset</a>
-    <a href="#limitations">Limitations</a>
-    <a href="#citation">Citation</a>
-  </nav>
-
   <header class="timu-hero" aria-labelledby="timu-title">
     <img class="timu-hero-image" src="/img/tartanimu/firstpage.png" alt="TartanIMU operating across ground vehicle, quadruped, drone, and human motion platforms" width="3545" height="1604" fetchpriority="high" decoding="async">
     <div class="timu-hero-shade" aria-hidden="true"></div>
@@ -1160,7 +1109,7 @@ body_class: tartanimu-site
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var links = Array.from(document.querySelectorAll('.timu-toc a, .tartanimu-navbar-section'));
+    var links = Array.from(document.querySelectorAll('.tartanimu-navbar-section'));
     var sections = Array.from(new Set(links.map(function (link) {
       return document.querySelector(link.getAttribute('href'));
     }).filter(Boolean)));
