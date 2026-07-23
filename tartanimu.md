@@ -293,6 +293,7 @@ body_class: tartanimu-site
     width: 100%;
     padding: 4.5rem 1.5rem;
     border-top: 1px solid var(--timu-line);
+    scroll-margin-top: 76px;
   }
 
   .timu-section--surface {
@@ -368,6 +369,51 @@ body_class: tartanimu-site
     color: var(--timu-ink);
     font-size: 1.7rem;
     font-weight: 800;
+  }
+
+  .timu-feature-video {
+    margin: 0 0 2.5rem;
+  }
+
+  .timu-feature-video-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .timu-feature-video-heading h3 {
+    margin: 0;
+    color: var(--timu-ink);
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .timu-feature-video-heading a {
+    flex: none;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .timu-feature-video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--timu-line);
+    border-radius: 8px;
+    object-fit: contain;
+    background: #111318;
+  }
+
+  .timu-feature-video figcaption {
+    max-width: 880px;
+    margin: 0.8rem auto 0;
+    color: var(--timu-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
   }
 
   .timu-result-grid {
@@ -904,6 +950,17 @@ body_class: tartanimu-site
         <div><dt>Online speed</dt><dd>200 FPS</dd></div>
       </dl>
 
+      <figure class="timu-feature-video">
+        <div class="timu-feature-video-heading">
+          <h3>Cross-model IMU odometry comparison</h3>
+          <a href="https://cmu-superx.github.io/HERO/" target="_blank" rel="noopener">HERO project <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+        </div>
+        <video controls muted playsinline preload="metadata" aria-label="Comparison of expert IMU odometry models and the pretrained foundation model">
+          <source src="https://cmu-superx.github.io/HERO/static/videos/learning_imu_odometry_comparsion.mp4" type="video/mp4">
+        </video>
+        <figcaption>Qualitative pose comparison across specialist baselines and the shared IMU pretrained model. Video provided by the HERO project.</figcaption>
+      </figure>
+
       <div class="timu-result-grid">
         <article class="timu-result-card" style="--platform-color:#b45309;">
           <video controls muted loop playsinline preload="none" poster="/img/tartanimu/car_overview.png" aria-label="Ground vehicle foundation model result">
@@ -1103,10 +1160,10 @@ body_class: tartanimu-site
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var links = Array.from(document.querySelectorAll('.timu-toc a'));
-    var sections = links.map(function (link) {
+    var links = Array.from(document.querySelectorAll('.timu-toc a, .tartanimu-navbar-section'));
+    var sections = Array.from(new Set(links.map(function (link) {
       return document.querySelector(link.getAttribute('href'));
-    }).filter(Boolean);
+    }).filter(Boolean)));
 
     if ('IntersectionObserver' in window && sections.length) {
       var sectionObserver = new IntersectionObserver(function (entries) {
@@ -1122,6 +1179,18 @@ body_class: tartanimu-site
         sectionObserver.observe(section);
       });
     }
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        var menu = document.getElementById('navMenu');
+        var burger = document.querySelector('.navbar-burger');
+        if (menu) menu.classList.remove('is-active');
+        if (burger) {
+          burger.classList.remove('is-active');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
 
     var copyButton = document.getElementById('timu-copy-bibtex');
     var bibtex = document.querySelector('#timu-bibtex code');

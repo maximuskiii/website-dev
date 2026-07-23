@@ -1,20 +1,28 @@
 {% assign nav_items = site.data.navigation %}
 {% assign is_imuchallenge_nav = false %}
-{% if page.url == '/imuchallenge/' or page.url contains '/imuchallenge/' %}
+{% assign is_tartanimu_nav = false %}
+{% if page.body_class == 'tartanimu-site' %}
+    {% assign nav_items = site.data.navigation_tartanimu %}
+    {% assign is_tartanimu_nav = true %}
+{% elsif page.url == '/imuchallenge/' or page.url contains '/imuchallenge/' %}
     {% assign nav_items = site.data.navigation_imuchallenge %}
     {% assign is_imuchallenge_nav = true %}
 {% endif %}
 
-<nav class="navbar is-primary {% if is_imuchallenge_nav %}is-imuchallenge{% endif %}" >
+<nav class="navbar is-primary {% if is_imuchallenge_nav %}is-imuchallenge{% elsif is_tartanimu_nav %}is-tartanimu{% endif %}" >
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ site.baseurl }}/" class="navbar-item navbar-logo navbar-logo--superx">
                 <img src="{{ site.baseurl }}/img/logos/superx-wordmark-white.png" alt="SuperX" class="navbar-superx-wordmark">
             </a>
+            {% if is_tartanimu_nav %}
+            <a href="{{ site.baseurl }}/tartanimu" class="navbar-item tartanimu-navbar-brand" aria-label="TartanIMU home">TartanIMU</a>
+            {% else %}
             {% include social-follow.html class="site-navbar-socials--compact" %}
             <a href="https://theairlab.org/" class="navbar-item navbar-airlab navbar-airlab--compact" target="_blank" rel="noopener" aria-label="CMU AirLab">
                 <img src="{{ site.baseurl }}/img/logos/StackedInvert.png" alt="CMU AirLab">
             </a>
+            {% endif %}
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -35,20 +43,27 @@
                         </div>
                     </div>
                     {% else %}
-                    <a href="{{ item.link | prepend: site.baseurl }}" class="navbar-item {% if item.link == page.url %}is-active{% endif %}">{{ item.name }}</a>
+                    <a href="{{ item.link | prepend: site.baseurl }}" class="navbar-item {% if is_tartanimu_nav %}tartanimu-navbar-section {% endif %}{% if item.link == page.url %}is-active{% endif %}">{{ item.name }}</a>
                     {% endif %}
                 {% endfor %}
                 {% endif %}
             </div>
-            {% unless is_imuchallenge_nav %}
-            <div class="navbar-end">
-                {% include social-follow.html class="site-navbar-socials--main" %}
-                <a href="https://theairlab.org/" class="navbar-item navbar-airlab navbar-airlab--full" target="_blank" rel="noopener" aria-label="CMU AirLab">
+            {% if is_tartanimu_nav %}
+            <div class="navbar-end tartanimu-navbar-resources">
+                <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf" class="navbar-item tartanimu-navbar-resource" target="_blank" rel="noopener" title="Read the CVPR 2025 paper">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i><span>Paper</span>
+                </a>
+                <a href="https://github.com/superxslam/TartanIMU" class="navbar-item tartanimu-navbar-resource tartanimu-navbar-resource--code" target="_blank" rel="noopener" title="Open the TartanIMU code repository">
+                    <i class="fab fa-github" aria-hidden="true"></i><span>Code</span>
+                </a>
+                <a href="https://huggingface.co/datasets/raphael-blanchard/TartanIMU/tree/main" class="navbar-item tartanimu-navbar-resource" target="_blank" rel="noopener" title="Browse the TartanIMU dataset">
+                    <i class="fas fa-database" aria-hidden="true"></i><span>Data</span>
+                </a>
+                <a href="https://theairlab.org/" class="navbar-item navbar-airlab navbar-airlab--full" target="_blank" rel="noopener" aria-label="CMU AirLab" title="CMU AirLab">
                     <img src="{{ site.baseurl }}/img/logos/StackedInvert.png" alt="CMU AirLab">
                 </a>
             </div>
-            {% endunless %}
-            {% if is_imuchallenge_nav %}
+            {% elsif is_imuchallenge_nav %}
             <div class="navbar-end imuchallenge-navbar-actions">
                 {% include social-follow.html class="site-navbar-socials--full" %}
                 <a href="https://github.com/superxslam/TartanIMU" class="navbar-item imuchallenge-navbar-icon" target="_blank" rel="noopener" aria-label="GitHub repository">
@@ -60,6 +75,13 @@
                 <a href="https://www.kaggle.com/competitions/tartanimu-iros2026" class="navbar-item imuchallenge-navbar-icon" target="_blank" rel="noopener" aria-label="Kaggle competition">
                     <i class="fab fa-kaggle" aria-hidden="true"></i>
                 </a>
+                <a href="https://theairlab.org/" class="navbar-item navbar-airlab navbar-airlab--full" target="_blank" rel="noopener" aria-label="CMU AirLab">
+                    <img src="{{ site.baseurl }}/img/logos/StackedInvert.png" alt="CMU AirLab">
+                </a>
+            </div>
+            {% else %}
+            <div class="navbar-end">
+                {% include social-follow.html class="site-navbar-socials--main" %}
                 <a href="https://theairlab.org/" class="navbar-item navbar-airlab navbar-airlab--full" target="_blank" rel="noopener" aria-label="CMU AirLab">
                     <img src="{{ site.baseurl }}/img/logos/StackedInvert.png" alt="CMU AirLab">
                 </a>
