@@ -97,6 +97,8 @@ body_class: tartanimu-site
     z-index: -2;
     object-fit: cover;
     object-position: center;
+    transform: scale(1.025);
+    animation: timu-hero-settle 1400ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   }
 
   .timu-hero-shade {
@@ -114,6 +116,9 @@ body_class: tartanimu-site
   }
 
   .timu-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
     margin: 0 0 0.9rem;
     color: #ffd8bd !important;
     font-size: 0.88rem !important;
@@ -121,6 +126,24 @@ body_class: tartanimu-site
     letter-spacing: 0 !important;
     text-transform: uppercase;
   }
+
+  .timu-kicker::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: #f28b3c;
+  }
+
+  .timu-hero-inner > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: timu-hero-content 650ms ease-out forwards;
+  }
+
+  .timu-hero-inner > :nth-child(2) { animation-delay: 80ms; }
+  .timu-hero-inner > :nth-child(3) { animation-delay: 150ms; }
+  .timu-hero-inner > :nth-child(4) { animation-delay: 220ms; }
+  .timu-hero-inner > :nth-child(5) { animation-delay: 290ms; }
 
   .timu-hero h1 {
     max-width: 760px;
@@ -166,7 +189,9 @@ body_class: tartanimu-site
     border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: 6px;
     color: #ffffff !important;
-    background: rgba(17, 20, 24, 0.38);
+    background: rgba(17, 20, 24, 0.46);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(8px);
     font-size: 0.94rem;
     font-weight: 700;
     text-decoration: none !important;
@@ -193,12 +218,12 @@ body_class: tartanimu-site
   }
 
   .timu-paper-meta {
-    padding: 3.2rem 1.5rem 3.5rem;
+    padding: 2.75rem 1.5rem 3rem;
     text-align: center;
   }
 
   .timu-paper-meta-inner {
-    max-width: 980px;
+    max-width: 1040px;
     margin: 0 auto;
   }
 
@@ -215,29 +240,48 @@ body_class: tartanimu-site
     font-size: 0.94rem !important;
   }
 
+  .timu-publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.15rem;
+  }
+
+  .timu-publication-links .timu-text-link {
+    font-size: 0.9rem;
+  }
+
   .timu-story {
     display: grid;
     grid-template-columns: repeat(7, auto);
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin: 2.5rem auto 0;
+    gap: 0.75rem;
+    max-width: 820px;
+    margin: 1.75rem auto 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--timu-line);
+    border-bottom: 1px solid var(--timu-line);
   }
 
   .timu-story-step {
-    min-width: 112px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 0.5rem;
+    text-align: left;
   }
 
   .timu-story-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    margin-bottom: 0.55rem;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
     border: 1px solid #edc8ad;
-    border-radius: 50%;
+    border-radius: 6px;
     color: var(--timu-accent);
     background: var(--timu-accent-soft);
   }
@@ -245,12 +289,13 @@ body_class: tartanimu-site
   .timu-story-name {
     display: block;
     color: var(--timu-ink);
-    font-size: 0.96rem;
+    font-size: 0.9rem;
     font-weight: 700;
   }
 
   .timu-story-arrow {
     color: #b5bac1;
+    font-size: 0.78rem;
   }
 
   .timu-challenge-link {
@@ -291,7 +336,7 @@ body_class: tartanimu-site
 
   .timu-section {
     width: 100%;
-    padding: 4.5rem 1.5rem;
+    padding: 4rem 1.5rem;
     border-top: 1px solid var(--timu-line);
     scroll-margin-top: 76px;
   }
@@ -311,7 +356,10 @@ body_class: tartanimu-site
   }
 
   .timu-section-heading {
+    position: relative;
     margin-bottom: 2rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--timu-accent);
   }
 
   .timu-section-index {
@@ -372,21 +420,32 @@ body_class: tartanimu-site
   }
 
   .timu-feature-video {
-    margin: 0 0 2.5rem;
+    margin: 0;
   }
 
   .timu-feature-video-heading {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--timu-line);
+  }
+
+  .timu-block-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--timu-accent-dark);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 
   .timu-feature-video-heading h3 {
     margin: 0;
     color: var(--timu-ink);
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     font-weight: 800;
   }
 
@@ -405,6 +464,7 @@ body_class: tartanimu-site
     border-radius: 8px;
     object-fit: contain;
     background: #111318;
+    box-shadow: 0 14px 34px rgba(32, 35, 41, 0.1);
   }
 
   .timu-feature-video figcaption {
@@ -414,6 +474,182 @@ body_class: tartanimu-site
     font-size: 0.9rem;
     line-height: 1.6;
     text-align: center;
+  }
+
+  .timu-comparison {
+    margin: 3.5rem 0 0;
+    padding-top: 3rem;
+    border-top: 1px solid var(--timu-line);
+  }
+
+  .timu-comparison-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .timu-comparison-header h3 {
+    margin: 0;
+    color: var(--timu-ink);
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .timu-comparison-header p {
+    max-width: 720px;
+    margin: 0.55rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .timu-comparison-tabs {
+    display: flex;
+    gap: 0.35rem;
+    margin: 1.5rem 0 1.75rem;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--timu-line);
+  }
+
+  .timu-comparison-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    padding: 0.65rem 0.85rem;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    color: var(--timu-muted);
+    background: transparent;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .timu-comparison-tab:hover,
+  .timu-comparison-tab:focus-visible,
+  .timu-comparison-tab.active {
+    border-bottom-color: var(--timu-accent);
+    color: var(--timu-accent-dark);
+    background: var(--timu-accent-soft);
+  }
+
+  .timu-comparison-panel[hidden] {
+    display: none !important;
+  }
+
+  .timu-comparison-context {
+    display: grid;
+    grid-template-columns: 118px minmax(0, 1fr);
+    gap: 1.1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--timu-line);
+  }
+
+  .timu-comparison-context img {
+    display: block;
+    width: 118px;
+    height: 72px;
+    border: 1px solid var(--timu-line);
+    border-radius: 6px;
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  .timu-comparison-context span,
+  .timu-comparison-card-eyebrow {
+    color: var(--timu-accent-dark);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .timu-comparison-context h4 {
+    margin: 0.2rem 0 0;
+    color: var(--timu-ink);
+    font-size: 1.08rem;
+    font-weight: 800;
+  }
+
+  .timu-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .timu-comparison-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--timu-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(32, 35, 41, 0.06);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .timu-comparison-card.is-featured {
+    border-color: #d78a50;
+    box-shadow: inset 0 3px 0 var(--timu-accent);
+  }
+
+  .timu-comparison-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 100px;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .timu-comparison-card h5 {
+    margin: 0.25rem 0 0;
+    color: var(--timu-ink);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .timu-comparison-card p {
+    margin: 0.25rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .timu-fullscreen-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    padding: 0;
+    border: 1px solid #c7cbd1;
+    border-radius: 6px;
+    color: var(--timu-ink);
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .timu-fullscreen-button:hover,
+  .timu-fullscreen-button:focus-visible {
+    border-color: var(--timu-accent);
+    color: var(--timu-accent-dark);
+    background: var(--timu-accent-soft);
+  }
+
+  .timu-comparison-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #111318;
   }
 
   .timu-result-grid {
@@ -428,6 +664,18 @@ body_class: tartanimu-site
     border: 1px solid var(--timu-line);
     border-radius: 8px;
     background: #ffffff;
+    box-shadow: 0 5px 16px rgba(32, 35, 41, 0.05);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  @media (hover: hover) {
+    .timu-comparison-card:hover,
+    .timu-result-card:hover,
+    .timu-platform-card:hover {
+      border-color: #d7b397;
+      box-shadow: 0 12px 28px rgba(32, 35, 41, 0.11);
+      transform: translateY(-3px);
+    }
   }
 
   .timu-result-card video {
@@ -458,10 +706,62 @@ body_class: tartanimu-site
     background: var(--platform-color, var(--timu-accent));
   }
 
-  .timu-figure {
-    width: min(1080px, calc(100% + 260px));
-    margin: 2.5rem 0 0 50%;
+  .timu-additional-results {
+    margin-top: 3rem;
+    border-top: 1px solid var(--timu-line);
+    border-bottom: 1px solid var(--timu-line);
+  }
+
+  .timu-additional-results summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    gap: 1rem;
+    padding: 1rem 0;
+    color: var(--timu-ink);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .timu-additional-results summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .timu-additional-results summary strong {
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  .timu-additional-results summary > i {
+    color: var(--timu-accent-dark);
+    transition: transform 150ms ease;
+  }
+
+  .timu-additional-results[open] summary > i {
+    transform: rotate(180deg);
+  }
+
+  .timu-additional-results:not([open]) > :not(summary) {
+    display: none;
+  }
+
+  .timu-additional-results .timu-result-grid {
+    padding: 0.5rem 0 1.5rem;
+  }
+
+  .timu-page figure.timu-figure {
+    position: relative;
+    left: 50%;
+    width: min(1080px, calc(100vw - 2rem));
+    margin: 2.5rem 0 0;
     transform: translateX(-50%);
+  }
+
+  .timu-page figure.timu-figure--contained {
+    left: auto;
+    width: 100%;
+    transform: none;
   }
 
   .timu-figure img {
@@ -471,6 +771,7 @@ body_class: tartanimu-site
     border: 1px solid var(--timu-line);
     border-radius: 8px;
     background: #ffffff;
+    box-shadow: 0 12px 30px rgba(32, 35, 41, 0.08);
   }
 
   .timu-figure figcaption,
@@ -693,6 +994,48 @@ body_class: tartanimu-site
     color: rgba(255, 255, 255, 0.72);
   }
 
+  .timu-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 520ms ease, transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .timu-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes timu-hero-settle {
+    from { transform: scale(1.055); }
+    to { transform: scale(1.025); }
+  }
+
+  @keyframes timu-hero-content {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timu-hero-image,
+    .timu-hero-inner > * {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .timu-reveal,
+    .timu-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .timu-comparison-card,
+    .timu-result-card,
+    .timu-platform-card {
+      transition: none;
+    }
+  }
+
   @media (max-width: 1024px) {
     .timu-hero h1 {
       font-size: 3.8rem;
@@ -776,17 +1119,38 @@ body_class: tartanimu-site
 
     .timu-result-grid,
     .timu-stage,
-    .timu-stage-media-grid {
+    .timu-stage-media-grid,
+    .timu-comparison-grid {
       grid-template-columns: 1fr;
+    }
+
+    .timu-comparison-header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .timu-comparison-context {
+      grid-template-columns: 88px minmax(0, 1fr);
+    }
+
+    .timu-comparison-context img {
+      width: 88px;
+      height: 60px;
+    }
+
+    .timu-comparison-card-header {
+      min-height: 0;
     }
 
     .timu-stage {
       gap: 1.25rem;
     }
 
-    .timu-figure {
+    .timu-page figure.timu-figure {
+      left: auto;
       width: 100%;
-      margin-left: 0;
+      margin: 2.5rem 0 0;
       transform: none;
     }
 
@@ -807,7 +1171,7 @@ body_class: tartanimu-site
 
     .timu-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       width: 100%;
     }
 
@@ -843,9 +1207,7 @@ body_class: tartanimu-site
       <div class="timu-actions" aria-label="TartanIMU resources">
         <a class="timu-action timu-action--primary" href="https://github.com/superxslam/TartanIMU" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
         <a class="timu-action" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
-        <a class="timu-action" href="https://huggingface.co/datasets/raphael-blanchard/TartanIMU/tree/main" target="_blank" rel="noopener"><i class="fas fa-database" aria-hidden="true"></i> Dataset</a>
-        <a class="timu-action" href="/img/tartanimu/CVPR_Poster.pdf" target="_blank" rel="noopener"><i class="fas fa-image" aria-hidden="true"></i> Poster</a>
-        <a class="timu-action" href="#citation"><i class="fas fa-quote-left" aria-hidden="true"></i> BibTeX</a>
+        <a class="timu-action" href="/imuchallenge/data/"><i class="fas fa-database" aria-hidden="true"></i> Dataset</a>
       </div>
     </div>
   </header>
@@ -854,6 +1216,10 @@ body_class: tartanimu-site
     <div class="timu-paper-meta-inner">
       <p class="timu-authors">Shibo Zhao<sup>1&dagger;*</sup> &middot; Sifan Zhou<sup>1&dagger;*</sup> &middot; Raphael Blanchard<sup>1</sup> &middot; Yuheng Qiu<sup>1</sup> &middot; Wenshan Wang<sup>1</sup> &middot; Sebastian Scherer<sup>1</sup></p>
       <p class="timu-affiliation"><sup>1</sup>Carnegie Mellon University &nbsp; <sup>&dagger;</sup>Equal contribution &nbsp; <sup>*</sup>Corresponding authors</p>
+      <div class="timu-publication-links" aria-label="Additional publication resources">
+        <a class="timu-text-link" href="/img/tartanimu/CVPR_Poster.pdf" target="_blank" rel="noopener"><i class="fas fa-image" aria-hidden="true"></i> Poster</a>
+        <a class="timu-text-link" href="#citation"><i class="fas fa-quote-left" aria-hidden="true"></i> BibTeX</a>
+      </div>
 
       <div class="timu-story" aria-label="TartanIMU learning pipeline">
         <div class="timu-story-step">
@@ -901,8 +1267,8 @@ body_class: tartanimu-site
 
       <figure class="timu-feature-video">
         <div class="timu-feature-video-heading">
-          <h3>Cross-model IMU odometry comparison</h3>
-          <a href="https://cmu-superx.github.io/HERO/" target="_blank" rel="noopener">HERO project <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+          <div><span class="timu-block-label">Benchmark overview</span><h3>Cross-model IMU odometry comparison</h3></div>
+          <a href="https://cmu-superx.github.io/HERO/" target="_blank" rel="noopener">Source: HERO <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
         </div>
         <video controls muted playsinline preload="metadata" aria-label="Comparison of expert IMU odometry models and the pretrained foundation model">
           <source src="https://cmu-superx.github.io/HERO/static/videos/learning_imu_odometry_comparsion.mp4" type="video/mp4">
@@ -910,7 +1276,54 @@ body_class: tartanimu-site
         <figcaption>Qualitative pose comparison across specialist baselines and the shared IMU pretrained model. Video provided by the HERO project.</figcaption>
       </figure>
 
-      <div class="timu-result-grid">
+      <section class="timu-comparison" aria-labelledby="timu-comparison-title">
+        <div class="timu-comparison-header">
+          <div>
+            <span class="timu-block-label">Interactive benchmark</span>
+            <h3 id="timu-comparison-title">Detailed single-trajectory comparison</h3>
+            <p>Compare platform-specific expert models with the shared IMU pretrained model on the same car, quadruped, human, and drone trajectories.</p>
+          </div>
+          <a class="timu-text-link" href="https://cmu-superx.github.io/HERO/" target="_blank" rel="noopener">Source: HERO <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="timu-comparison-tabs" role="tablist" aria-label="Trajectory comparisons">
+          {% for trajectory in site.data.tartanimu_comparisons %}
+          <button class="timu-comparison-tab{% if forloop.first %} active{% endif %}" id="timu-comparison-tab-{{ trajectory.id }}" type="button" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="timu-comparison-panel-{{ trajectory.id }}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}" data-comparison-tab="{{ trajectory.id }}">
+            <i class="{{ trajectory.icon }}" aria-hidden="true"></i><span>{{ trajectory.short_name }}</span>
+          </button>
+          {% endfor %}
+        </div>
+
+        {% for trajectory in site.data.tartanimu_comparisons %}
+        <section class="timu-comparison-panel" id="timu-comparison-panel-{{ trajectory.id }}" role="tabpanel" aria-labelledby="timu-comparison-tab-{{ trajectory.id }}" data-comparison-panel="{{ trajectory.id }}"{% unless forloop.first %} hidden{% endunless %}>
+          <div class="timu-comparison-context">
+            <img src="{{ trajectory.image }}" alt="{{ trajectory.image_alt }}" loading="lazy" decoding="async">
+            <div><span>Trajectory {{ forloop.index | prepend: '0' }}</span><h4>{{ trajectory.name }}</h4></div>
+          </div>
+          <div class="timu-comparison-grid">
+            {% for clip in trajectory.clips %}
+            <article class="timu-comparison-card{% if clip.featured %} is-featured{% endif %}">
+              <div class="timu-comparison-card-header">
+                <div>
+                  <span class="timu-comparison-card-eyebrow">{% if clip.featured %}Shared pretrain{% else %}Expert model{% endif %}</span>
+                  <h5>{{ clip.model }}</h5>
+                  <p>{{ clip.method }}</p>
+                </div>
+                <button class="timu-fullscreen-button" type="button" data-video-fullscreen aria-label="View {{ clip.model }} on the {{ trajectory.name | downcase }} in full screen" title="View full screen"><i class="fas fa-expand" aria-hidden="true"></i></button>
+              </div>
+              <video class="timu-comparison-video" controls muted loop playsinline preload="none" poster="{{ trajectory.image }}" aria-label="{{ clip.model }}, {{ clip.method }}, on the {{ trajectory.name | downcase }}">
+                <source src="{{ clip.source }}" type="video/mp4">
+              </video>
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+        {% endfor %}
+      </section>
+
+      <details class="timu-additional-results">
+        <summary><span><span class="timu-block-label">Additional results</span><strong>Platform-specific TartanIMU demonstrations</strong></span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="timu-result-grid">
         <article class="timu-result-card" style="--platform-color:#b45309;">
           <video controls muted loop playsinline preload="none" poster="/img/tartanimu/car_overview.png" aria-label="Ground vehicle foundation model result">
             <source src="/video/tartanimu/exp1_video_compare_car.m4v" type="video/mp4">
@@ -935,7 +1348,8 @@ body_class: tartanimu-site
           </video>
           <div class="timu-result-caption"><strong>Human motion</strong><span class="timu-platform-dot" aria-hidden="true"></span></div>
         </article>
-      </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -982,7 +1396,7 @@ body_class: tartanimu-site
         <p class="timu-section-lead">The same model moves from broad motion learning to lightweight task adaptation and finally to online updates in the field.</p>
       </div>
 
-      <figure class="timu-figure" style="width:100%; margin-left:0; transform:none;">
+      <figure class="timu-figure timu-figure--contained">
         <img src="/img/tartanimu/systempipeline.png" alt="TartanIMU architecture showing pretraining, efficient fine-tuning, and online adaptation" width="1592" height="1145" loading="lazy" decoding="async">
         <figcaption>The TartanIMU pipeline: shared pretraining, adapter-based fine-tuning, and online adaptation with an adaptive memory buffer.</figcaption>
       </figure>
@@ -1058,7 +1472,7 @@ body_class: tartanimu-site
       </div>
 
       <div class="timu-dataset-actions">
-        <a class="timu-text-link" href="https://huggingface.co/datasets/raphael-blanchard/TartanIMU/tree/main" target="_blank" rel="noopener"><i class="fas fa-database" aria-hidden="true"></i> Browse dataset and checkpoints</a>
+        <a class="timu-text-link" href="https://github.com/superxslam/TartanIMU" target="_blank" rel="noopener"><i class="fas fa-database" aria-hidden="true"></i> Browse dataset and checkpoints</a>
         <a class="timu-text-link" href="https://github.com/superxslam/TartanIMU" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Read setup and training instructions</a>
       </div>
     </div>
@@ -1140,6 +1554,113 @@ body_class: tartanimu-site
         }
       });
     });
+
+    var comparisonTabs = Array.from(document.querySelectorAll('[data-comparison-tab]'));
+    var comparisonPanels = Array.from(document.querySelectorAll('[data-comparison-panel]'));
+    var comparisonVideos = Array.from(document.querySelectorAll('.timu-comparison-video'));
+
+    var comparisonIsVisible = false;
+
+    function playComparisonPanel(panel, restart) {
+      panel.querySelectorAll('video').forEach(function (video) {
+        if (restart) {
+          try { video.currentTime = 0; } catch (error) {}
+        }
+        var playback = video.play();
+        if (playback) playback.catch(function () {});
+      });
+    }
+
+    function activateComparison(tab) {
+      var target = tab.getAttribute('data-comparison-tab');
+      var activePanel = null;
+      comparisonTabs.forEach(function (item) {
+        var selected = item === tab;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', selected ? 'true' : 'false');
+        item.setAttribute('tabindex', selected ? '0' : '-1');
+      });
+      comparisonPanels.forEach(function (panel) {
+        var selected = panel.getAttribute('data-comparison-panel') === target;
+        panel.hidden = !selected;
+        if (selected) {
+          activePanel = panel;
+        } else {
+          panel.querySelectorAll('video').forEach(function (video) { video.pause(); });
+        }
+      });
+      if (activePanel && comparisonIsVisible) playComparisonPanel(activePanel, true);
+    }
+
+    comparisonTabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activateComparison(tab); });
+      tab.addEventListener('keydown', function (event) {
+        var nextIndex = null;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % comparisonTabs.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + comparisonTabs.length) % comparisonTabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = comparisonTabs.length - 1;
+        if (nextIndex === null) return;
+        event.preventDefault();
+        activateComparison(comparisonTabs[nextIndex]);
+        comparisonTabs[nextIndex].focus();
+      });
+    });
+
+    var comparisonSection = document.querySelector('.timu-comparison');
+    if (comparisonSection && 'IntersectionObserver' in window) {
+      var comparisonObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          comparisonIsVisible = entry.isIntersecting;
+          var activePanel = comparisonPanels.find(function (panel) { return !panel.hidden; });
+          if (comparisonIsVisible && activePanel) {
+            playComparisonPanel(activePanel, false);
+          } else {
+            comparisonVideos.forEach(function (video) { video.pause(); });
+          }
+        });
+      }, { threshold: 0.08 });
+      comparisonObserver.observe(comparisonSection);
+    } else if (comparisonSection) {
+      comparisonIsVisible = true;
+      var initialComparisonPanel = comparisonPanels.find(function (panel) { return !panel.hidden; });
+      if (initialComparisonPanel) playComparisonPanel(initialComparisonPanel, false);
+    }
+
+    document.querySelectorAll('[data-video-fullscreen]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var video = button.closest('.timu-comparison-card').querySelector('video');
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
+          video.webkitEnterFullscreen();
+        }
+      });
+    });
+
+    var revealTargets = Array.from(document.querySelectorAll(
+      '.timu-challenge-link, .timu-section-heading, .timu-metrics, .timu-feature-video, ' +
+      '.timu-comparison, .timu-contributions, .timu-figure, .timu-stage, ' +
+      '.timu-platform-grid, .timu-note, .timu-citation-bar, .timu-citation, .timu-bottom-cta-inner'
+    ));
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+
+      revealTargets.forEach(function (item) {
+        item.classList.add('timu-reveal');
+        revealObserver.observe(item);
+      });
+    } else {
+      revealTargets.forEach(function (item) { item.classList.add('is-visible'); });
+    }
 
     var copyButton = document.getElementById('timu-copy-bibtex');
     var bibtex = document.querySelector('#timu-bibtex code');

@@ -6,10 +6,10 @@
     - name: SuperOdomV1
       link: /superodom_v1
 - name: Workshop
-  link: /interoception
+  link: /interoception/
   dropdown:
     - name: IROS'26 Workshop
-      link: /interoception
+      link: /interoception/
     - name: ICCV Workshop
       link: /iccv23
 - name: IMU Odometry Challenge
@@ -24,10 +24,10 @@
     - name: Sensor Fusion Track
       link: /iccv23_challenge_Mul
 - name: Research
-  link: /research
+  link: /research/
   dropdown:
     - name: All Research
-      link: /research
+      link: /research/
     - name: TartanIMU
       link: /tartanimu
     - name: SuperLoc

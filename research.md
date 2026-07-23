@@ -5,6 +5,7 @@ layout: page
 show_sidebar: false
 hide_hero: true
 hide_footer: false
+permalink: /research/
 ---
 
 <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">

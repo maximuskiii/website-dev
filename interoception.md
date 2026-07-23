@@ -4,6 +4,8 @@ subtitle: "Interoceptive Perception for Resilient Robotics — Tentative: Sep 27
 layout: page
 show_sidebar: false
 hide_footer: true
+hide_hero: true
+permalink: /interoception/
 hero_height: is-large
 hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
 ---
@@ -13,541 +15,530 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
 <style>
+  :root {
+    --workshop-accent: #c45a0e;
+    --workshop-accent-dark: #8f3d00;
+    --workshop-ink: #17191d;
+    --workshop-muted: #62666d;
+    --workshop-line: #e2e4e8;
+    --workshop-surface: #f6f7f8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
   body {
+    overflow-x: hidden;
+    color: var(--workshop-ink);
+    background: #fff;
     font-family: 'Google Sans', 'Noto Sans', sans-serif;
   }
 
-  /* Full-width hero banner */
-  .hero[style*="background"] {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    overflow: hidden !important;
-    background-size: cover !important;
-    background-position: center 85% !important;
-    background-repeat: no-repeat !important;
-    min-height: 400px !important;
-    aspect-ratio: 2.5 / 1;
-    position: relative !important;
-    left: 0 !important;
-  }
-
-  .hero:not([style*="background-image"]) {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 1.5rem 0 !important;
-  }
-
-  .hero.is-large[style*="background-image"] {
-    height: auto !important;
-    min-height: 300px !important;
-    max-height: 50vh !important;
-  }
-
-  @media (max-width: 768px) {
-    .hero[style*="background-image"] {
-      aspect-ratio: 16 / 9;
-    }
-  }
-
-  .hero[style*="background-image"] .hero-body,
-  .hero[style*="background-image"] .container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  body, html {
-    overflow-x: hidden;
-  }
-
-  .layout--page .hero,
-  .layout--default .hero {
-    margin-top: 0 !important;
-    margin-bottom: 2rem !important;
-    left: 0 !important;
-    right: 0 !important;
-  }
-
-  .hero .hero-body {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    padding-top: 8rem !important;
-  }
-
-  .hero .container {
-    text-align: left !important;
-    padding-left: 15% !important;
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  /* Title styling */
-  .publication-title {
-    font-family: 'Google Sans', sans-serif;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-
-  #main-title {
-    font-size: clamp(2rem, 5vw, 3.5rem) !important;
-    line-height: 1.1 !important;
-    margin-bottom: 1.5rem !important;
-    padding: 0 1rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0 !important;
-  }
-
-  @media (max-width: 768px) {
-    #main-title {
-      font-size: clamp(1.5rem, 8vw, 2.2rem) !important;
-      line-height: 1.2 !important;
-      letter-spacing: 0 !important;
-    }
-  }
-
-  /* Section styles */
-  .title-section,
-  .content-section,
-  section.section {
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100% !important;
-    padding: 2rem 1rem !important;
-  }
-
-  .title-section .container,
-  .content-section .container,
-  section.section .container {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  @media (max-width: 1200px) {
-    .title-section,
-    .content-section,
-    section.section {
-      width: 95% !important;
-    }
-  }
-
-  .section {
-    padding: 1.5rem 1.5rem;
-  }
-
-  .section p {
-    text-align: justify;
-  }
-
-  /* TOC sidebar */
-  .toc {
-    width: 280px;
-    font-family: 'Google Sans', sans-serif;
-    position: fixed;
-    top: 100px;
-    display: none;
-    z-index: 1000;
-    max-height: calc(100vh - 280px);
-    overflow-y: auto;
-    padding-right: 10px;
-    box-sizing: border-box;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  @media (min-width: 1400px) {
-    .toc.show {
-      left: max(20px, calc(25vw - 400px));
-      display: block !important;
-      opacity: 1;
-    }
-  }
-
-  .toc::-webkit-scrollbar {
-    display: none;
-  }
-
-  .toc h3 {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-
-  .toc hr {
-    border: 0;
-    height: 1px;
-    background-color: #ccc;
-    margin-bottom: 15px;
-  }
-
-  .toc ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .toc li {
-    margin-bottom: 6px;
-  }
-
-  .toc a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: color 0.2s ease, font-weight 0.2s ease;
-  }
-
-  .toc a:hover {
-    color: #000;
-    text-decoration: underline;
-  }
-
-  .toc a.active {
-    color: #4f7a00;
-    font-weight: 700;
+  .content .workshop-hero {
     position: relative;
-    padding-left: 12px;
-  }
-
-  .toc a.active::before {
-    content: "|";
-    position: absolute;
-    left: 0;
-    color: #4f7a00;
-    font-weight: 700;
-  }
-
-  @media (max-width: 1399px) {
-    .toc {
-      display: none !important;
-    }
-  }
-
-  /* Card styles */
-  .workshop-card {
-    background: #fdfdfd;
-    border: 1px solid #eee;
-    padding: 2.5rem;
-    border-radius: 20px;
-    margin: 2rem 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    position: relative;
-  }
-
-  .workshop-card-label {
-    position: absolute;
-    top: -15px;
-    left: 30px;
-    background: #4f7a00;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-weight: 800;
-    font-family: monospace;
-  }
-
-  /* Schedule table */
-  .schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
+    left: 50%;
+    width: 100vw;
+    min-height: 580px;
+    margin: -3rem 0 0 -50vw;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-end;
+    background:
+      linear-gradient(90deg, rgba(14, 17, 22, 0.94) 0%, rgba(14, 17, 22, 0.76) 48%, rgba(14, 17, 22, 0.24) 100%),
+      linear-gradient(0deg, rgba(14, 17, 22, 0.72) 0%, rgba(14, 17, 22, 0) 48%),
+      url('/img/IROS_2026_tab/pittsburgh_from_pdf.jpg') center 62% / cover no-repeat;
   }
 
-  .schedule-table th {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-align: center;
+  .workshop-hero::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 5px;
+    background: var(--workshop-accent);
   }
 
-  .schedule-table td {
-    padding: 12px 16px;
-    text-align: center;
-    vertical-align: middle;
-    border-bottom: 1px solid #eee;
-    font-size: 0.95rem;
+  .workshop-hero-inner {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, calc(100% - 3rem));
+    margin: 0 auto;
+    padding: 5rem 0 4.25rem;
   }
 
-  .schedule-table tr:hover {
-    background-color: #f9f9f9;
+  .content .workshop-kicker {
+    margin: 0 0 1rem;
+    color: #ffd8bc;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
   }
 
-  .schedule-table tr.break-row {
-    background-color: #f0f4e8;
-  }
-
-  .schedule-table tr.break-row:hover {
-    background-color: #e8eee0;
-  }
-
-  /* Speaker grid */
-  .speaker-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .speaker-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-  }
-
-  .speaker-card {
-    text-align: center;
-  }
-
-  .speaker-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .speaker-card .speaker-name {
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .speaker-card .speaker-name a {
-    color: #333;
-    text-decoration: none;
-  }
-
-  .speaker-card .speaker-name a:hover {
-    color: #4f7a00;
-    text-decoration: underline;
-  }
-
-  .speaker-card .speaker-role {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 2px;
-  }
-
-  .speaker-card .speaker-affiliation {
-    font-size: 0.85rem;
-    color: #999;
-  }
-
-  .speaker-card .speaker-topic {
-    font-size: 0.8rem;
-    color: #4f7a00;
-    font-style: italic;
-    margin-top: 4px;
-  }
-
-  /* Topic list */
-  .topic-list {
-    list-style: none;
-    padding: 0;
+  .content #main-title {
+    max-width: 880px;
     margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    padding: 0;
+    color: #fff;
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: 0;
+    text-align: left;
   }
 
-  @media (max-width: 768px) {
-    .topic-list {
-      grid-template-columns: 1fr;
-    }
+  .content #main-title span {
+    display: block;
+    margin-top: 0.65rem;
+    color: #fff;
+    font-size: 0.48em;
+    font-weight: 600;
+    line-height: 1.25;
   }
 
-  .topic-list li {
-    padding: 10px 16px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #4f7a00;
-    font-size: 0.95rem;
-    color: #333;
+  .workshop-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
   }
 
-  /* Responsive hero body */
-  .hero-body {
-    padding: 2rem 1rem !important;
-  }
-
-  @media (min-width: 769px) {
-    .hero-body {
-      padding: 3rem 1.5rem !important;
-    }
-  }
-
-  .challenge-cta {
+  .workshop-meta span {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 0;
-    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .workshop-meta i {
+    color: #ffd8bc;
+  }
+
+  .workshop-hero .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    max-width: 820px;
+    margin-top: 1.5rem;
+  }
+
+  .content .challenge-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 46px;
+    padding: 0.72rem 1rem;
+    border: 1px solid var(--workshop-accent);
     border-radius: 6px;
-    background: #4f7a00;
+    background: var(--workshop-accent);
     color: #fff;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
 
-  .challenge-cta:hover {
-    background: #3e6100;
-    color: #fff;
-    transform: translateY(-1px);
-  }
-
-  .tentative-date {
-    margin: 0;
-    color: #4d4d4d;
-    font-size: 1rem;
-    text-align: center !important;
-  }
-
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    margin-top: 1rem;
-  }
-
-  .challenge-cta.is-secondary {
+  .content .challenge-cta:hover {
+    border-color: #fff;
     background: #fff;
-    color: #2f4900;
-    border: 1px solid #4f7a00;
-    box-shadow: none;
+    color: var(--workshop-accent-dark);
   }
 
-  .challenge-cta.is-secondary:hover {
-    background: #f2f7e9;
-    color: #223600;
+  .content .challenge-cta.is-secondary {
+    border-color: rgba(255, 255, 255, 0.58);
+    background: rgba(10, 12, 16, 0.26);
+    color: #fff;
+    backdrop-filter: blur(8px);
   }
 
-  .cta-status {
+  .content .challenge-cta.is-secondary:hover {
+    border-color: #fff;
+    background: #fff;
+    color: var(--workshop-accent-dark);
+  }
+
+  .content .cta-status {
     flex-basis: 100%;
-    margin: 0.15rem 0 0;
-    color: #555;
-    font-size: 0.9rem;
-    text-align: center !important;
-  }
-
-  .mobile-section-nav {
-    display: none;
-    max-width: 760px;
-    margin: 1.25rem auto 0;
+    margin: 0.1rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.88rem;
     text-align: left;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
   }
 
-  .mobile-section-nav summary {
-    padding: 0.75rem 0;
-    color: #222;
-    font-weight: 700;
-    cursor: pointer;
+  .workshop-section-nav {
+    position: sticky;
+    z-index: 30;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    isolation: isolate;
   }
 
-  .mobile-section-nav nav {
+  .workshop-section-nav::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    border-bottom: 1px solid var(--workshop-line);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 8px 24px rgba(19, 24, 31, 0.05);
+    backdrop-filter: blur(12px);
+  }
+
+  .workshop-section-nav .nav-inner {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    padding: 0 0 0.85rem;
+    width: min(1120px, calc(100% - 3rem));
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  .mobile-section-nav a {
-    color: #2f4900;
-    font-weight: 600;
+  .workshop-section-nav .nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .content .workshop-section-nav a {
+    position: relative;
+    flex: 0 0 auto;
+    padding: 1rem 1.1rem;
+    color: #4d5158;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .content .workshop-section-nav a:first-child {
+    padding-left: 0;
+  }
+
+  .workshop-section-nav a::after {
+    content: '';
+    position: absolute;
+    right: 1.1rem;
+    bottom: -1px;
+    left: 1.1rem;
+    height: 3px;
+    background: transparent;
+  }
+
+  .workshop-section-nav a:first-child::after {
+    left: 0;
+  }
+
+  .content .workshop-section-nav a:hover,
+  .content .workshop-section-nav a.active {
+    color: var(--workshop-accent-dark);
+  }
+
+  .workshop-section-nav a.active::after {
+    background: var(--workshop-accent);
+  }
+
+  .content section.content-section {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    max-width: none;
+    margin: 0 0 0 -50vw;
+    padding: 5rem 1.5rem;
+    border-top: 1px solid var(--workshop-line);
+    background: #fff;
+  }
+
+  .content section.content-section:nth-of-type(even) {
+    background: var(--workshop-surface);
+  }
+
+  .content-section .container {
+    width: min(1080px, 100%);
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .content-section .column.is-four-fifths {
+    width: 100%;
+    max-width: 940px;
+    flex: none;
+  }
+
+  .content .content-section .title.is-2 {
+    position: relative;
+    margin: 0 0 2.25rem;
+    padding-bottom: 0.8rem;
+    color: var(--workshop-ink);
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  .content-section .title.is-2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 54px;
+    height: 4px;
+    background: var(--workshop-accent);
+  }
+
+  .content .content-section .title.is-4 {
+    color: var(--workshop-ink);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .content .content-section p {
+    color: var(--workshop-ink);
+    font-size: 1.02rem;
+    line-height: 1.82;
+    text-align: left;
+  }
+
+  .content .content-section .section-intro {
+    max-width: 760px;
+    margin: -1.25rem 0 2.25rem;
+    color: var(--workshop-muted);
   }
 
   .dates-list {
-    border-top: 1px solid #d8d8d8;
+    border: 0;
   }
 
   .date-row {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: minmax(160px, 205px) minmax(0, 1fr);
+    gap: 2rem;
     align-items: baseline;
-    padding: 1rem 0;
-    border-bottom: 1px solid #d8d8d8;
+    padding: 1.15rem 1.25rem 1.15rem 1.65rem;
+    border: 0;
+    border-left: 2px solid #d8dadd;
+  }
+
+  .date-row::before {
+    content: '';
+    position: absolute;
+    top: 1.6rem;
+    left: -7px;
+    width: 12px;
+    height: 12px;
+    border: 3px solid var(--workshop-accent);
+    border-radius: 50%;
+    background: #fff;
   }
 
   .date-row time {
-    color: #2f4900;
+    color: var(--workshop-accent-dark);
+    font-size: 0.95rem;
     font-weight: 700;
   }
 
-  .date-row p {
+  .content .date-row p {
     margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .content .timeline-note {
+    margin: 1.25rem 0 0;
+    color: var(--workshop-muted);
+    font-size: 0.88rem;
+  }
+
+  .topic-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--workshop-line);
+    list-style: none;
+  }
+
+  .content .topic-list li {
+    position: relative;
+    margin: 0;
+    padding: 0.9rem 1.5rem 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--workshop-line);
+    background: transparent;
+    color: #373a40;
+    font-size: 0.95rem;
+  }
+
+  .topic-list li::before {
+    content: '';
+    position: absolute;
+    top: 1.42rem;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--workshop-accent);
+  }
+
+  .speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .speaker-card {
+    min-width: 0;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid var(--workshop-line);
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .speaker-card:hover {
+    border-color: #d5b49c;
+    box-shadow: 0 12px 30px rgba(30, 34, 40, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .content .speaker-card img {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 1rem;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    outline: 1px solid #dfe1e4;
+    box-shadow: none;
+    object-fit: cover;
+  }
+
+  .content .speaker-card p {
+    text-align: center;
+  }
+
+  .content .speaker-card .speaker-name {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .content .speaker-card .speaker-name a {
+    color: var(--workshop-ink);
+    text-decoration: none;
+  }
+
+  .content .speaker-card .speaker-name a:hover {
+    color: var(--workshop-accent-dark);
+    text-decoration: underline;
+  }
+
+  .content .speaker-card .speaker-role,
+  .content .speaker-card .speaker-affiliation,
+  .content .speaker-card .speaker-topic {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .content .speaker-card .speaker-role {
+    margin: 0;
+    color: #555a62;
+  }
+
+  .content .speaker-card .speaker-affiliation {
+    margin: 0.25rem 0 0;
+    color: #7b7f86;
+  }
+
+  .content .speaker-card .speaker-topic {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--workshop-line);
+    color: var(--workshop-accent-dark);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .content .schedule-table {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--workshop-line);
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: none;
+  }
+
+  .schedule-table th {
+    padding: 0.9rem 1rem;
+    border: 0;
+    background: var(--workshop-ink);
+    color: #fff;
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-align: left;
+    text-transform: uppercase;
   }
 
-  .timeline-note,
-  .section-intro {
-    color: #555;
-    text-align: left !important;
+  .schedule-table td {
+    padding: 0.9rem 1rem;
+    border: 0;
+    border-bottom: 1px solid var(--workshop-line);
+    color: #34373c;
+    font-size: 0.91rem;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle;
   }
 
-  .timeline-note {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+  .schedule-table tr:last-child td {
+    border-bottom: 0;
   }
 
-  .section-intro {
-    max-width: 800px;
-    margin: 0 0 1.5rem;
+  .schedule-table tr:hover {
+    background: #fff8f3;
   }
 
-  @media (max-width: 1399px) {
-    .mobile-section-nav {
-      display: block;
+  .schedule-table tr.break-row {
+    background: #f1f2f3;
+  }
+
+  .schedule-table tr.break-row:hover {
+    background: #eceeef;
+  }
+
+  @media (max-width: 900px) {
+    .content .workshop-hero {
+      min-height: 540px;
+      background-position: 58% 62%;
+    }
+
+    .content #main-title {
+      font-size: 3rem;
+    }
+
+    .speaker-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 768px) {
-    .section p {
-      text-align: left;
-    }
-
-    .date-row {
-      grid-template-columns: 1fr;
-      gap: 0.35rem;
-    }
-
-    .cta-row {
-      align-items: stretch;
-    }
-
-    .challenge-cta {
-      justify-content: center;
-      width: 100%;
-    }
-
-    .schedule-table {
+  @media (max-width: 720px) {
+    .content .schedule-table {
       display: block;
       overflow: visible;
-      box-shadow: none;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
     .schedule-table tbody,
@@ -562,20 +553,20 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     }
 
     .schedule-table tr {
-      margin-bottom: 0.85rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      margin-bottom: 0.75rem;
       overflow: hidden;
+      border: 1px solid var(--workshop-line);
+      border-radius: 6px;
       background: #fff;
     }
 
     .schedule-table td {
       display: grid;
-      grid-template-columns: 5.25rem minmax(0, 1fr);
+      grid-template-columns: 4.5rem minmax(0, 1fr);
       gap: 0.75rem;
       padding: 0.7rem 0.8rem;
-      border-bottom: 1px solid #eee;
-      text-align: left;
+      border-bottom: 1px solid var(--workshop-line);
+      font-size: 0.87rem;
     }
 
     .schedule-table td:last-child {
@@ -583,82 +574,171 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     }
 
     .schedule-table td::before {
-      color: #555;
-      font-size: 0.78rem;
-      font-weight: 700;
+      color: #6b7078;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .schedule-table td:nth-child(1)::before {
-      content: "Time";
+    .schedule-table td:nth-child(1)::before { content: 'Time'; }
+    .schedule-table td:nth-child(2)::before { content: 'Speaker'; }
+    .schedule-table td:nth-child(3)::before { content: 'Topic'; }
+    .schedule-table .break-row td[colspan]::before { content: 'Session'; }
+  }
+
+  @media (max-width: 640px) {
+    .content .workshop-hero {
+      min-height: 620px;
+      margin-top: -1.5rem;
+      background-position: 64% center;
     }
 
-    .schedule-table td:nth-child(2)::before {
-      content: "Speaker";
+    .workshop-hero-inner,
+    .workshop-section-nav .nav-inner {
+      width: calc(100% - 2rem);
     }
 
-    .schedule-table td:nth-child(3)::before {
-      content: "Topic";
+    .workshop-hero-inner {
+      padding: 4rem 0 3rem;
     }
 
-    .schedule-table .break-row td[colspan]::before {
-      content: "Session";
+    .content #main-title {
+      font-size: 2.35rem;
+      line-height: 1.05;
     }
+
+    .content #main-title span {
+      font-size: 0.52em;
+    }
+
+    .workshop-meta {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .workshop-hero .cta-row {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .content .workshop-hero .challenge-cta {
+      width: 100%;
+    }
+
+    .content .workshop-section-nav a {
+      padding: 0.85rem 0.8rem;
+      font-size: 0.82rem;
+    }
+
+    .workshop-section-nav a::after {
+      right: 0.8rem;
+      left: 0.8rem;
+    }
+
+    .content section.content-section {
+      padding: 3.75rem 1rem;
+    }
+
+    .content .content-section .title.is-2 {
+      font-size: 1.7rem;
+    }
+
+    .date-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+      padding-left: 1.3rem;
+    }
+
+    .topic-list {
+      grid-template-columns: 1fr;
+    }
+
+    .speaker-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .speaker-card {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      column-gap: 1rem;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .content .speaker-card img {
+      grid-row: 1 / span 5;
+      width: 88px;
+      height: 88px;
+      margin: 0;
+    }
+
+    .speaker-card .speaker-name,
+    .speaker-card .speaker-role,
+    .speaker-card .speaker-affiliation,
+    .speaker-card .speaker-topic {
+      grid-column: 2;
+    }
+
+    .content .speaker-card p {
+      text-align: left;
+    }
+
+    .content .speaker-card .speaker-topic {
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .speaker-card,
+    .challenge-cta { transition: none; }
   }
 </style>
 
-<!-- Main Title Section -->
-<section class="section title-section">
-  <!-- Table of Contents -->
-  <div class="toc">
-    <h3>Content</h3>
-    <hr>
-    <ul>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#important-dates">Important Dates</a></li>
-      <li><a href="#scope">Workshop Scope</a></li>
-      <li><a href="#speakers">Invited Speakers</a></li>
-      <li><a href="#program">Program</a></li>
-      <li><a href="#organizers">Organizers</a></li>
-    </ul>
-  </div>
-
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column has-text-centered">
-        <h1 class="title is-1 publication-title" id="main-title"><span style="color:#4f7a00;">Beyond Exteroception</span>: Interoceptive Perception <br>for Resilient Robotics</h1>
-        <p style="font-size: 1.3rem; color: #555; margin-bottom: 0.35rem;">IROS 2026 Workshop &mdash; Pittsburgh, PA</p>
-        <p class="tentative-date"><strong>Tentative date:</strong> September 27, 2026</p>
-        <div class="cta-row" aria-label="Workshop actions">
-          <a class="challenge-cta" href="/imuchallenge/">
-            <span class="icon" aria-hidden="true"><i class="fas fa-trophy"></i></span>
-            <span>Explore Challenge</span>
-          </a>
-          <a class="challenge-cta is-secondary" href="https://forms.gle/oRr4rCNxqTP1U6uS8" target="_blank" rel="noopener">
-            <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
-            <span>Register Team</span>
-          </a>
-          <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartanimu-iros2026/submissions" target="_blank" rel="noopener">
-            <span class="icon" aria-hidden="true"><i class="fas fa-upload"></i></span>
-            <span>Submit on Kaggle</span>
-          </a>
-          <p class="cta-status"><span class="icon" aria-hidden="true"><i class="fas fa-clock"></i></span> Workshop registration and poster submission details are coming soon.</p>
-        </div>
-        <details class="mobile-section-nav">
-          <summary>On this page</summary>
-          <nav aria-label="Workshop sections">
-            <a href="#abstract">Abstract</a>
-            <a href="#important-dates">Important Dates</a>
-            <a href="#scope">Workshop Scope</a>
-            <a href="#speakers">Speakers</a>
-            <a href="#program">Program</a>
-            <a href="#organizers">Organizers</a>
-          </nav>
-        </details>
-      </div>
+<!-- Workshop hero -->
+<header class="workshop-hero">
+  <div class="workshop-hero-inner">
+    <p class="workshop-kicker">IROS 2026 Workshop &middot; Pittsburgh, Pennsylvania</p>
+    <h1 class="title is-1 publication-title" id="main-title">
+      Beyond Exteroception
+      <span>Interoceptive Perception for Resilient Robotics</span>
+    </h1>
+    <div class="workshop-meta" aria-label="Workshop details">
+      <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> September 27, 2026 (tentative)</span>
+      <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Pittsburgh, PA</span>
+      <span><i class="fas fa-users" aria-hidden="true"></i> Full-day workshop</span>
+    </div>
+    <div class="cta-row" aria-label="Workshop actions">
+      <a class="challenge-cta" href="/imuchallenge/">
+        <span class="icon" aria-hidden="true"><i class="fas fa-trophy"></i></span>
+        <span>Explore Challenge</span>
+      </a>
+      <a class="challenge-cta is-secondary" href="https://forms.gle/oRr4rCNxqTP1U6uS8" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
+        <span>Register Team</span>
+      </a>
+      <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartanimu-iros2026/submissions" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><i class="fas fa-upload"></i></span>
+        <span>Submit on Kaggle</span>
+      </a>
+      <p class="cta-status"><span class="icon" aria-hidden="true"><i class="fas fa-clock"></i></span> Workshop registration and poster submission details are coming soon.</p>
     </div>
   </div>
-</section>
+</header>
+
+<nav class="workshop-section-nav" aria-label="Workshop sections">
+  <div class="nav-inner">
+    <a href="#abstract">Abstract</a>
+    <a href="#important-dates">Dates</a>
+    <a href="#scope">Scope</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#program">Program</a>
+    <a href="#organizers">Organizers</a>
+  </div>
+</nav>
 
 <!-- Abstract Section -->
 <section class="section content-section" id="abstract" style="padding-top: 1rem !important;">
@@ -767,7 +847,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </div>
           <div class="speaker-card">
             <img src="/img/slam_series/davides.jpg" alt="Davide Scaramuzza"/>
-            <p class="speaker-name">Davide Scaramuzza</p>
+            <p class="speaker-name"><a href="https://rpg.ifi.uzh.ch/people_scaramuzza.html">Davide Scaramuzza</a></p>
             <p class="speaker-role">Professor of Robotics and Perception</p>
             <p class="speaker-affiliation">University of Zurich</p>
             <p class="speaker-topic">Talk title to be announced</p>
@@ -989,76 +1069,41 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
   </div>
 </section>
 
-<!-- JavaScript for TOC Scroll Behavior -->
+<!-- Active section navigation -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const toc = document.querySelector('.toc');
-    const mainTitle = document.getElementById('main-title');
+    const links = Array.from(document.querySelectorAll('.workshop-section-nav a'));
+    const sections = links
+      .map(function(link) {
+        return document.querySelector(link.getAttribute('href'));
+      })
+      .filter(Boolean);
+    let ticking = false;
 
-    if (toc && mainTitle) {
-      function checkTocVisibility() {
-        const titleRect = mainTitle.getBoundingClientRect();
-        if (titleRect.top <= 100) {
-          toc.classList.add('show');
-        } else {
-          toc.classList.remove('show');
-        }
-      }
-      window.addEventListener('scroll', checkTocVisibility);
-      checkTocVisibility();
+    function updateActiveSection() {
+      const marker = window.scrollY + 140;
+      let active = sections[0];
+
+      sections.forEach(function(section) {
+        if (section.offsetTop <= marker) active = section;
+      });
+
+      links.forEach(function(link) {
+        const isActive = active && link.getAttribute('href') === '#' + active.id;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+      ticking = false;
     }
 
-    const tocLinks = document.querySelectorAll('.toc a');
-    const sections = [];
-
-    tocLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const sectionId = href.substring(1);
-        const section = document.getElementById(sectionId);
-        if (section) {
-          sections.push({ id: sectionId, element: section, link: link });
-        }
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
       }
-    });
+    }, { passive: true });
 
-    function updateActiveTocLink() {
-      const scrollPosition = window.scrollY + 150;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      let currentSection = null;
-
-      if (window.scrollY + windowHeight >= documentHeight - 50) {
-        currentSection = sections[sections.length - 1];
-      } else {
-        for (let i = 0; i < sections.length; i++) {
-          const section = sections[i];
-          const rect = section.element.getBoundingClientRect();
-          const sectionTop = rect.top + window.scrollY;
-          const sectionBottom = sectionTop + rect.height;
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSection = section;
-            break;
-          }
-        }
-        if (!currentSection) {
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const sectionTop = sections[i].element.getBoundingClientRect().top + window.scrollY;
-            if (sectionTop <= scrollPosition) {
-              currentSection = sections[i];
-              break;
-            }
-          }
-        }
-      }
-
-      tocLinks.forEach(link => link.classList.remove('active'));
-      if (currentSection) {
-        currentSection.link.classList.add('active');
-      }
-    }
-
-    window.addEventListener('scroll', updateActiveTocLink);
-    updateActiveTocLink();
+    updateActiveSection();
   });
 </script>

@@ -9,7 +9,7 @@ hero_height: is-large
 hero_image: img/super_odometry/superodom_video.gif
 hero_buttons:
   - text: See Our Research
-    link: /research
+    link: /research/
     icon: fas fa-flask
     color: "#C45A0E"
   - text: Join Discord

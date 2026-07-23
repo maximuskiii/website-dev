@@ -1,0 +1,92 @@
+- id: car
+  name: Car trajectory
+  short_name: Car
+  icon: "fas fa-car"
+  image: "https://cmu-superx.github.io/HERO/static/images/car_robot.png"
+  image_alt: "Ground vehicle used for the HERO car trajectory comparison"
+  clips:
+    - model: Car Expert Model
+      method: AI-IMU
+      source: "https://cmu-superx.github.io/HERO/static/videos/expert_car_4K.mp4"
+    - model: Dog Expert Model
+      method: RNIN-VIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/dog_car_4K.mp4"
+    - model: Human Expert Model
+      method: TLIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/human_car_4K.mp4"
+    - model: Drone Expert Model
+      method: IMO
+      source: "https://cmu-superx.github.io/HERO/static/videos/drone_car_4K.mp4"
+    - model: IMU Pretrain Model
+      method: TartanIMU (ours)
+      source: "https://cmu-superx.github.io/HERO/static/videos/FIMU_car_4K.mp4"
+      featured: true
+- id: dog
+  name: Quadruped trajectory
+  short_name: Quadruped
+  icon: "fas fa-robot"
+  image: "https://cmu-superx.github.io/HERO/static/images/dog_robot.png"
+  image_alt: "Quadruped robot used for the HERO trajectory comparison"
+  clips:
+    - model: Car Expert Model
+      method: AI-IMU
+      source: "https://cmu-superx.github.io/HERO/static/videos/car_dog_4K.mp4"
+    - model: Dog Expert Model
+      method: RNIN-VIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/expert_dog_4K.mp4"
+    - model: Human Expert Model
+      method: TLIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/human_dog_4K.mp4"
+    - model: Drone Expert Model
+      method: IMO
+      source: "https://cmu-superx.github.io/HERO/static/videos/drone_dog_4K.mp4"
+    - model: IMU Pretrain Model
+      method: TartanIMU (ours)
+      source: "https://cmu-superx.github.io/HERO/static/videos/FIMU_dog_4K.mp4"
+      featured: true
+- id: human
+  name: Human trajectory
+  short_name: Human
+  icon: "fas fa-walking"
+  image: "https://cmu-superx.github.io/HERO/static/images/human_robot.png"
+  image_alt: "Human motion setup used for the HERO trajectory comparison"
+  clips:
+    - model: Car Expert Model
+      method: AI-IMU
+      source: "https://cmu-superx.github.io/HERO/static/videos/car_human_4K.mp4"
+    - model: Dog Expert Model
+      method: RNIN-VIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/dog_human_4K.mp4"
+    - model: Human Expert Model
+      method: TLIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/expert_human_4K.mp4"
+    - model: Drone Expert Model
+      method: IMO
+      source: "https://cmu-superx.github.io/HERO/static/videos/drone_human_4K.mp4"
+    - model: IMU Pretrain Model
+      method: TartanIMU (ours)
+      source: "https://cmu-superx.github.io/HERO/static/videos/FIMU_human_4K.mp4"
+      featured: true
+- id: drone
+  name: Drone trajectory
+  short_name: Drone
+  icon: "fas fa-helicopter"
+  image: "https://cmu-superx.github.io/HERO/static/images/drone_robot.png"
+  image_alt: "Drone used for the HERO trajectory comparison"
+  clips:
+    - model: Car Expert Model
+      method: AI-IMU
+      source: "https://cmu-superx.github.io/HERO/static/videos/car_drone_4K.mp4"
+    - model: Dog Expert Model
+      method: RNIN-VIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/dog_drone_4K.mp4"
+    - model: Human Expert Model
+      method: TLIO
+      source: "https://cmu-superx.github.io/HERO/static/videos/human_drone_4K.mp4"
+    - model: Drone Expert Model
+      method: IMO
+      source: "https://cmu-superx.github.io/HERO/static/videos/expert_drone_4K.mp4"
+    - model: IMU Pretrain Model
+      method: TartanIMU (ours)
+      source: "https://cmu-superx.github.io/HERO/static/videos/FIMU_drone_4K.mp4"
+      featured: true
