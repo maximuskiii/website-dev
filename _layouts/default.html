@@ -27,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-<body{% if is_imuchallenge_home %} class="imuchallenge-site imuchallenge-home"{% elsif is_imuchallenge_page %} class="imuchallenge-site"{% endif %}>
+<body{% if is_imuchallenge_home %} class="imuchallenge-site imuchallenge-home{% if page.body_class %} {{ page.body_class }}{% endif %}"{% elsif is_imuchallenge_page %} class="imuchallenge-site{% if page.body_class %} {{ page.body_class }}{% endif %}"{% elsif page.body_class %} class="{{ page.body_class }}"{% endif %}>
     {% include header.html %} {% unless page.hide_hero %} {% include hero.html %} {% endunless %} {% include callouts.html %}
     <section class="section">
         <div class="container">

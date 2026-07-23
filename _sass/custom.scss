@@ -1186,30 +1186,89 @@ body.imuchallenge-site .imu-data-table tr.imu-row-human td { background: #faf5ff
 
 /* ---------- Footer ---------- */
 
-body.imuchallenge-site footer.footer {
-  background: #1c3964 !important;
-  color: #8ca3c4 !important;
+footer.footer {
   padding: 2.5rem 0;
-  box-shadow: 0 -4px 14px rgba(17, 24, 39, 0.2);
+  color: rgba(255, 255, 255, 0.82) !important;
+  background: linear-gradient(90deg, #9e2b04 0%, #cb640d 100%) !important;
+  box-shadow: 0 -4px 14px rgba(17, 24, 39, 0.16);
 }
 
-body.imuchallenge-site footer.footer a {
-  color: #c7d5e8 !important;
-}
-
-body.imuchallenge-site footer.footer a:hover {
+footer.footer a,
+footer.footer a:visited,
+footer.footer p {
   color: #ffffff !important;
 }
 
-body.imuchallenge-site footer.footer p {
-  color: #8ca3c4 !important;
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+  align-items: center;
+  gap: 2rem;
 }
 
-body.imuchallenge-site footer.footer #block1 img,
-body.imuchallenge-site footer.footer #block3 img {
-  padding: 0.5rem 0.75rem;
+.site-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
   background: #ffffff;
-  border-radius: 10px;
+}
+
+.site-footer-logo img {
+  display: block;
+  width: auto;
+  max-width: 210px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.site-footer-logo--ri {
+  justify-self: end;
+}
+
+.site-footer-center {
+  text-align: center;
+}
+
+.site-footer-center p {
+  margin: 0.85rem 0 0 !important;
+  font-size: 0.82rem;
+}
+
+.site-footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.site-footer-socials .button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-socials .button:hover,
+.site-footer-socials .button:focus-visible {
+  border-color: #ffffff;
+  color: #9e2b04 !important;
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-footer-logo--ri {
+    justify-self: center;
+  }
 }
 
 /* ============================================================
