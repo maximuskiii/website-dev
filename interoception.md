@@ -881,11 +881,25 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
             <p class="speaker-topic">Talk title to be announced</p>
           </div>
           <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Haozhi_Qi.jpg" alt="Haozhi Qi"/>
+            <p class="speaker-name"><a href="https://haozhi.io/">Haozhi Qi</a></p>
+            <p class="speaker-role">Member of Technical Staff; Incoming Assistant Professor, Computer Science</p>
+            <p class="speaker-affiliation">Amazon FAR / University of Chicago</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
             <img src="/img/IROS_2026_tab/yuheng2024.jpg" alt="Yuheng Qiu"/>
             <p class="speaker-name"><a href="http://yuhengqiu.com/">Yuheng Qiu</a></p>
             <p class="speaker-role">Ph.D. Student, Mechanical Engineering</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
             <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/team/shibozNew.png" alt="Shibo Zhao"/>
+            <p class="speaker-name"><a href="https://shibowing.github.io/">Shibo Zhao</a></p>
+            <p class="speaker-role">Ph.D. Candidate, Robotics Institute</p>
+            <p class="speaker-affiliation">Carnegie Mellon University</p>
+            <p class="speaker-topic">Opening Address &amp; Challenge Introduction</p>
           </div>
         </div>
       </div>
@@ -969,7 +983,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>3:30 - 4:00 PM</td>
-            <td><strong>Invited Speaker</strong><br><span style="color:#777; font-size:0.85rem;">To be announced</span></td>
+            <td><strong>Haozhi Qi</strong><br><span style="color:#999; font-size:0.85rem;">Amazon FAR / University of Chicago</span></td>
             <td>Title to be announced</td>
           </tr>
           <tr>
