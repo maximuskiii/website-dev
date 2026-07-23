@@ -1320,699 +1320,964 @@ footer.footer p {
 }
 
 /* ============================================================
-   Homepage layout — modeled closely on
-   https://grand-tour.leggedrobotics.com/ (hero, stats band,
-   feature grid, partners grid, updates card, citation blocks).
-   Only used on the imuchallenge index page.
+   IMU Challenge homepage — aligned with the IROS workshop page.
+   Full-width media hero, compact section navigation, restrained orange
+   accents, alternating content bands, and consistent 1080px inner measure.
    ============================================================ */
 
-.imu-gt-media {
-  position: relative;
-  overflow: hidden;
-  min-height: 180px;
-  margin: 0 0 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  background: #f3f4f6;
+body.imuchallenge-home {
+  --imu-home-accent: #c45a0e;
+  --imu-home-accent-dark: #8f3d00;
+  --imu-home-ink: #17191d;
+  --imu-home-muted: #62666d;
+  --imu-home-line: #e2e4e8;
+  --imu-home-surface: #f6f7f8;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: var(--imu-home-ink);
+  font-family: "Google Sans", "Noto Sans", sans-serif;
 }
 
-.imu-gt-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.06);
-  pointer-events: none;
+body.imuchallenge-home > section.section {
+  padding: 0;
 }
 
-.imu-gt-media video {
-  display: block;
+body.imuchallenge-home > section.section > .container {
   width: 100%;
-  height: 280px;
-  min-height: 180px;
-  object-fit: cover;
+  max-width: none;
+  padding: 0;
 }
 
-/* ---------- Platform trajectory strip ---------- */
-
-.imu-gt-platform-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+body.imuchallenge-home > section.section > .container > .columns {
+  margin: 0;
 }
 
-body.imuchallenge-site .content a.imu-gt-platform-card {
-  display: block;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06), 0 4px 10px rgba(17, 24, 39, 0.08);
-  color: #111827;
-  text-decoration: none;
-  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+body.imuchallenge-home > section.section > .container > .columns > .column {
+  padding: 0;
 }
 
-body.imuchallenge-site .content a.imu-gt-platform-card:hover {
-  border-color: #C45A0E;
-  box-shadow: 0 3px 6px rgba(17, 24, 39, 0.1), 0 8px 18px rgba(17, 24, 39, 0.14);
-  color: #111827;
-  transform: translateY(-2px);
-}
-
-body.imuchallenge-site .content a.imu-gt-platform-card:focus-visible {
-  outline: 3px solid rgba(196, 90, 14, 0.35);
-  outline-offset: 3px;
-}
-
-.imu-gt-platform-card img {
-  display: block;
+body.imuchallenge-home .content {
   width: 100%;
-  aspect-ratio: 423 / 268;
-  border-bottom: 1px solid #e5e7eb;
-  object-fit: cover;
-}
-
-.imu-gt-platform-card-label {
-  display: flex;
-  min-height: 3.25rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.7rem 0.85rem;
-}
-
-.imu-gt-platform-card-label strong {
-  font-size: 0.98rem;
-}
-
-.imu-gt-platform-card-label > span {
-  flex: 0 0 auto;
-  color: #9E470B;
-  font-size: 0.76rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.imu-gt-platform-card-label i {
-  margin-left: 0.2rem;
-}
-
-@media (max-width: 900px) {
-  .imu-gt-platform-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .imu-gt-media video {
-    height: 200px;
-  }
-
-  .imu-gt-platform-strip {
-    gap: 0.75rem;
-  }
-
-  .imu-gt-platform-card-label {
-    min-height: 4rem;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-}
-
-.imu-gt-pill-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 1.75rem auto 0;
-}
-
-.imu-gt-pill {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  max-width: 34rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: 999px;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(17, 24, 39, 0.08);
-  color: #4b5563;
-  font-size: 0.88rem;
-  text-align: center;
-}
-
-.imu-gt-pill a {
-  color: #9E470B !important;
-  font-weight: 700;
-}
-
-.imu-gt-hero {
-  max-width: 58rem;
-  margin: 2.5rem auto 0;
-  text-align: center;
-}
-
-/*
-  Extra-specific selector (.content h1.imu-gt-title) so this wins over the
-  generic ".content h1" heading rule instead of losing to it on specificity.
-*/
-body.imuchallenge-site .content h1.imu-gt-title {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 1.1rem;
-  color: #111827;
-  font-size: 3.4rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0.6px currentColor;
-}
-
-body.imuchallenge-site .content h1.imu-gt-title::before {
-  content: attr(data-title);
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  color: #d1d5db;
-  transform: translate(4px, 4px);
-  transition: transform 220ms ease;
-}
-
-body.imuchallenge-site .content h1.imu-gt-title:hover::before {
-  transform: translate(8px, 8px);
-}
-
-/*
-  Extra-specific (body.imuchallenge-site .content ...) so this beats the
-  generic ".content p" rule's margin: 0 0 1.1rem, which otherwise zeroes out
-  the left/right auto margins here and leaves the paragraph flush-left
-  instead of centered under the title.
-*/
-body.imuchallenge-site .content .imu-gt-hero p.imu-gt-subtitle {
-  max-width: 38rem;
-  margin: 0 auto;
-  color: #374151;
-  font-size: 1.1rem;
-  line-height: 1.55;
-}
-
-.imu-gt-button-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 2rem 0 0.5rem;
-}
-
-.imu-gt-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.35rem;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 2px 4px rgba(17, 24, 39, 0.1), 0 6px 16px rgba(17, 24, 39, 0.14);
-  color: #9E470B !important;
-  font-weight: 700;
+  max-width: none;
+  margin: 0;
+  color: var(--imu-home-ink);
   font-size: 1rem;
-  text-decoration: none !important;
-  border: 2px solid #C45A0E;
-  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+  line-height: 1.7;
 }
 
-.imu-gt-button:hover {
-  background: #FFF4EC;
-  border-color: #C45A0E;
-  color: #7C3508 !important;
-  box-shadow: 0 4px 8px rgba(17, 24, 39, 0.14), 0 10px 22px rgba(17, 24, 39, 0.2);
-  transform: translateY(-2px);
+body.imuchallenge-home .content p,
+body.imuchallenge-home .content h1,
+body.imuchallenge-home .content h2,
+body.imuchallenge-home .content h3 {
+  text-align: left;
 }
 
-/* ---------- Stats band ---------- */
-
-.imu-gt-stats-band {
-  margin: 3rem 0 0;
-  padding: 2.5rem 1.5rem;
-  background: #f9fafb;
-  border-top: 1px solid #cbd5e1;
-  border-bottom: 1px solid #cbd5e1;
-  box-shadow: none;
+body.imuchallenge-home .content strong,
+body.imuchallenge-home .content b {
+  color: inherit;
+  font-weight: 700;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
 }
 
-.imu-gt-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.imu-gt-stats dt {
-  color: #4b5563;
-  font-size: 0.92rem;
-}
-
-.imu-gt-stats dd {
-  margin: 0.35rem 0 0;
-  color: #000000;
-  font-size: 2.4rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0.5px currentColor;
-}
-
-@media (max-width: 720px) {
-  .imu-gt-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .imu-gt-stats dd {
-    font-size: 1.6rem;
-  }
-}
-
-/*
-  Repeated mascot mark — a tiny friendly "IMU-bot" (see _includes/imu-bot.html)
-  used as a recurring visual motif across the challenge pages: section
-  dividers, the updates card, and page titles.
-*/
 .imu-bot {
   width: 1.4rem;
   height: 1.4rem;
   flex: 0 0 auto;
-  color: #C45A0E;
+  color: #c45a0e;
 }
 
-/* ---------- Section divider ---------- */
+body.imuchallenge-site .navbar.is-imuchallenge .imuchallenge-navbar-cta {
+  width: auto;
+  min-width: 0;
+  gap: 0.42rem;
+  padding: 0 0.78rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
 
-.imu-gt-divider {
+body.imuchallenge-site .navbar.is-imuchallenge .imuchallenge-navbar-cta:hover {
+  border-color: #ffffff;
+  background: #ffffff !important;
+  color: var(--imu-home-accent-dark, #8f3d00) !important;
+}
+
+/* ---------- Hero ---------- */
+
+.imu-workshop-hero {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 3.5rem 0;
-}
-
-.imu-gt-divider::before,
-.imu-gt-divider::after {
-  content: "";
-  flex: 1 1 auto;
-  height: 2px;
-  background: #cbd5e1;
-}
-
-.imu-gt-divider-mark {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  background: #C45A0E;
-  box-shadow: 0 2px 4px rgba(196, 90, 14, 0.25), 0 6px 14px rgba(196, 90, 14, 0.3);
-}
-
-.imu-gt-divider-mark .imu-bot {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 100%;
+  height: clamp(540px, 68vh, 620px);
+  align-items: flex-end;
+  overflow: hidden;
+  background: #202329 url("/img/imuchallenge/hero_poster.jpg") center 48% / cover no-repeat;
   color: #ffffff;
 }
 
-/* ---------- Section heading with accent underline swoosh ---------- */
-
-.imu-gt-section-title {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 2rem;
-  padding-bottom: 0.3rem;
-  color: #000000;
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0.5px currentColor;
-}
-
-.imu-gt-section-title::after {
+.imu-workshop-hero::after {
   content: "";
   position: absolute;
-  left: 0;
+  z-index: 3;
   right: 0;
   bottom: 0;
-  height: 4px;
-  border-radius: 999px;
-  background: #C45A0E;
+  left: 0;
+  height: 5px;
+  background: var(--imu-home-accent);
 }
 
-.imu-gt-section-title-wrap {
-  margin-bottom: 0.5rem;
-  text-align: center;
+.imu-workshop-hero-video,
+.imu-workshop-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* ---------- Feature grid (icon tile + text) ---------- */
+.imu-workshop-hero-video {
+  z-index: 0;
+  display: block;
+  object-fit: cover;
+  object-position: center 48%;
+}
 
-.imu-gt-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem 4rem;
-  max-width: 1160px;
+.imu-workshop-hero-shade {
+  z-index: 1;
+  background: rgba(10, 13, 17, 0.72);
+}
+
+.imu-workshop-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 3rem);
+  max-width: 1120px;
   margin: 0 auto;
+  padding: 4rem 0 3.75rem;
 }
 
-.imu-gt-feature {
+body.imuchallenge-home .content p.imu-workshop-kicker,
+body.imuchallenge-home .content p.imu-workshop-eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--imu-home-accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+body.imuchallenge-home .content p.imu-workshop-kicker {
+  color: #ffd8bc;
+}
+
+body.imuchallenge-home .content h1#imu-challenge-title {
+  max-width: 920px;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+}
+
+body.imuchallenge-home .content h1#imu-challenge-title span {
+  display: block;
+  margin-top: 0.65rem;
+  color: #ffffff;
+  font-size: 0.43em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+body.imuchallenge-home .content p.imu-workshop-lead {
+  max-width: 760px;
+  margin: 1.15rem 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.imu-workshop-meta {
   display: flex;
-  gap: 1.1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.88);
 }
 
-.imu-gt-feature-content {
-  flex: 1 1 auto;
-  min-width: 0;
+.imu-workshop-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
 }
 
-.imu-gt-feature-icon {
+.imu-workshop-meta i {
+  color: #ffd8bc;
+}
+
+.imu-workshop-actions {
   display: flex;
-  flex: 0 0 auto;
-  width: 3rem;
-  height: 3rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+body.imuchallenge-home .content a.imu-workshop-action {
+  display: inline-flex;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background: #C45A0E;
-  box-shadow: 0 2px 4px rgba(196, 90, 14, 0.25), 0 6px 14px rgba(196, 90, 14, 0.3);
+  gap: 0.5rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--imu-home-accent);
+  border-radius: 6px;
+  background: var(--imu-home-accent);
   color: #ffffff;
-  font-size: 1.3rem;
-  font-weight: 900;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.imu-gt-feature-title {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: #000000;
-  font-weight: 800;
-  font-size: 1.05rem;
-  -webkit-text-stroke: 0.3px currentColor;
+body.imuchallenge-home .content a.imu-workshop-action:hover,
+body.imuchallenge-home .content a.imu-workshop-action:focus-visible {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--imu-home-accent-dark);
 }
 
-body.imuchallenge-site .content p.imu-gt-feature-body {
-  margin: 0;
-  color: #374151;
-  font-size: 0.95rem;
-  line-height: 1.6;
+body.imuchallenge-home .content a.imu-workshop-action.is-secondary {
+  border-color: rgba(255, 255, 255, 0.58);
+  background: rgba(10, 12, 16, 0.32);
+  color: #ffffff;
 }
 
-@media (max-width: 720px) {
-  .imu-gt-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  body.imuchallenge-site .content h1.imu-gt-title {
-    font-size: 2.2rem;
-  }
-
-  .imu-gt-section-title {
-    font-size: 1.5rem;
-  }
+body.imuchallenge-home .content a.imu-workshop-action.is-secondary:hover,
+body.imuchallenge-home .content a.imu-workshop-action.is-secondary:focus-visible {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--imu-home-accent-dark);
 }
 
-/* ---------- Task and evaluation ---------- */
+/* ---------- Section navigation ---------- */
 
-.imu-gt-evaluation-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+.imu-workshop-section-nav {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--imu-home-line);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 24px rgba(19, 24, 31, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.imu-workshop-nav-inner {
+  display: flex;
+  width: calc(100% - 3rem);
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.imu-workshop-nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+body.imuchallenge-home .content .imu-workshop-section-nav a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 1rem 1.1rem;
+  color: #4d5158;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.imuchallenge-home .content .imu-workshop-section-nav a:first-child {
+  padding-left: 0;
+}
+
+.imu-workshop-section-nav a::after {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  bottom: -1px;
+  left: 1.1rem;
+  height: 3px;
+  background: transparent;
+}
+
+.imu-workshop-section-nav a:first-child::after {
+  left: 0;
+}
+
+body.imuchallenge-home .content .imu-workshop-section-nav a:hover,
+body.imuchallenge-home .content .imu-workshop-section-nav a.active {
+  color: var(--imu-home-accent-dark);
+}
+
+.imu-workshop-section-nav a.active::after {
+  background: var(--imu-home-accent);
+}
+
+/* ---------- Shared sections ---------- */
+
+.imu-workshop-section {
+  width: 100%;
+  padding: 5rem 1.5rem;
+  scroll-margin-top: 3.4rem;
+  border-top: 1px solid var(--imu-home-line);
+  background: #ffffff;
+}
+
+.imu-workshop-section.is-muted {
+  background: var(--imu-home-surface);
+}
+
+.imu-workshop-section-inner {
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto;
 }
 
-.imu-gt-evaluation-card {
-  padding: 1.4rem 1.5rem;
-  border: 1px solid #cbd5e1;
-  border-top: 3px solid #C45A0E;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06), 0 5px 14px rgba(17, 24, 39, 0.09);
+.imu-workshop-section-heading {
+  max-width: 820px;
+  margin-bottom: 2.5rem;
 }
 
-.imu-gt-evaluation-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+body.imuchallenge-home .content .imu-workshop-section-heading h2 {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0 0 0.8rem;
+  color: var(--imu-home-ink);
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0;
+  -webkit-text-stroke: 0;
 }
 
-.imu-gt-evaluation-icon {
-  display: flex;
-  flex: 0 0 auto;
-  width: 2.5rem;
-  height: 2.5rem;
+body.imuchallenge-home .content .imu-workshop-section-heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 54px;
+  height: 4px;
+  border-radius: 0;
+  background: var(--imu-home-accent);
+}
+
+body.imuchallenge-home .content .imu-workshop-section-heading > p:last-child {
+  max-width: 780px;
+  margin: 1.15rem 0 0;
+  color: var(--imu-home-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+/* ---------- Overview ---------- */
+
+.imu-workshop-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 3rem;
+  border-top: 1px solid var(--imu-home-line);
+  border-bottom: 1px solid var(--imu-home-line);
+}
+
+.imu-workshop-stats > div {
+  padding: 1.5rem 1rem;
+  border-left: 1px solid var(--imu-home-line);
+  text-align: center;
+}
+
+.imu-workshop-stats > div:first-child {
+  border-left: 0;
+}
+
+.imu-workshop-stats dt {
+  color: var(--imu-home-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.imu-workshop-stats dd {
+  margin: 0.3rem 0 0;
+  color: var(--imu-home-ink);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.imu-workshop-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.5rem;
+  border-top: 1px solid var(--imu-home-line);
+}
+
+.imu-workshop-feature {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--imu-home-line);
+}
+
+.imu-workshop-feature-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background: #C45A0E;
+  border-radius: 6px;
+  background: var(--imu-home-accent);
   color: #ffffff;
 }
 
-body.imuchallenge-site .content .imu-gt-evaluation-heading h3 {
+body.imuchallenge-home .content .imu-workshop-feature h3 {
+  margin: 0 0 0.35rem;
+  color: var(--imu-home-ink);
+  font-size: 1.05rem;
+  font-weight: 800;
+  -webkit-text-stroke: 0;
+}
+
+body.imuchallenge-home .content .imu-workshop-feature p {
   margin: 0;
-  font-size: 1.15rem;
+  color: var(--imu-home-muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
 }
 
-.imu-gt-evaluation-list {
-  margin: 1.15rem 0 0;
-}
-
-.imu-gt-evaluation-list > div {
+.imu-workshop-resource-row {
   display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: 0.8rem;
-  padding: 0.8rem 0;
-  border-top: 1px solid #e5e7eb;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
 }
 
-.imu-gt-evaluation-list dt {
-  color: #9E470B;
-  font-size: 0.78rem;
+body.imuchallenge-home .content .imu-workshop-resource-row a {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--imu-home-line);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--imu-home-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+body.imuchallenge-home .content .imu-workshop-resource-row a:hover,
+body.imuchallenge-home .content .imu-workshop-resource-row a:focus-visible {
+  border-color: #d5b49c;
+  background: #fff8f3;
+  color: var(--imu-home-accent-dark);
+}
+
+.imu-workshop-resource-row i {
+  color: var(--imu-home-accent);
+  font-size: 1rem;
+}
+
+/* ---------- Platforms ---------- */
+
+.imu-workshop-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+body.imuchallenge-home .content a.imu-workshop-platform {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--imu-home-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--imu-home-ink);
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+body.imuchallenge-home .content a.imu-workshop-platform:hover,
+body.imuchallenge-home .content a.imu-workshop-platform:focus-visible {
+  border-color: #d5b49c;
+  box-shadow: 0 12px 30px rgba(30, 34, 40, 0.08);
+  color: var(--imu-home-ink);
+  transform: translateY(-2px);
+}
+
+.imu-workshop-platform img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 423 / 268;
+  border-bottom: 1px solid var(--imu-home-line);
+  background: #ffffff;
+  object-fit: cover;
+}
+
+.imu-workshop-platform-body {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+}
+
+.imu-workshop-platform-body > span {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.imu-workshop-platform-body strong {
+  color: var(--imu-home-ink);
+  font-size: 1rem;
+}
+
+.imu-workshop-platform-body small {
+  color: var(--imu-home-muted);
+  font-size: 0.83rem;
+}
+
+.imu-workshop-platform-body > i {
+  flex: 0 0 auto;
+  color: var(--imu-home-accent);
+}
+
+/* ---------- Protocol ---------- */
+
+.imu-workshop-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.imu-workshop-protocol-card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--imu-home-line);
+  border-top: 3px solid var(--imu-home-accent);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.imu-workshop-protocol-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.imu-workshop-protocol-heading > span {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--imu-home-accent);
+  color: #ffffff;
+}
+
+.imu-workshop-protocol-heading small {
+  display: block;
+  color: var(--imu-home-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+body.imuchallenge-home .content .imu-workshop-protocol-heading h3 {
+  margin: 0.1rem 0 0;
+  color: var(--imu-home-ink);
+  font-size: 1.15rem;
+  -webkit-text-stroke: 0;
+}
+
+.imu-workshop-protocol-card dl {
+  margin: 1.2rem 0 0;
+}
+
+.imu-workshop-protocol-card dl > div {
+  display: grid;
+  grid-template-columns: 5.2rem minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--imu-home-line);
+}
+
+.imu-workshop-protocol-card dt {
+  color: var(--imu-home-accent-dark);
+  font-size: 0.76rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.imu-gt-evaluation-list dd {
+.imu-workshop-protocol-card dd {
   min-width: 0;
   margin: 0;
-  color: #374151;
-  font-size: 0.94rem;
-  line-height: 1.55;
+  color: #40444b;
+  font-size: 0.91rem;
+  line-height: 1.58;
 }
 
-@media (max-width: 720px) {
-  .imu-gt-evaluation-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .imu-metric .value {
-    font-size: 1.7rem;
-  }
-
-  .imu-gt-evaluation-card {
-    padding: 1.1rem;
-  }
-
-  .imu-gt-evaluation-list > div {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
-  }
-}
-
-/* ---------- Partners / organizers grid ---------- */
-
-.imu-gt-partners {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  max-width: 1080px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.imu-gt-partner {
-  display: flex;
-  flex-direction: column;
+body.imuchallenge-home .content a.imu-workshop-text-link {
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.45rem;
+  margin-top: 1.75rem;
+  color: var(--imu-home-accent-dark);
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.imu-gt-partner-mark {
+body.imuchallenge-home .content a.imu-workshop-text-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Partners ---------- */
+
+.imu-workshop-partners {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.imu-workshop-partners > a,
+.imu-workshop-partners > div {
   display: flex;
-  width: 100%;
-  height: 90px;
+  min-height: 108px;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
-  border: 1px solid #cbd5e1;
+  padding: 1.25rem;
+  border: 1px solid var(--imu-home-line);
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.05), 0 4px 10px rgba(17, 24, 39, 0.06);
 }
 
-.imu-gt-partner-mark img {
+.imu-workshop-partners > a {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.imu-workshop-partners > a:hover,
+.imu-workshop-partners > a:focus-visible {
+  border-color: #d5b49c;
+  background: #fff8f3;
+}
+
+.imu-workshop-partners img {
+  display: block;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 64px;
   object-fit: contain;
 }
 
-.imu-gt-partner-mark-amazon {
+.imu-workshop-amazon {
   gap: 0.8rem;
 }
 
-.imu-gt-partner-mark-amazon .imu-gt-amazon-name {
-  color: #111827;
+.imu-workshop-amazon span {
+  color: var(--imu-home-ink);
   font-size: 1.45rem;
   font-weight: 800;
 }
 
-.imu-gt-partner-mark-amazon .imu-gt-amazon-divider {
+.imu-workshop-amazon i {
   width: 1px;
   height: 2rem;
-  background: #cbd5e1;
+  background: var(--imu-home-line);
 }
 
-.imu-gt-partner-mark-amazon .imu-gt-amazon-group {
-  color: #C45A0E;
+.imu-workshop-amazon strong {
+  color: var(--imu-home-accent) !important;
   font-size: 1.25rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
-.imu-gt-partner span {
-  color: #374151;
-  font-size: 0.92rem;
+.imu-workshop-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+}
+
+/* ---------- Updates ---------- */
+
+.imu-workshop-updates {
+  max-width: 900px;
+  border-top: 1px solid var(--imu-home-line);
+}
+
+.imu-workshop-update {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.65rem;
+  border-bottom: 1px solid var(--imu-home-line);
+  border-left: 2px solid #d8dadd;
+}
+
+.imu-workshop-update::before {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--imu-home-accent);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.imu-workshop-update time {
+  color: var(--imu-home-accent-dark);
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
-@media (max-width: 720px) {
-  .imu-gt-partners {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-}
-
-.imu-gt-cta-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 2.25rem;
-}
-
-/* ---------- Updates card (glassy, matches grand-tour's #updates) ---------- */
-
-.imu-gt-updates-card {
-  max-width: 56rem;
-  margin: 0 auto;
-  padding: 1.75rem 1.75rem 1rem;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(17, 24, 39, 0.08), 0 10px 24px rgba(17, 24, 39, 0.12);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.imu-gt-updates-card .imu-gt-section-title-wrap {
-  margin-bottom: 0.75rem;
-}
-
-.imu-gt-update-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.75rem 0.9rem;
-  border-left: 4px solid transparent;
-  border-top: 1px solid #e5e7eb;
-}
-
-.imu-gt-update-row:first-of-type {
-  border-top: 0;
-}
-
-.imu-gt-update-row.is-latest {
-  border-left-color: rgba(196, 90, 14, 0.7);
-  background: rgba(196, 90, 14, 0.06);
-  border-radius: 8px;
-}
-
-.imu-gt-update-row time {
-  flex: 0 0 auto;
-  color: #4b5563;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.85rem;
-}
-
-.imu-gt-update-row span {
-  color: #1f2937;
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
-@media (min-width: 640px) {
-  .imu-gt-update-row {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 1.25rem;
-  }
-
-  .imu-gt-update-row time {
-    width: 6.5rem;
-  }
-}
-
-/* ---------- Citation / code blocks ---------- */
-
-.imu-gt-citation {
-  max-width: 56rem;
-  margin: 0 auto;
-}
-
-.imu-gt-citation-block {
-  margin: 0 0 1.75rem;
-}
-
-.imu-gt-citation-block h3 {
-  margin: 0 0 0.6rem;
-  color: #000000;
-  font-size: 1.05rem;
+.imu-workshop-update > div > span {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: var(--imu-home-accent-dark);
+  font-size: 0.72rem;
   font-weight: 800;
-  -webkit-text-stroke: 0.3px currentColor;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.imu-gt-citation-block pre {
-  position: relative;
+body.imuchallenge-home .content .imu-workshop-update p {
+  margin: 0;
+  color: #373a40;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* ---------- Citation ---------- */
+
+.imu-workshop-citation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.imu-workshop-citation-block {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--imu-home-line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+body.imuchallenge-home .content .imu-workshop-citation-block h3 {
   margin: 0;
   padding: 1rem 1.1rem;
-  background: #f9fafb;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06), 0 4px 10px rgba(17, 24, 39, 0.08);
-  font-size: 0.85rem;
-  line-height: 1.5;
+  border-bottom: 1px solid var(--imu-home-line);
+  color: var(--imu-home-ink);
+  font-size: 1rem;
+  -webkit-text-stroke: 0;
+}
+
+body.imuchallenge-home .content .imu-workshop-citation-block pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 1.1rem;
   overflow-x: auto;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+  font-size: 0.76rem;
+  line-height: 1.55;
 }
 
-/*
-  The homepage gets a wider column than the reading pages (setup/data/about/
-  etc. stay at the narrower 1080px prose width on purpose) — it's built from
-  full-bleed-feeling bands (stats, features, partners), so it should sit
-  closer to the actual viewport edge instead of floating in a narrow column.
-*/
-body.imuchallenge-home .content {
-  max-width: 1360px;
+body.imuchallenge-home .content .imu-workshop-citation-block code {
+  color: #34373c;
+  white-space: pre;
 }
 
-@media (max-width: 1440px) {
-  body.imuchallenge-home .content {
-    max-width: 92vw;
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .imu-workshop-resource-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .imu-workshop-citation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .imu-workshop-hero {
+    height: clamp(500px, 68svh, 560px);
+  }
+
+  .imu-workshop-hero-inner,
+  .imu-workshop-nav-inner {
+    width: calc(100% - 2rem);
+  }
+
+  .imu-workshop-hero-inner {
+    padding: 2.75rem 0 2.5rem;
+  }
+
+  body.imuchallenge-home .content p.imu-workshop-kicker {
+    font-size: 0.72rem;
+  }
+
+  body.imuchallenge-home .content h1#imu-challenge-title {
+    font-size: 2.45rem;
+    line-height: 1.05;
+  }
+
+  body.imuchallenge-home .content h1#imu-challenge-title span {
+    font-size: 0.47em;
+  }
+
+  body.imuchallenge-home .content p.imu-workshop-lead {
+    margin-top: 0.9rem;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .imu-workshop-meta {
+    gap: 0.45rem 1rem;
+    margin-top: 0.9rem;
+  }
+
+  .imu-workshop-meta span {
+    font-size: 0.82rem;
+  }
+
+  .imu-workshop-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1.1rem;
+  }
+
+  body.imuchallenge-home .content a.imu-workshop-action:first-child {
+    grid-column: 1 / -1;
+  }
+
+  body.imuchallenge-home .content a.imu-workshop-action {
+    min-height: 42px;
+    padding: 0.6rem 0.7rem;
+    font-size: 0.84rem;
+  }
+
+  body.imuchallenge-home .content .imu-workshop-section-nav a {
+    padding: 0.85rem 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .imu-workshop-section-nav a::after {
+    right: 0.8rem;
+    left: 0.8rem;
+  }
+
+  .imu-workshop-section {
+    padding: 3.75rem 1rem;
+  }
+
+  body.imuchallenge-home .content .imu-workshop-section-heading h2 {
+    font-size: 1.7rem;
+  }
+
+  .imu-workshop-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .imu-workshop-stats > div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--imu-home-line);
+  }
+
+  .imu-workshop-stats > div:nth-child(4) {
+    border-top: 1px solid var(--imu-home-line);
+  }
+
+  .imu-workshop-stats dd {
+    font-size: 1.6rem;
+  }
+
+  .imu-workshop-feature-grid,
+  .imu-workshop-platform-grid,
+  .imu-workshop-protocol-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .imu-workshop-partners {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .imu-workshop-partners > a,
+  .imu-workshop-partners > div {
+    min-height: 92px;
+  }
+
+  .imu-workshop-update {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    padding-left: 1.3rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .imu-workshop-resource-row {
+    grid-template-columns: 1fr;
+  }
+
+  .imu-workshop-protocol-card {
+    padding: 1.1rem;
+  }
+
+  .imu-workshop-protocol-card dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .imu-workshop-platform-body {
+    min-height: 70px;
+  }
+
+  body.imuchallenge-home .content .imu-workshop-citation-block pre {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .imu-workshop-hero {
+    height: 440px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imu-workshop-hero-video {
+    display: none;
+  }
+
+  body.imuchallenge-home .content a.imu-workshop-action,
+  body.imuchallenge-home .content a.imu-workshop-platform,
+  body.imuchallenge-home .content .imu-workshop-resource-row a {
+    transition: none;
   }
 }
 
@@ -2742,884 +3007,5 @@ body.imuchallenge-site .navbar.is-imuchallenge .navbar-dropdown .navbar-item.is-
     width: 28px;
     height: 28px;
     min-height: 28px;
-  }
-}
-
-
-/* ---------- IMU Challenge homepage refinement ---------- */
-
-body.imuchallenge-home {
-  --imu-home-accent: #c45a0e;
-  --imu-home-accent-dark: #8f3d00;
-  --imu-home-ink: #17191d;
-  --imu-home-muted: #646a73;
-  --imu-home-line: #dfe2e6;
-  --imu-home-surface: #f5f6f7;
-}
-
-body.imuchallenge-home > section.section {
-  padding: 0;
-}
-
-body.imuchallenge-home > section.section > .container {
-  width: 100%;
-  max-width: none;
-}
-
-body.imuchallenge-home > section.section > .container > .columns {
-  margin: 0;
-}
-
-body.imuchallenge-home > section.section > .container > .columns > .column {
-  padding: 0;
-}
-
-body.imuchallenge-home .content {
-  width: 100%;
-  max-width: none;
-  color: var(--imu-home-ink);
-}
-
-body.imuchallenge-home .content strong,
-body.imuchallenge-home .content b {
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-}
-
-body.imuchallenge-home .imu-home-hero {
-  position: relative;
-  min-height: 650px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  background: #111419;
-  color: #fff;
-}
-
-.imu-home-hero-video,
-.imu-home-hero-shade {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.imu-home-hero-video {
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(0.85) contrast(1.05);
-}
-
-.imu-home-hero-shade {
-  background:
-    linear-gradient(90deg, rgba(10, 12, 16, 0.94) 0%, rgba(10, 12, 16, 0.78) 48%, rgba(10, 12, 16, 0.3) 100%),
-    linear-gradient(0deg, rgba(10, 12, 16, 0.78) 0%, rgba(10, 12, 16, 0) 58%);
-}
-
-.imu-home-hero-inner {
-  position: relative;
-  z-index: 2;
-  width: calc(100% - 3rem);
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 4.5rem 0 10.5rem;
-}
-
-body.imuchallenge-home .content a.imu-home-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1.6rem;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.34);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.86rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-body.imuchallenge-home .content a.imu-home-live:hover {
-  border-bottom-color: #fff;
-  color: #fff;
-}
-
-.imu-home-live-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.38rem;
-  color: #ffd3b3;
-  text-transform: uppercase;
-}
-
-.imu-home-live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff8a3d;
-  box-shadow: 0 0 0 4px rgba(255, 138, 61, 0.18);
-}
-
-body.imuchallenge-home .content p.imu-home-eyebrow {
-  margin: 0 0 0.8rem;
-  color: var(--imu-home-accent-dark);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-body.imuchallenge-home .imu-home-hero p.imu-home-eyebrow {
-  color: #ffc89f;
-}
-
-body.imuchallenge-home .content .imu-home-hero h1 {
-  max-width: 850px;
-  margin: 0;
-  color: #fff;
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0;
-}
-
-body.imuchallenge-home .content .imu-home-hero h1 span {
-  color: #ffb27d;
-}
-
-body.imuchallenge-home .content p.imu-home-lead {
-  max-width: 760px;
-  margin: 1.4rem 0 0;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 1.16rem;
-  line-height: 1.65;
-}
-
-.imu-home-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.75rem;
-}
-
-body.imuchallenge-home .content a.imu-home-action {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.1rem;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-size: 0.94rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 150ms ease;
-}
-
-body.imuchallenge-home .content a.imu-home-action--primary {
-  border-color: var(--imu-home-accent);
-  background: var(--imu-home-accent);
-  color: #fff;
-}
-
-body.imuchallenge-home .content a.imu-home-action--secondary {
-  border-color: rgba(255, 255, 255, 0.55);
-  background: rgba(14, 17, 22, 0.3);
-  color: #fff;
-  backdrop-filter: blur(8px);
-}
-
-body.imuchallenge-home .content a.imu-home-action:hover {
-  border-color: #fff;
-  background: #fff;
-  color: var(--imu-home-accent-dark);
-  transform: translateY(-1px);
-}
-
-.imu-home-resources {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.35rem;
-  margin-top: 1.45rem;
-}
-
-body.imuchallenge-home .content .imu-home-resources a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.86rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-body.imuchallenge-home .content .imu-home-resources a:hover {
-  color: #fff;
-}
-
-.imu-home-resources i {
-  color: #ffb27d;
-}
-
-.imu-home-stats-shell {
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(10, 12, 16, 0.72);
-  backdrop-filter: blur(10px);
-}
-
-.imu-home-stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: calc(100% - 3rem);
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.imu-home-stats > div {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 112px;
-  padding: 1rem 1.5rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.imu-home-stats > div:last-child {
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.imu-home-stats dt {
-  order: 2;
-  margin-top: 0.2rem;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.77rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.imu-home-stats dd {
-  order: 1;
-  margin: 0;
-  color: #fff;
-  font-size: 1.75rem;
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-body.imuchallenge-home .content .imu-home-section {
-  padding: 5.5rem 1.5rem;
-  border-bottom: 1px solid var(--imu-home-line);
-  background: #fff;
-}
-
-body.imuchallenge-home .content .imu-home-section--muted {
-  background: var(--imu-home-surface);
-}
-
-.imu-home-section-inner {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.imu-home-section-heading {
-  max-width: 780px;
-  margin-bottom: 2.5rem;
-}
-
-body.imuchallenge-home .content .imu-home-section-heading h2 {
-  display: block;
-  margin: 0;
-  padding: 0;
-  color: var(--imu-home-ink);
-  font-size: 2.35rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0;
-}
-
-body.imuchallenge-home .content .imu-home-section-heading h2::after {
-  display: none;
-}
-
-body.imuchallenge-home .content .imu-home-section-heading > p:last-child {
-  max-width: 720px;
-  margin: 1rem 0 0;
-  color: var(--imu-home-muted);
-  font-size: 1.02rem;
-  line-height: 1.72;
-}
-
-.imu-home-platform-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-body.imuchallenge-home .content a.imu-home-platform {
-  position: relative;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--imu-home-line);
-  border-radius: 8px;
-  background: #fff;
-  color: var(--imu-home-ink);
-  text-decoration: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-body.imuchallenge-home .content a.imu-home-platform::before {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 5px;
-  background: var(--platform-color, var(--imu-home-accent));
-}
-
-.imu-home-platform.is-car { --platform-color: #c45a0e; }
-.imu-home-platform.is-drone { --platform-color: #1676a3; }
-.imu-home-platform.is-quadruped { --platform-color: #2b7a4b; }
-.imu-home-platform.is-handheld { --platform-color: #76509a; }
-
-body.imuchallenge-home .content a.imu-home-platform:hover {
-  border-color: #bdc1c7;
-  box-shadow: 0 14px 30px rgba(22, 27, 34, 0.11);
-  color: var(--imu-home-ink);
-  transform: translateY(-2px);
-}
-
-.imu-home-platform > img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-bottom: 1px solid var(--imu-home-line);
-}
-
-.imu-home-platform-body {
-  display: flex;
-  min-height: 76px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 1.15rem 0.85rem 1.35rem;
-}
-
-.imu-home-platform-body > span {
-  display: grid;
-  gap: 0.12rem;
-}
-
-.imu-home-platform-body strong {
-  color: var(--imu-home-ink);
-  font-size: 1.05rem;
-}
-
-.imu-home-platform-body small {
-  color: var(--imu-home-muted);
-  font-size: 0.84rem;
-}
-
-.imu-home-platform-body > i {
-  color: var(--platform-color, var(--imu-home-accent));
-}
-
-.imu-home-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 3.5rem;
-  border-top: 1px solid var(--imu-home-line);
-}
-
-.imu-home-feature {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--imu-home-line);
-}
-
-.imu-home-feature-icon {
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #edcdb6;
-  border-radius: 7px;
-  background: #fff4ec;
-  color: var(--imu-home-accent-dark);
-}
-
-body.imuchallenge-home .content .imu-home-feature h3 {
-  margin: 0 0 0.45rem;
-  color: var(--imu-home-ink);
-  font-size: 1.06rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0;
-}
-
-body.imuchallenge-home .content .imu-home-feature p {
-  margin: 0;
-  color: var(--imu-home-muted);
-  font-size: 0.94rem;
-  line-height: 1.65;
-}
-
-.imu-home-evaluation-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.imu-home-evaluation-card {
-  min-width: 0;
-  padding: 1.5rem;
-  border: 1px solid var(--imu-home-line);
-  border-top: 4px solid var(--imu-home-accent);
-  border-radius: 8px;
-  background: #fff;
-}
-
-.imu-home-evaluation-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.imu-home-evaluation-heading > span {
-  display: inline-flex;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 7px;
-  background: var(--imu-home-ink);
-  color: #fff;
-}
-
-.imu-home-evaluation-heading small {
-  display: block;
-  color: var(--imu-home-accent-dark);
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-body.imuchallenge-home .content .imu-home-evaluation-heading h3 {
-  margin: 0.05rem 0 0;
-  color: var(--imu-home-ink);
-  font-size: 1.2rem;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0;
-}
-
-.imu-home-evaluation-card dl {
-  margin: 1.25rem 0 0;
-}
-
-.imu-home-evaluation-card dl > div {
-  display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: 0.9rem;
-  padding: 0.9rem 0;
-  border-top: 1px solid var(--imu-home-line);
-}
-
-.imu-home-evaluation-card dt {
-  color: var(--imu-home-accent-dark);
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.imu-home-evaluation-card dd {
-  min-width: 0;
-  margin: 0;
-  color: #4e545c;
-  font-size: 0.93rem;
-  line-height: 1.6;
-}
-
-.imu-home-evaluation-card dd strong {
-  color: var(--imu-home-ink);
-}
-
-body.imuchallenge-home .content a.imu-home-text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  color: var(--imu-home-accent-dark);
-  font-size: 0.94rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-body.imuchallenge-home .content a.imu-home-text-link:hover {
-  color: var(--imu-home-ink);
-}
-
-.imu-home-partners {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
-  border-top: 1px solid var(--imu-home-line);
-  border-bottom: 1px solid var(--imu-home-line);
-}
-
-.imu-home-partners > a,
-.imu-home-partners > div {
-  display: flex;
-  min-width: 0;
-  min-height: 128px;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  border-right: 1px solid var(--imu-home-line);
-}
-
-.imu-home-partners > :last-child {
-  border-right: 0;
-}
-
-body.imuchallenge-home .content .imu-home-partners a {
-  text-decoration: none;
-}
-
-.imu-home-partners img {
-  display: block;
-  width: auto;
-  max-width: 230px;
-  max-height: 66px;
-  object-fit: contain;
-}
-
-.imu-home-amazon {
-  gap: 0.75rem;
-}
-
-.imu-home-amazon span {
-  color: #111827;
-  font-size: 1.65rem;
-  font-weight: 800;
-}
-
-.imu-home-amazon i {
-  width: 1px;
-  height: 2.2rem;
-  background: #c5c9ce;
-}
-
-.imu-home-amazon strong {
-  color: var(--imu-home-accent-dark);
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.imu-home-updates-inner {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.5fr);
-  gap: 4rem;
-  align-items: start;
-}
-
-.imu-home-updates-inner .imu-home-section-heading {
-  position: sticky;
-  top: 5.5rem;
-  margin: 0;
-}
-
-.imu-home-updates {
-  border-top: 1px solid var(--imu-home-line);
-}
-
-.imu-home-update {
-  display: grid;
-  grid-template-columns: 8rem minmax(0, 1fr);
-  gap: 1.25rem;
-  padding: 1.3rem 0;
-  border-bottom: 1px solid var(--imu-home-line);
-}
-
-.imu-home-update.is-latest {
-  padding-right: 1rem;
-  padding-left: 1rem;
-  border-left: 4px solid var(--imu-home-accent);
-  background: #fff7f1;
-}
-
-.imu-home-update time {
-  color: #737881;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.imu-home-update div > span {
-  display: inline-block;
-  margin-bottom: 0.3rem;
-  color: var(--imu-home-accent-dark);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-body.imuchallenge-home .content .imu-home-update p {
-  margin: 0;
-  color: #3e434a;
-  font-size: 0.96rem;
-  line-height: 1.6;
-}
-
-body.imuchallenge-home .content .imu-home-citation-section {
-  border-bottom: 0;
-  background: var(--imu-home-ink);
-}
-
-body.imuchallenge-home .content .imu-home-citation-section .imu-home-eyebrow {
-  color: #ffb27d;
-}
-
-body.imuchallenge-home .content .imu-home-citation-section h2 {
-  color: #fff;
-}
-
-body.imuchallenge-home .content .imu-home-citation-section .imu-home-section-heading > p:last-child {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-body.imuchallenge-home .content .imu-home-citation-section a {
-  color: #ffc79f;
-  text-decoration-color: rgba(255, 199, 159, 0.55);
-}
-
-.imu-home-citation-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.imu-home-citation-block {
-  min-width: 0;
-}
-
-body.imuchallenge-home .content .imu-home-citation-block h3 {
-  margin: 0 0 0.65rem;
-  color: #fff;
-  font-size: 0.98rem;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0;
-}
-
-body.imuchallenge-home .content .imu-home-citation-block pre {
-  height: 100%;
-  margin: 0;
-  padding: 1.15rem;
-  overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 7px;
-  background: #0e1014;
-  color: #d8dce2;
-  font-size: 0.8rem;
-  line-height: 1.55;
-}
-
-body.imuchallenge-home .content .imu-home-citation-block code {
-  background: transparent;
-  color: inherit;
-}
-
-body.imuchallenge-site .navbar.is-imuchallenge .imuchallenge-navbar-cta {
-  width: auto;
-  min-width: 0;
-  gap: 0.42rem;
-  padding: 0 0.78rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 6px;
-  font-size: 0.82rem;
-}
-
-body.imuchallenge-site .navbar.is-imuchallenge .imuchallenge-navbar-cta:hover {
-  border-color: #fff;
-  background: #fff !important;
-  color: var(--imu-home-accent-dark, #8f3d00) !important;
-}
-
-@media (max-width: 900px) {
-  body.imuchallenge-home .content .imu-home-hero h1 {
-    font-size: 3.6rem;
-  }
-
-  .imu-home-feature-grid {
-    gap: 0 2rem;
-  }
-
-  .imu-home-updates-inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .imu-home-updates-inner .imu-home-section-heading {
-    position: static;
-  }
-}
-
-@media (max-width: 720px) {
-  body.imuchallenge-home .imu-home-hero {
-    min-height: 700px;
-  }
-
-  .imu-home-hero-inner {
-    width: calc(100% - 2rem);
-    padding: 3rem 0 10.5rem;
-  }
-
-  body.imuchallenge-home .content a.imu-home-live {
-    gap: 0.5rem;
-    font-size: 0.78rem;
-  }
-
-  body.imuchallenge-home .content .imu-home-hero h1 {
-    font-size: 2.65rem;
-    line-height: 1.02;
-  }
-
-  body.imuchallenge-home .content p.imu-home-lead {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .imu-home-actions {
-    gap: 0.55rem;
-  }
-
-  body.imuchallenge-home .content a.imu-home-action {
-    flex: 1 1 145px;
-    padding-right: 0.8rem;
-    padding-left: 0.8rem;
-    font-size: 0.86rem;
-  }
-
-  .imu-home-resources {
-    gap: 0.7rem 1rem;
-  }
-
-  .imu-home-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: calc(100% - 2rem);
-  }
-
-  .imu-home-stats > div {
-    min-height: 70px;
-    padding: 0.7rem 0.9rem;
-  }
-
-  .imu-home-stats > div:nth-child(3) {
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  .imu-home-stats > div:nth-child(4) {
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    border-right: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  .imu-home-stats dd {
-    font-size: 1.3rem;
-  }
-
-  .imu-home-stats dt {
-    font-size: 0.68rem;
-  }
-
-  body.imuchallenge-home .content .imu-home-section {
-    padding: 4rem 1rem;
-  }
-
-  body.imuchallenge-home .content .imu-home-section-heading h2 {
-    font-size: 1.85rem;
-  }
-
-  .imu-home-platform-grid,
-  .imu-home-feature-grid,
-  .imu-home-evaluation-grid,
-  .imu-home-citation-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .imu-home-feature-grid {
-    gap: 0;
-  }
-
-  .imu-home-partners {
-    grid-template-columns: 1fr;
-  }
-
-  .imu-home-partners > a,
-  .imu-home-partners > div {
-    min-height: 104px;
-    border-right: 0;
-    border-bottom: 1px solid var(--imu-home-line);
-  }
-
-  .imu-home-partners > :last-child {
-    border-bottom: 0;
-  }
-
-  .imu-home-update {
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
-  }
-}
-
-@media (max-width: 440px) {
-  .imu-home-hero-inner {
-    padding-top: 2.5rem;
-  }
-
-  body.imuchallenge-home .content a.imu-home-live > span:nth-child(2) {
-    max-width: 170px;
-  }
-
-  .imu-home-platform-body {
-    min-height: 68px;
-  }
-
-  .imu-home-feature {
-    grid-template-columns: 40px minmax(0, 1fr);
-    gap: 0.8rem;
-  }
-
-  .imu-home-feature-icon {
-    width: 38px;
-    height: 38px;
-  }
-
-  .imu-home-evaluation-card {
-    padding: 1.1rem;
-  }
-
-  .imu-home-evaluation-card dl > div {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.imuchallenge-home .content a.imu-home-action,
-  body.imuchallenge-home .content a.imu-home-platform {
-    transition: none;
   }
 }
