@@ -39,6 +39,22 @@ body.imuchallenge-site .content {
   }
 }
 
+/*
+  Trajectory preview page opts out of the shared 1080px reading column: it
+  needs room for two side-by-side plot panels (and, in 3D mode, a large
+  interactive viewer). Scoped via body_class: imu-preview-wide (data-preview.md)
+  so no other imuchallenge page is affected. Both selectors below have three
+  classes of specificity (0,0,3,0), beating the two-class .content rule above
+  (0,0,2,1) without needing !important.
+*/
+body.imuchallenge-site.imu-preview-wide .content {
+  max-width: 1600px;
+}
+
+body.imuchallenge-site.imu-preview-wide .section > .container {
+  max-width: 1600px;
+}
+
 body.imuchallenge-site .content ul,
 body.imuchallenge-site .content ol {
   padding-left: 1.35rem;
@@ -676,6 +692,111 @@ body.imuchallenge-home .hero .button.is-info:not(:first-child) {
   padding: 0.8rem 1rem;
   border-radius: 8px;
   box-shadow: 0 1px 2px rgba(17, 24, 39, 0.08), 0 4px 10px rgba(17, 24, 39, 0.12);
+}
+
+/* ---------- IMU preview page: classic/3D mode toggle ---------- */
+
+.imu-preview-toggle {
+  display: inline-flex;
+  gap: 0.4rem;
+  padding: 0.25rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  margin: 0.25rem 0 1rem 0;
+}
+
+.imu-preview-toggle-btn {
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.imu-preview-toggle-btn:hover {
+  color: #1e293b;
+}
+
+.imu-preview-toggle-btn.is-active {
+  background: #C45A0E;
+  color: #ffffff;
+}
+
+.imu-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem 0;
+  width: 100%;
+  // Panels can end up different heights once loaded (each image keeps its own
+  // native aspect ratio) — align both to the top rather than stretching.
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .imu-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imu-preview-panel {
+  // Without this, a grid item's default min-width is "auto" (its content's
+  // intrinsic size) — a wide rendered PNG can then blow the column out past
+  // its 1fr share and squeeze the other column. min-width: 0 lets it shrink
+  // to fit the track instead.
+  min-width: 0;
+}
+
+.imu-preview-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: 1px solid #d8ebf9;
+  background: #f2f9ff;
+  overflow: hidden;
+}
+
+.imu-preview-box img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+// Once the real image lands, drop the fixed 16:9 placeholder box (aspect-ratio,
+// background, border) and let the box hug the image's own native shape instead —
+// the border/radius move onto the <img> itself so it still reads as a card.
+.imu-preview-box.is-loaded {
+  aspect-ratio: auto;
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.imu-preview-box.is-loaded img {
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #d8ebf9;
+}
+
+.imu-preview-3d-mount {
+  width: 100%;
+  min-height: 480px;
+  border-radius: 12px;
+  border: 1px solid #d8ebf9;
+  background: #f2f9ff;
+  overflow: hidden;
+  position: relative;
+}
+
+.imu-preview-3d-mount canvas {
+  display: block;
 }
 
 /* ---------- Quiet updates feed (replaces boxed announcement cards) ---------- */
