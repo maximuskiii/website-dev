@@ -1,6 +1,6 @@
 ---
 title: "IROS'26 Workshop: Beyond Exteroception"
-subtitle: "Interoceptive Perception for Resilient Robotics — Tentative: Sep 27, 2026"
+subtitle: "Interoceptive Perception for Resilient Robotics — September 27, 2026"
 layout: page
 show_sidebar: false
 hide_footer: true
@@ -356,7 +356,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     font-size: 0.88rem;
   }
 
-  .topic-list {
+  .content .topic-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
@@ -392,6 +392,10 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 1.25rem;
+  }
+
+  .speaker-grid--invited {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .speaker-card {
@@ -530,6 +534,10 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     .speaker-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .speaker-grid--invited {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 720px) {
@@ -659,6 +667,10 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
       gap: 0.75rem;
     }
 
+    .speaker-grid--invited {
+      grid-template-columns: 1fr;
+    }
+
     .speaker-card {
       display: grid;
       grid-template-columns: 92px minmax(0, 1fr);
@@ -707,7 +719,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
       <span>Interoceptive Perception for Resilient Robotics</span>
     </h1>
     <div class="workshop-meta" aria-label="Workshop details">
-      <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> September 27, 2026 (tentative)</span>
+      <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> September 27, 2026</span>
       <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Pittsburgh, PA</span>
       <span><i class="fas fa-users" aria-hidden="true"></i> Full-day workshop</span>
     </div>
@@ -720,7 +732,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
         <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
         <span>Register Team</span>
       </a>
-      <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartanimu-iros2026/submissions" target="_blank" rel="noopener">
+      <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/submissions" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true"><i class="fas fa-upload"></i></span>
         <span>Submit on Kaggle</span>
       </a>
@@ -765,31 +777,23 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
       <div class="column is-four-fifths">
         <div class="dates-list">
           <div class="date-row">
-            <time datetime="2026-03">March 2026</time>
-            <p>Challenge website launch and team pre-registration opens.</p>
-          </div>
-          <div class="date-row">
-            <time datetime="2026-04">April 2026</time>
+            <time datetime="2026-08-01">August 1, 2026</time>
             <p>Training data, baseline code, and evaluation toolkit released.</p>
           </div>
           <div class="date-row">
-            <time datetime="2026-05">May–August 2026</time>
-            <p>Open development phase with public leaderboard updates.</p>
+            <time datetime="2026-09-20T23:55:00Z">September 20, 2026, 23:55 UTC</time>
+            <p>Final challenge submission, technical report, and model weights deadline.</p>
           </div>
           <div class="date-row">
-            <time datetime="2026-08-15">August 15, 2026</time>
-            <p>Final challenge submission deadline.</p>
-          </div>
-          <div class="date-row">
-            <time datetime="2026-09-01">September 1, 2026</time>
-            <p>Top teams notified and spotlight invitations issued.</p>
+            <time datetime="2026-09-24">September 24, 2026</time>
+            <p>Top teams notified and workshop spotlight invitations issued.</p>
           </div>
           <div class="date-row">
             <time datetime="2026-09-27">September 27, 2026</time>
-            <p>Workshop, challenge spotlight talks, and award announcements (tentative).</p>
+            <p>Workshop, challenge spotlight talks, and award announcements.</p>
           </div>
         </div>
-        <p class="timeline-note">The workshop date is tentative. Live competition rules and submission deadlines on Kaggle remain the source of truth.</p>
+        <p class="timeline-note">The final submission deadline is listed in UTC. Live competition rules on Kaggle remain the source of truth.</p>
       </div>
     </div>
   </div>
@@ -836,8 +840,8 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
     <h2 class="title is-2" style="text-align: left; margin-bottom: 0.75rem;">Invited Speakers</h2>
     <p class="section-intro">The current invited lineup spans locomotion, state estimation, learning, and resilient perception. Additional program updates will be posted as they are finalized.</p>
     <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="speaker-grid">
+      <div class="column is-full">
+        <div class="speaker-grid speaker-grid--invited">
           <div class="speaker-card">
             <img src="/img/invited_speakers/marco_hutter.jpeg" alt="Marco Hutter"/>
             <p class="speaker-name"><a href="https://rsl.ethz.ch/the-lab/people/person-detail.hutter.html">Marco Hutter</a></p>
@@ -855,9 +859,9 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/Maani_Ghaffari.jpg" alt="Maani Ghaffari"/>
             <p class="speaker-name"><a href="https://robotics.umich.edu/people/faculty/maani-ghaffari/">Maani Ghaffari</a></p>
-            <p class="speaker-role">Assistant Professor, Naval Architecture and Marine Engineering and Robotics</p>
+            <p class="speaker-role">Associate Professor, Naval Architecture and Marine Engineering and Robotics</p>
             <p class="speaker-affiliation">University of Michigan</p>
-            <p class="speaker-topic">Talk title to be announced</p>
+            <p class="speaker-topic">Equivariant Proprioceptive Estimation and Learning for Robotics</p>
           </div>
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/Chen_Feng.jpg" alt="Chen Feng"/>
@@ -888,16 +892,23 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
             <p class="speaker-topic">Talk title to be announced</p>
           </div>
           <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/Daniel_Gehrig.jpg" alt="Daniel Gehrig"/>
+            <p class="speaker-name"><a href="https://danielgehrig18.github.io/">Daniel Gehrig</a></p>
+            <p class="speaker-role">Postdoctoral Researcher</p>
+            <p class="speaker-affiliation">GRASP Lab, University of Pennsylvania</p>
+            <p class="speaker-topic">Talk title to be announced</p>
+          </div>
+          <div class="speaker-card">
             <img src="/img/IROS_2026_tab/yuheng2024.jpg" alt="Yuheng Qiu"/>
             <p class="speaker-name"><a href="http://yuhengqiu.com/">Yuheng Qiu</a></p>
-            <p class="speaker-role">Ph.D. Student, Mechanical Engineering</p>
-            <p class="speaker-affiliation">Carnegie Mellon University</p>
+            <p class="speaker-role">Postdoctoral Scientist</p>
+            <p class="speaker-affiliation">Amazon FAR (Frontier AI &amp; Robotics)</p>
             <p class="speaker-topic">Talk title to be announced</p>
           </div>
           <div class="speaker-card">
             <img src="/img/team/shibozNew.png" alt="Shibo Zhao"/>
             <p class="speaker-name"><a href="https://shibowing.github.io/">Shibo Zhao</a></p>
-            <p class="speaker-role">Ph.D. Candidate, Robotics Institute</p>
+            <p class="speaker-role">Ph.D.</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
             <p class="speaker-topic">Opening Address &amp; Challenge Introduction</p>
           </div>
@@ -951,7 +962,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           <tr>
             <td>11:00 - 11:30 AM</td>
             <td><strong>Maani Ghaffari</strong><br><span style="color:#999; font-size:0.85rem;">University of Michigan</span></td>
-            <td>Title to be announced</td>
+            <td>Equivariant Proprioceptive Estimation and Learning for Robotics</td>
           </tr>
           <tr>
             <td>11:30 - 12:00 PM</td>
@@ -969,17 +980,17 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </tr>
           <tr>
             <td>2:00 - 2:30 PM</td>
-            <td><strong>Yuheng Qiu</strong><br><span style="color:#999; font-size:0.85rem;">Carnegie Mellon University</span></td>
+            <td><strong>Yuheng Qiu</strong><br><span style="color:#999; font-size:0.85rem;">Amazon FAR (Frontier AI &amp; Robotics)</span></td>
             <td>Title to be announced</td>
           </tr>
           <tr>
             <td>2:30 - 3:00 PM</td>
-            <td><strong>Poster Session</strong></td>
-            <td>Contributed abstracts and demos</td>
+            <td><strong>Daniel Gehrig</strong><br><span style="color:#999; font-size:0.85rem;">GRASP Lab, University of Pennsylvania</span></td>
+            <td>Title to be announced</td>
           </tr>
           <tr class="break-row">
             <td>3:00 - 3:30 PM</td>
-            <td colspan="2"><strong>Coffee Break</strong> — Networking and posters</td>
+            <td colspan="2"><strong>Coffee Break</strong> — Contributed posters, demos, and networking</td>
           </tr>
           <tr>
             <td>3:30 - 4:00 PM</td>
@@ -1034,7 +1045,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           <div class="speaker-card">
             <img src="/img/team/shibozNew.png" alt="Shibo Zhao"/>
             <p class="speaker-name"><a href="https://shibowing.github.io/">Shibo Zhao</a></p>
-            <p class="speaker-role">Ph.D. Candidate, Robotics Institute</p>
+            <p class="speaker-role">Ph.D.</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
           </div>
         </div>
@@ -1068,14 +1079,26 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/yuheng2024.jpg" alt="Yuheng Qiu"/>
             <p class="speaker-name"><a href="http://yuhengqiu.com/">Yuheng Qiu</a></p>
-            <p class="speaker-role">Ph.D. Student, Mechanical Engineering</p>
-            <p class="speaker-affiliation">Carnegie Mellon University</p>
+            <p class="speaker-role">Postdoctoral Scientist</p>
+            <p class="speaker-affiliation">Amazon FAR (Frontier AI &amp; Robotics)</p>
           </div>
           <div class="speaker-card">
             <img src="/img/IROS_2026_tab/Sifan Zhou.jpg" alt="Sifan Zhou"/>
             <p class="speaker-name"><a href="https://scholar.google.com/citations?hl=en&amp;user=kSdqoi0AAAAJ">Sifan Zhou</a></p>
             <p class="speaker-role">Ph.D. Student</p>
             <p class="speaker-affiliation">Carnegie Mellon University</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/team/junbin.jpg" alt="Junbin Yuan"/>
+            <p class="speaker-name"><a href="https://theairlab.org/team/junbiny/">Junbin Yuan</a></p>
+            <p class="speaker-role">Ph.D. Student</p>
+            <p class="speaker-affiliation">Carnegie Mellon University</p>
+          </div>
+          <div class="speaker-card">
+            <img src="/img/IROS_2026_tab/haomin_wen.jpeg" alt="Haomin Wen"/>
+            <p class="speaker-name"><a href="https://wenhaomin.github.io/">Haomin Wen</a></p>
+            <p class="speaker-role">Assistant Professor (Research)</p>
+            <p class="speaker-affiliation">Shanghai Innovation Institute (SII)</p>
           </div>
         </div>
       </div>

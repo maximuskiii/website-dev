@@ -2201,10 +2201,6 @@ body.imuchallenge-home .content .imu-workshop-citation-block code {
     margin-top: 1.1rem;
   }
 
-  body.imuchallenge-home .content a.imu-workshop-action:first-child {
-    grid-column: 1 / -1;
-  }
-
   body.imuchallenge-home .content a.imu-workshop-action {
     min-height: 42px;
     padding: 0.6rem 0.7rem;
@@ -2677,15 +2673,15 @@ body.tartanimu-site .navbar.is-tartanimu .navbar-menu {
   font-size: 0.84rem;
 }
 
-.navbar.is-tartanimu .tartanimu-navbar-resource--models,
-.navbar.is-tartanimu .tartanimu-navbar-resource--models:visited {
+.navbar.is-tartanimu .tartanimu-navbar-resource--inference,
+.navbar.is-tartanimu .tartanimu-navbar-resource--inference:visited {
   border-color: #ffffff;
   color: #9e2b04 !important;
   background: #ffffff !important;
 }
 
-.navbar.is-tartanimu .tartanimu-navbar-resource--models:hover,
-.navbar.is-tartanimu .tartanimu-navbar-resource--models:focus-visible {
+.navbar.is-tartanimu .tartanimu-navbar-resource--inference:hover,
+.navbar.is-tartanimu .tartanimu-navbar-resource--inference:focus-visible {
   color: #ffffff !important;
   background: #7f2407 !important;
 }
