@@ -13,8 +13,42 @@ permalink: /imuchallenge/data/explorer/
 
 <p>All trajectories are sampled at <strong>200 Hz</strong>. Each 1-second window contains exactly 200 IMU samples.</p>
 
+<h2 style="margin-bottom:0.35rem;">Browse by platform</h2>
+<p style="margin-top:0;color:#4b5563;font-size:0.92rem;">Click a platform to jump to its trajectories in the table below, or open its dedicated page for sensor and domain details.</p>
+
+<div class="imu-explore-platform-grid" role="group" aria-label="Jump to a platform in the trajectory table">
+  <div class="imu-explore-platform-tile">
+    <a class="imu-platform-feature" href="#imu-data-table" data-platform="car">
+      <img src="/img/imuchallenge/previews/car_train_0000.png" alt="Car trajectory preview" loading="lazy" decoding="async">
+      <span>Car</span>
+    </a>
+    <a class="imu-explore-platform-tile-details" href="/imuchallenge/platforms/car/">Platform details &rarr;</a>
+  </div>
+  <div class="imu-explore-platform-tile">
+    <a class="imu-platform-feature" href="#imu-data-table" data-platform="drone">
+      <img src="/img/imuchallenge/previews/drone_train_0000.png" alt="Drone trajectory preview" loading="lazy" decoding="async">
+      <span>Drone</span>
+    </a>
+    <a class="imu-explore-platform-tile-details" href="/imuchallenge/platforms/drone/">Platform details &rarr;</a>
+  </div>
+  <div class="imu-explore-platform-tile">
+    <a class="imu-platform-feature" href="#imu-data-table" data-platform="quadruped">
+      <img src="/img/imuchallenge/previews/quadruped_train_0000.png" alt="Quadruped trajectory preview" loading="lazy" decoding="async">
+      <span>Quadruped</span>
+    </a>
+    <a class="imu-explore-platform-tile-details" href="/imuchallenge/platforms/quadruped/">Platform details &rarr;</a>
+  </div>
+  <div class="imu-explore-platform-tile">
+    <a class="imu-platform-feature" href="#imu-data-table" data-platform="handheld">
+      <img src="/img/imuchallenge/previews/handheld_train_0000.png" alt="Handheld trajectory preview" loading="lazy" decoding="async">
+      <span>Handheld</span>
+    </a>
+    <a class="imu-explore-platform-tile-details" href="/imuchallenge/platforms/handheld/">Platform details &rarr;</a>
+  </div>
+</div>
+
 <div class="imu-note" style="margin:0.5rem 0 1rem 0;font-size:0.85rem;">
-  <strong>Tip:</strong> click any row's <strong>Trajectory file</strong> link to see a live model preview in action.
+  <strong>Tip:</strong> click any row — or its <strong>&#9654; Live Preview</strong> button — to see a live model preview in action.
 </div>
 
 <div class="imu-table-toolbar">
@@ -28,7 +62,7 @@ permalink: /imuchallenge/data/explorer/
         <th data-col="platform">Platform</th>
         <th data-col="split">Split</th>
         <th data-col="traj_id">Trajectory</th>
-        <th data-col="npz_relpath">Trajectory file</th>
+        <th data-col="npz_relpath">Preview</th>
         <th data-col="inferred_source">Source</th>
         <th data-col="n_samples">Samples</th>
         <th data-col="duration_s">Duration</th>

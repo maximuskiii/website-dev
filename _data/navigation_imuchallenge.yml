@@ -2,14 +2,12 @@
   link: /imuchallenge/
 - name: Setup
   link: /imuchallenge/setup/
-- name: Platforms
-  link: /imuchallenge/platforms/
 - name: Data
   link: /imuchallenge/data/
   dropdown:
     - name: Overview
       link: /imuchallenge/data/
-    - name: Explorer
+    - name: Platforms & Explorer
       link: /imuchallenge/data/explorer/
 - name: About
   link: /imuchallenge/about/

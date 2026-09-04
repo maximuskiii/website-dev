@@ -118,6 +118,17 @@ import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.3.1/dist/i
                 <div class="imu-progress"><div class="imu-progress-fill" id="imu-3d-progress-fill"></div></div>
               </div>
             </div>
+            <div id="imu-3d-controls" style="display:none;margin-top:0.6rem;">
+              <div class="imu-3d-cam-buttons">
+                <button type="button" class="imu-3d-cam-btn" id="imu-3d-cam-reset">Reset View</button>
+                <button type="button" class="imu-3d-cam-btn" id="imu-3d-cam-top">Top View</button>
+                <button type="button" class="imu-3d-cam-btn" id="imu-3d-cam-side">Side View</button>
+              </div>
+              <div class="imu-3d-scrub-row">
+                <input type="range" id="imu-3d-scrub" min="0" max="0" value="0" step="1">
+                <span id="imu-3d-scrub-label">t = 0.00 s</span>
+              </div>
+            </div>
             <div id="imu-3d-legend" class="imu-note" style="display:none;margin-top:0.75rem;font-size:0.85rem;"></div>
           </div>
 
@@ -249,9 +260,29 @@ import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.3.1/dist/i
         legend.style.display='';
         legend.innerHTML=`<strong>RMSE</strong> (velocity): ${Number(trajectory.rmse).toFixed(3)} m/s &nbsp;·&nbsp; <strong>ATE</strong> (position): ${Number(trajectory.ate).toFixed(3)} m<br>
           <span style="color:#2563eb;">■</span> Predicted &nbsp; <span style="color:#16a34a;">■</span> Ground truth &nbsp; <span style="opacity:0.7;">(drag to orbit, scroll to zoom)</span>`;
+        setupScrubAndCamera(trajectory);
       }catch(err){
         mount.innerHTML='Failed to load 3D view: '+(err&&err.message?err.message:err);
       }
+    }
+
+    function setupScrubAndCamera(trajectory){
+      const controls=document.getElementById('imu-3d-controls');
+      const scrub=document.getElementById('imu-3d-scrub');
+      const label=document.getElementById('imu-3d-scrub-label');
+      const ts=trajectory.ts||[];
+      const n=Math.max(0, (trajectory.pos_pred||[]).length-1);
+      scrub.max=String(n);
+      scrub.value='0';
+      scrub.oninput=()=>{
+        const idx=Number(scrub.value);
+        if(scene3d) scene3d.setMarkerIndex(idx);
+        label.textContent=`t = ${(ts[idx]!=null?ts[idx]:0).toFixed(2)} s`;
+      };
+      document.getElementById('imu-3d-cam-reset').onclick=()=>{ if(scene3d) scene3d.frameCamera('iso'); };
+      document.getElementById('imu-3d-cam-top').onclick=()=>{ if(scene3d) scene3d.frameCamera('top'); };
+      document.getElementById('imu-3d-cam-side').onclick=()=>{ if(scene3d) scene3d.frameCamera('side'); };
+      controls.style.display='';
     }
 
     function buildScene3d(mount, trajectory){
@@ -304,6 +335,13 @@ import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.3.1/dist/i
       grid.position.set(center.x, box.min.y, center.z);
       scene.add(grid);
       scene.add(new THREE.AmbientLight(0xffffff,1.0));
+
+      // Playback markers, moved by the scrubber via scene3d.setMarkerIndex().
+      const markerPred=new THREE.Mesh(new THREE.SphereGeometry(Math.max(span*0.008,0.008),16,16), new THREE.MeshBasicMaterial({color:0x2563eb}));
+      const markerGt=new THREE.Mesh(new THREE.SphereGeometry(Math.max(span*0.008,0.008),16,16), new THREE.MeshBasicMaterial({color:0x16a34a}));
+      if(posPred[0]) markerPred.position.copy(toVec3(posPred[0]));
+      if(posGt[0]) markerGt.position.copy(toVec3(posGt[0]));
+      scene.add(markerPred, markerGt);
 
       function makeLabel(text,color,size){
         const div=document.createElement('div');
@@ -387,7 +425,20 @@ import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.3.1/dist/i
       scene3d={
         rafId:null, controls, renderer, labelRenderer, resizeObserver,
         pause(){ if(scene3d.rafId!=null){ cancelAnimationFrame(scene3d.rafId); scene3d.rafId=null; } },
-        resume(){ if(scene3d.rafId==null) animate(); }
+        resume(){ if(scene3d.rafId==null) animate(); },
+        setMarkerIndex(idx){
+          const i=Math.max(0, Math.min(idx, posPred.length-1, posGt.length-1));
+          if(posPred[i]) markerPred.position.copy(toVec3(posPred[i]));
+          if(posGt[i]) markerGt.position.copy(toVec3(posGt[i]));
+        },
+        frameCamera(kind){
+          if(kind==='top') camera.position.set(center.x, center.y+span*1.8, center.z+0.0001);
+          else if(kind==='side') camera.position.set(center.x+span*1.8, center.y, center.z);
+          else camera.position.set(center.x+span*1.2, center.y+span*1.0, center.z+span*1.2);
+          camera.lookAt(center);
+          controls.target.copy(center);
+          controls.update();
+        }
       };
       animate();
     }

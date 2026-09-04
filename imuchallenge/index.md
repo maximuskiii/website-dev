@@ -135,8 +135,8 @@ permalink: /imuchallenge/
       <a class="imu-workshop-action is-secondary" href="https://github.com/superxslam/TartanIMU" target="_blank" rel="noopener">
         <i class="fab fa-github" aria-hidden="true"></i><span>TartanIMU Code</span>
       </a>
-      <a class="imu-workshop-action is-secondary" href="https://forms.gle/7rUg7ENctuBU9kTN8" target="_blank" rel="noopener">
-        <i class="fas fa-user-plus" aria-hidden="true"></i><span>Register Team</span>
+      <a class="imu-workshop-action is-secondary" href="/imuchallenge/data/explorer/">
+        <i class="fas fa-chart-area" aria-hidden="true"></i><span>Data Explorer</span>
       </a>
       <a class="imu-workshop-action is-secondary" href="/imuchallenge/setup/">
         <i class="fas fa-rocket" aria-hidden="true"></i><span>Setup Guide</span>

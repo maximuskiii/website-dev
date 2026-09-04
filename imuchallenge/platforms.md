@@ -2,32 +2,19 @@
 title: IMU Odometry Challenge Platforms
 layout: page
 show_sidebar: false
-platform_sidebar: true
 hide_footer: false
 hide_hero: true
 permalink: /imuchallenge/platforms/
 ---
 
+<!-- The platform hub grid moved into the Data Explorer page, which now leads
+     with a "browse by platform" section that filters the trajectory table
+     directly. This page stays live (rather than 404ing) for old bookmarks
+     and the platform-sidebar "Platforms" breadcrumb link. -->
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/imuchallenge/data/explorer/">
+
 <h1 class="imu-page-title">{% include imu-bot.html %}Platforms</h1>
 
-This challenge is organized across multiple platforms to measure both in-domain performance and cross-platform generalization.
-
-<div class="imu-platform-feature-grid">
-  <a href="/imuchallenge/platforms/car/" class="imu-platform-feature">
-    <img src="/img/tartanimu/car_overview.png" alt="Car IMU platform overview">
-    <span>Car</span>
-  </a>
-  <a href="/imuchallenge/platforms/drone/" class="imu-platform-feature">
-    <img src="/img/tartanimu/drone_overview.png" alt="Drone IMU platform overview">
-    <span>Drone</span>
-  </a>
-  <a href="/imuchallenge/platforms/quadruped/" class="imu-platform-feature">
-    <img src="/img/tartanimu/dog_overview.png" alt="Quadruped IMU platform overview">
-    <span>Quadruped</span>
-  </a>
-  <a href="/imuchallenge/platforms/handheld/" class="imu-platform-feature">
-    <img src="/img/tartanimu/human_overview.png" alt="Handheld IMU platform overview">
-    <span>Handheld</span>
-  </a>
-</div>
+<p>Platform browsing now lives inside the <a href="/imuchallenge/data/explorer/">Data Explorer</a> — redirecting you there now.</p>
+<p>If you're not redirected automatically, <a href="/imuchallenge/data/explorer/">click here to continue &rarr;</a></p>
 

@@ -25,6 +25,10 @@
   let sortBy = null; // null = default multi-key sort (platform asc, traj_id asc)
   let sortAsc = true;
 
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+  }
+
   function platformClass(v) {
     const p = String(v || '').toLowerCase();
     if (p === 'car') return 'car';
@@ -79,7 +83,7 @@
       const col = sel.dataset.col;
       const vals = Array.from(new Set(rows.map((r) => String(r[col])))).sort((a, b) => a.localeCompare(b));
       sel.setAttribute('aria-label', `Filter by ${col.replace(/_/g, ' ')}`);
-      sel.innerHTML = '<option value="">All</option>' + vals.map((v) => `<option value="${v.replace(/"/g, '&quot;')}">${v}</option>`).join('');
+      sel.innerHTML = '<option value="">All</option>' + vals.map((v) => `<option value="${v.replace(/"/g, '&quot;')}">${esc(fmtValue(col, v))}</option>`).join('');
     });
   }
 
@@ -132,6 +136,12 @@
       const pClass = platformClass(r.platform);
       const sClass = splitClass(r.split);
       const bg = rowTint[pClass] || '#fff';
+      const q = new URLSearchParams({
+        platform: String(r.platform ?? ''),
+        split: String(r.split ?? ''),
+        traj_id: String(r.traj_id ?? '')
+      });
+      const previewHref = `/imuchallenge/data/preview/?${q.toString()}`;
       const tds = columns.map((col) => {
         if (col === 'platform') {
           return `<td><span class="imu-platform-badge imu-p-${pClass}">${fmtValue(col, r[col])}</span></td>`;
@@ -140,16 +150,11 @@
           return `<td style="background:${bg}"><span class="imu-split-badge imu-s-${sClass}">${fmtValue(col, r[col])}</span></td>`;
         }
         if (col === 'npz_relpath') {
-          const q = new URLSearchParams({
-            platform: String(r.platform ?? ''),
-            split: String(r.split ?? ''),
-            traj_id: String(r.traj_id ?? '')
-          });
-          return `<td style="background:${bg}"><a href="/imuchallenge/data/preview/?${q.toString()}">${fmtValue(col, r[col])}</a></td>`;
+          return `<td style="background:${bg}"><a class="imu-row-preview-btn" href="${previewHref}" title="${esc(fmtValue(col, r[col]))}">&#9654; Live Preview</a></td>`;
         }
         return `<td style="background:${bg}">${fmtValue(col, r[col])}</td>`;
       }).join('');
-      return `<tr class="imu-row-${pClass}">${tds}</tr>`;
+      return `<tr class="imu-row-${pClass}" data-preview-href="${esc(previewHref)}">${tds}</tr>`;
     }).join('');
     tbody.innerHTML = html;
     countNode.textContent = `${sorted.length} / ${rows.length} trajectories shown`;
@@ -167,8 +172,38 @@
     });
   }
 
+  function initRowClick() {
+    // The whole row is clickable, not just the "Live Preview" link — bigger,
+    // more obvious hit target. Clicks on the link itself are left alone so
+    // ctrl/cmd-click, middle-click, and "open in new tab" keep working.
+    tbody.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const tr = e.target.closest('tr[data-preview-href]');
+      if (!tr) return;
+      window.location.href = tr.dataset.previewHref;
+    });
+  }
+
+  function initPlatformTiles() {
+    // "Browse by platform" tiles above the table double as quick filters:
+    // clicking one sets the platform dropdown and scrolls the table into view.
+    document.querySelectorAll('.imu-explore-platform-tile [data-platform]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sel = filterRow.querySelector('select[data-col="platform"]');
+        if (sel) {
+          sel.value = a.dataset.platform;
+          render();
+        }
+        table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
   makeFilters();
   initSortHeaders();
+  initRowClick();
+  initPlatformTiles();
 
   fetch(endpoint)
     .then((r) => r.json())

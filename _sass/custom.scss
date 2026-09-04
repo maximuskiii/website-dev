@@ -799,6 +799,45 @@ body.imuchallenge-home .hero .button.is-info:not(:first-child) {
   display: block;
 }
 
+.imu-3d-cam-buttons {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.imu-3d-cam-btn {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.imu-3d-cam-btn:hover {
+  border-color: #C45A0E;
+  color: #C45A0E;
+}
+
+.imu-3d-scrub-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.imu-3d-scrub-row input[type="range"] {
+  flex: 1;
+}
+
+.imu-3d-scrub-row span {
+  min-width: 84px;
+  color: #475569;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
 /* ---------- Quiet updates feed (replaces boxed announcement cards) ---------- */
 
 .imu-updates {
@@ -1200,6 +1239,81 @@ body.imuchallenge-site .imu-data-table tr.imu-row-drone td { background: #f0f9ff
 body.imuchallenge-site .imu-data-table tr.imu-row-quadruped td { background: #f0fdf4 !important; }
 body.imuchallenge-site .imu-data-table tr.imu-row-handheld td,
 body.imuchallenge-site .imu-data-table tr.imu-row-human td { background: #faf5ff !important; }
+
+/* Whole row is clickable through to the live preview — cursor + a dimming
+   hover so the affordance reads immediately, not just on the button itself. */
+table.imu-data-table tbody tr[data-preview-href] {
+  cursor: pointer;
+}
+
+table.imu-data-table tbody tr[data-preview-href]:hover {
+  filter: brightness(0.96);
+}
+
+.imu-row-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #C45A0E;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.imu-row-preview-btn:hover {
+  background: #a8480a;
+  transform: translateY(-1px);
+}
+
+/* ---------- Data Explorer: "browse by platform" tile grid ---------- */
+/* Reuses .imu-platform-feature's image+gradient+label styling (below) for the
+   clickable tile itself; adds a smaller sibling link for the platform's own
+   detail page, since nesting an <a> inside .imu-platform-feature isn't valid. */
+
+.imu-explore-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.imu-explore-platform-tile .imu-platform-feature {
+  min-height: 160px;
+}
+
+.imu-explore-platform-tile .imu-platform-feature img {
+  min-height: 160px;
+}
+
+.imu-explore-platform-tile-details {
+  display: block;
+  margin-top: 0.4rem;
+  color: #C45A0E;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.imu-explore-platform-tile-details:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .imu-explore-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .imu-explore-platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ---------- Platform sidebar & feature grid ---------- */
 
