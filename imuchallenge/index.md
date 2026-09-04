@@ -278,8 +278,9 @@ permalink: /imuchallenge/
           <div><small>02</small><h3>Scoring</h3></div>
         </div>
         <dl>
-          <div><dt>Primary</dt><dd>Macro-averaged Absolute Trajectory Error (ATE), with all four platforms weighted equally.</dd></div>
-          <div><dt>Evaluation</dt><dd>Organizers integrate predicted velocities with ground-truth orientation, then align and score each path.</dd></div>
+          <div><dt>TartanIMU Score</dt><dd><code>0.6 &times; (AVE / 0.7356384388) + 0.4 &times; (ATE20 / 3.1160277267)</code> &mdash; macro-averaged over the four platforms, each contributing 25&nbsp;%. <strong>Lower is better</strong>; an all-zero submission scores exactly 1.000.</dd></div>
+          <div><dt>AVE &mdash; 60&nbsp;%</dt><dd>Absolute Velocity Error (m/s): the mean per-window Euclidean error <code>&#8214;v_pred &minus; v_gt&#8214;</code>.</dd></div>
+          <div><dt>ATE20 &mdash; 40&nbsp;%</dt><dd>20&nbsp;m-segment Absolute Trajectory Error (m): predictions are integrated with ground-truth orientation, then each 20&nbsp;m segment is SE(3) (Umeyama) aligned before the RMS position error is taken.</dd></div>
           <div><dt>Splits</dt><dd>Train for fitting, validation for selection, and anonymized public/private test trajectories for ranking.</dd></div>
         </dl>
       </article>
@@ -350,8 +351,20 @@ permalink: /imuchallenge/
 
     <div class="imu-workshop-updates">
       <article class="imu-workshop-update is-latest">
+        <time datetime="2026-09-04">Sep 04, 2026</time>
+        <div><span>Latest</span><p><strong>Per-sequence scoring is now open.</strong> Upload your submission to get ATE20, AVE and RTE for <strong>all 89 test sequences</strong> &mdash; the numbers required by the technical report &mdash; using the same scoring logic as the Kaggle leaderboard. <a href="https://huggingface.co/spaces/Tartan-IMU/imu_odometry_challenge_scoring" target="_blank" rel="noopener">Open the scoring tool</a>. Five submissions per team per day; your team name must match Kaggle exactly, and teams with no Kaggle submission are not scored.</p></div>
+      </article>
+      <article class="imu-workshop-update">
+        <time datetime="2026-09-04">Sep 04, 2026</time>
+        <div><p><strong>How the Top 10 teams are selected.</strong> The Kaggle leaderboard is <em>not</em> the only criterion &mdash; the committee also weighs the quality of the technical report. The <strong>Top 10 teams will be invited to contribute to the forthcoming <em>IMU Foundation Model</em> white paper</strong>.</p></div>
+      </article>
+      <article class="imu-workshop-update">
+        <time datetime="2026-09-04">Sep 04, 2026</time>
+        <div><p><strong>Technical report: deadline, format and how to submit.</strong> The report is due <strong>23:59 US Eastern Time on 23 September 2026</strong> &mdash; three days after the leaderboard closes, which remains September 20, 2026, 23:55 UTC. Maximum <strong>6 pages excluding references</strong> and 7 pages in total; the appendix does not count towards either limit. The report is <em>not</em> uploaded on this website: fill in the challenge Form as usual and <strong>attach the report at the end of the Form</strong>. Every report must answer the five compliance questions listed in the <a href="/imuchallenge/setup/#schedule-rules-and-leaderboard">setup guide</a>.</p></div>
+      </article>
+      <article class="imu-workshop-update">
         <time datetime="2026-08-01">Aug 01, 2026</time>
-        <div><span>Latest</span><p>Final Kaggle submissions, the technical report, and model weights are due <strong>September 20, 2026, at 23:55 UTC</strong>. See the <a href="/imuchallenge/setup/#schedule-rules-and-leaderboard">rules timeline</a>.</p></div>
+        <div><p>Final Kaggle submissions and model weights are due <strong>September 20, 2026, at 23:55 UTC</strong>. See the <a href="/imuchallenge/setup/#schedule-rules-and-leaderboard">rules timeline</a>.</p></div>
       </article>
       <article class="imu-workshop-update">
         <time datetime="2026-07-09">Jul 09, 2026</time>

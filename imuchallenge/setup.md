@@ -234,7 +234,21 @@ Competition dates, team and submission limits, and any external-data policy can 
 <div class="imu-note" markdown="1">
 ### Timeline
 
-- **Final Kaggle submission, technical report, and model weights:** September 20, 2026, 23:55 UTC
+- **Final Kaggle submission and model weights:** September 20, 2026, 23:55 UTC
+- **Technical report:** September 23, 2026, 23:59 US Eastern Time (EDT, UTC&minus;4) &mdash; three days after the leaderboard closes
+
+### Technical report
+
+- **Format.** Maximum **6 pages excluding references**, and 7 pages in total including references, using the official template. **The appendix does not count** towards either limit.
+- **How to submit.** The report is *not* uploaded on this website. Fill in the challenge Form as usual and **attach your report at the end of the Form** &mdash; that single submission is what we collect.
+- **Selection.** The Kaggle leaderboard is **not** the only criterion for the Top 10: the quality of the report is also taken into account, and the Top 10 teams will be invited to contribute to the forthcoming *IMU Foundation Model* white paper.
+- **Compliance declaration (required).** Every report must explicitly answer: (1) do the predictions come from a **single model with one shared set of weights**? (2) is any platform classification, routing or specialization used at inference? (3) is any ensembling, checkpoint averaging or test-time augmentation used? (4) how was test-set leakage avoided, including for model and checkpoint selection? (5) what differs between the development-time and the submitted system? Reports that leave these unanswered cannot be considered for the Top 10.
+
+### Scoring your submission per sequence
+
+The [per-sequence scoring tool](https://huggingface.co/spaces/Tartan-IMU/imu_odometry_challenge_scoring){:target="_blank" rel="noopener"} returns ATE20, AVE and RTE for **all 89 test sequences**, plus the per-platform and overall tables, using the same scoring logic as the Kaggle leaderboard. Five submissions per team per day; your team name must match your Kaggle team name exactly, and teams with no Kaggle submission are not scored.
+
+**RTE** (Relative Trajectory Error, m) follows Sturm *et al.* (IROS 2012) and is the metric used in AirIO: over sliding windows of **&Delta;t = 5 s**, it is the RMSE of the difference between the predicted and the ground-truth relative displacement. It measures *local* drift and, unlike ATE20, is insensitive to accumulated global offset. **RTE does not enter the leaderboard ranking**; it is reported for analysis only.
 </div>
 
 <ul class="imu-link-list">
@@ -260,7 +274,7 @@ window_id,vx,vy,vz
 We provide per-platform "specialist" checkpoints trained internally as a benchmarking reference, so you can gauge what good performance looks like before submitting. You can also try them interactively in the [live demo](https://huggingface.co/spaces/Tartan-IMU/imu_odometry_challenge_demo){:target="_blank" rel="noopener"}.
 
 <div class="imu-note" markdown="1">
-**These specialists are a reference, not a submission strategy.** The competition requires **one unified model scored on all four platforms** — the test set is anonymized with no platform label, so switching between per-platform experts at inference time isn't possible. Use these checkpoints to sanity-check per-platform performance during development, not as your final submission.
+**These specialists are a reference, not a submission strategy.** Predictions must come from **a single model with one shared set of weights**. Inferring the embodiment inside your network is allowed and is precisely the point of the benchmark; recovering the platform in order to dispatch to separately trained per-platform experts is not. The test set is also anonymized with no platform label. **Final rankings are subject to inspection of the submitted model and inference script.** Use these checkpoints to sanity-check per-platform performance during development, not as your final submission.
 </div>
 
 - [Car specialist](https://huggingface.co/Tartan-IMU/IROS_workshop_car_specialist){:target="_blank" rel="noopener"}
