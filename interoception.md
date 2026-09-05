@@ -728,7 +728,7 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
         <span class="icon" aria-hidden="true"><i class="fas fa-trophy"></i></span>
         <span>Explore Challenge</span>
       </a>
-      <a class="challenge-cta is-secondary" href="https://forms.gle/7rUg7ENctuBU9kTN8" target="_blank" rel="noopener">
+      <a class="challenge-cta is-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc_3Pq2Bs4ytd0lfHHLsU_qoO5z0BP6Psnsqo7e5nOyBTlCjQ/viewform" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
         <span>Register Team</span>
       </a>
