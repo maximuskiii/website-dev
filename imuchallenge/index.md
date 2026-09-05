@@ -355,18 +355,21 @@ permalink: /imuchallenge/
     <div class="imu-workshop-section-heading">
       <p class="imu-workshop-eyebrow">Organizers and partners</p>
       <h2>Built by teams working on robust robot perception.</h2>
-      <p>The challenge is organized by CMU AirLab and Amazon FAR in conjunction with the IROS 2026 workshop on interoceptive perception.</p>
+      <p>The challenge is organized by CMU AirLab and Amazon FAR in conjunction with the IROS 2026 workshop on interoceptive perception, with support from the Shanghai Innovation Institute.</p>
     </div>
 
     <div class="imu-workshop-partners">
       <a href="https://theairlab.org/" target="_blank" rel="noopener" aria-label="CMU AirLab">
         <img src="/img/logos/Horizontal@2x.png" alt="CMU AirLab" width="600" height="147" loading="lazy" decoding="async">
       </a>
-      <div class="imu-workshop-amazon" aria-label="Amazon FAR">
-        <span>amazon</span><i aria-hidden="true"></i><strong>FAR</strong>
-      </div>
+      <a href="https://github.com/amazon-far" target="_blank" rel="noopener" aria-label="Amazon FAR">
+        <img src="/img/logos/amazon-far.png" alt="Amazon FAR" loading="lazy" decoding="async">
+      </a>
       <a href="https://www.ri.cmu.edu/" target="_blank" rel="noopener" aria-label="Carnegie Mellon University Robotics Institute">
         <img src="/img/riLogo2019.svg" alt="Carnegie Mellon University Robotics Institute" loading="lazy" decoding="async">
+      </a>
+      <a href="https://www.sii.edu.cn/" target="_blank" rel="noopener" aria-label="Shanghai Innovation Institute">
+        <img src="/img/logos/sii-logo.png" alt="Shanghai Innovation Institute" loading="lazy" decoding="async">
       </a>
     </div>
 
