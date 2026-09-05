@@ -782,7 +782,11 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
           </div>
           <div class="date-row">
             <time datetime="2026-09-20T23:55:00Z">September 20, 2026, 23:55 UTC</time>
-            <p>Final challenge submission, technical report, and model weights deadline.</p>
+            <p>Final challenge submission and model weights deadline.</p>
+          </div>
+          <div class="date-row">
+            <time datetime="2026-09-23T23:59:00-04:00">September 23, 2026, 23:59 US Eastern (EDT)</time>
+            <p>Technical report deadline.</p>
           </div>
           <div class="date-row">
             <time datetime="2026-09-24">September 24, 2026</time>
