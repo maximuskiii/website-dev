@@ -109,6 +109,53 @@ permalink: /imuchallenge/
     .imu-workshop-wechat-dialog { padding: 1.25rem 1rem; }
     body.imuchallenge-home .content .imu-workshop-wechat-dialog h2 { font-size: 1.15rem; }
   }
+
+  .imu-workshop-alert {
+    width: 100%;
+    border-top: 1px solid #f0c496;
+    border-bottom: 1px solid #f0c496;
+    background: #fff7f1;
+  }
+  .imu-workshop-alert-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem;
+  }
+  body.imuchallenge-home .content .imu-workshop-alert-inner h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 0.6rem;
+    color: #8f3d00;
+    font-size: 1.15rem;
+    letter-spacing: 0;
+  }
+  body.imuchallenge-home .content .imu-workshop-alert-inner h2 i { color: #c45a0e; }
+  body.imuchallenge-home .content .imu-workshop-alert-inner > p {
+    margin: 0 0 0.9rem;
+    color: #6b3a18;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  body.imuchallenge-home .content .imu-workshop-alert-inner ol {
+    margin: 0 0 0.9rem;
+    padding-left: 1.35rem;
+    color: #6b3a18;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  body.imuchallenge-home .content .imu-workshop-alert-inner ol li { margin-bottom: 0.55rem; }
+  body.imuchallenge-home .content .imu-workshop-alert-inner ol li:last-child { margin-bottom: 0; }
+  body.imuchallenge-home .content .imu-workshop-alert-inner a { color: #8f3d00; font-weight: 700; }
+  body.imuchallenge-home .content .imu-workshop-alert-inner code {
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    background: #f6e4d3;
+    color: #6b3a18;
+  }
+  @media (max-width: 480px) {
+    .imu-workshop-alert-inner { padding: 1.35rem 1rem; }
+  }
 </style>
 
 <header class="imu-workshop-hero" aria-labelledby="imu-challenge-title">
@@ -141,9 +188,25 @@ permalink: /imuchallenge/
       <a class="imu-workshop-action is-secondary" href="/imuchallenge/setup/">
         <i class="fas fa-rocket" aria-hidden="true"></i><span>Setup Guide</span>
       </a>
+      <a class="imu-workshop-action is-secondary" href="https://drive.google.com/drive/folders/1EEnFNbogpRSbqGglppdNh0EQp0zxHzjZ" target="_blank" rel="noopener">
+        <i class="fas fa-file-alt" aria-hidden="true"></i><span>Report Template</span>
+      </a>
     </div>
   </div>
 </header>
+
+<div class="imu-workshop-alert" role="note" aria-labelledby="imu-alert-title">
+  <div class="imu-workshop-alert-inner">
+    <h2 id="imu-alert-title"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Important reminder: eligibility for the final ranking</h2>
+    <p>This applies to every team, including those who have already submitted to Kaggle. The Kaggle leaderboard is provisional: official final standings are decided only after the organizers re-execute the top teams' submitted models. To be eligible for the final ranking you must, in addition to submitting predictions:</p>
+    <ol>
+      <li>Complete the <a href="https://forms.gle/7rUg7ENctuBU9kTN8" target="_blank" rel="noopener">Submission Form</a> for each submission you want considered, attaching the prediction CSV you uploaded.</li>
+      <li>Submit a technical report (PDF). <a href="https://drive.google.com/drive/folders/1EEnFNbogpRSbqGglppdNh0EQp0zxHzjZ" target="_blank" rel="noopener">Download it here</a> &mdash; the zip contains <code>main.tex</code> and <code>ieeeconf.cls</code>. On Overleaf: <em>New Project &rarr; Upload Project</em> &rarr; select the zip. Maximum 6 pages excluding references, 7 in total; the appendix does not count. The report is due <strong>23:59 US Eastern Time, 23 September 2026</strong> &mdash; three days after the leaderboard closes &mdash; and is submitted by attaching it at the end of the <a href="https://forms.gle/7rUg7ENctuBU9kTN8" target="_blank" rel="noopener">challenge Form</a>. All numbers in Tables III&ndash;V must come from the <a href="https://huggingface.co/spaces/Tartan-IMU/imu_odometry_challenge_scoring" target="_blank" rel="noopener">official scoring service</a>, not a local re-implementation.</li>
+      <li>Publish your single unified model's weights and inference code as a public Hugging Face model repository, within the same 7 days.</li>
+    </ol>
+    <p>Teams missing any of the three, or whose model cannot be re-executed, are removed from the final ranking regardless of leaderboard position. Full details on the <a href="https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/rules" target="_blank" rel="noopener">Rules and Evaluation tabs</a>.</p>
+  </div>
+</div>
 
 <nav class="imu-workshop-section-nav" aria-label="Challenge sections">
   <div class="imu-workshop-nav-inner">
@@ -360,7 +423,7 @@ permalink: /imuchallenge/
       </article>
       <article class="imu-workshop-update">
         <time datetime="2026-09-04">Sep 04, 2026</time>
-        <div><p><strong>Technical report: deadline, format and how to submit.</strong> The report is due <strong>23:59 US Eastern Time on 23 September 2026</strong> &mdash; three days after the leaderboard closes, which remains September 20, 2026, 23:55 UTC. Maximum <strong>6 pages excluding references</strong> and 7 pages in total; the appendix does not count towards either limit. The report is <em>not</em> uploaded on this website: fill in the challenge Form as usual and <strong>attach the report at the end of the Form</strong>. Every report must answer the five compliance questions listed in the <a href="/imuchallenge/setup/#schedule-rules-and-leaderboard">setup guide</a>.</p></div>
+        <div><p><strong>Technical report: deadline, format and how to submit.</strong> The report is due <strong>23:59 US Eastern Time on 23 September 2026</strong> &mdash; three days after the leaderboard closes, which remains September 20, 2026, 23:55 UTC. Maximum <strong>6 pages excluding references</strong> and 7 pages in total; the appendix does not count towards either limit. <a href="https://drive.google.com/drive/folders/1EEnFNbogpRSbqGglppdNh0EQp0zxHzjZ" target="_blank" rel="noopener">Download the report template</a> (LaTeX source plus a PDF preview; on Overleaf use <em>New Project &rarr; Upload Project</em> and select the zip). The report is <em>not</em> uploaded on this website: fill in the challenge Form as usual and <strong>attach the report at the end of the Form</strong>. Every report must answer the five compliance questions listed in the <a href="/imuchallenge/setup/#schedule-rules-and-leaderboard">setup guide</a>.</p></div>
       </article>
       <article class="imu-workshop-update">
         <time datetime="2026-08-01">Aug 01, 2026</time>
