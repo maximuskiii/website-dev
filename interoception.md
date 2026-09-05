@@ -728,10 +728,6 @@ hero_image: /img/IROS_2026_tab/pittsburgh_from_pdf.jpg
         <span class="icon" aria-hidden="true"><i class="fas fa-trophy"></i></span>
         <span>Explore Challenge</span>
       </a>
-      <a class="challenge-cta is-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc_3Pq2Bs4ytd0lfHHLsU_qoO5z0BP6Psnsqo7e5nOyBTlCjQ/viewform" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true"><i class="fas fa-user-plus"></i></span>
-        <span>Register Team</span>
-      </a>
       <a class="challenge-cta is-secondary" href="https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/submissions" target="_blank" rel="noopener">
         <span class="icon" aria-hidden="true"><i class="fas fa-upload"></i></span>
         <span>Submit on Kaggle</span>
