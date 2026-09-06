@@ -14,7 +14,7 @@ permalink: /imuchallenge/setup/
 <div class="imu-steps" markdown="1">
 
 <div class="imu-step" markdown="1">
-**Register your team.** [Fill out the registration form.](https://docs.google.com/forms/d/e/1FAIpQLSc_3Pq2Bs4ytd0lfHHLsU_qoO5z0BP6Psnsqo7e5nOyBTlCjQ/viewform){:target="_blank" rel="noopener"} Then join the competition on Kaggle: [TartanIMU Challenge: Multi-Platform Inertial Odometry](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026){:target="_blank" rel="noopener"}.
+**Register your team.** Join the competition on Kaggle and create your team there: [TartanIMU Challenge: Multi-Platform Inertial Odometry](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026){:target="_blank" rel="noopener"}. There's no separate signup — your Kaggle team *is* your registration.
 </div>
 
 <div class="imu-step" markdown="1">
@@ -223,6 +223,10 @@ finetune:
 
 <div class="imu-step" markdown="1">
 **Improve and [submit](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/submissions){:target="_blank" rel="noopener"}.** Experiment with your own methods to push performance on the leaderboard.
+</div>
+
+<div class="imu-step" markdown="1">
+**Log your submission and report.** The Kaggle leaderboard alone doesn't make you eligible for the final ranking or workshop presentation. Complete the [Submission Form](https://docs.google.com/forms/d/e/1FAIpQLSc_3Pq2Bs4ytd0lfHHLsU_qoO5z0BP6Psnsqo7e5nOyBTlCjQ/viewform){:target="_blank" rel="noopener"} for each submission you want considered, and again to attach your technical report before the deadline. See [Final ranking eligibility](#schedule-rules-and-leaderboard) for the full requirements.
 </div>
 
 </div>

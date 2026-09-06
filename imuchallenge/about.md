@@ -43,4 +43,4 @@ Challenge organization is coordinated by **CMU AirLab**, with benchmark, dataset
 
 ## Contact
 
-For challenge questions, post in the [Kaggle discussion forum](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/discussion){:target="_blank" rel="noopener"} so answers remain visible to every team. Use the [team registration form](https://docs.google.com/forms/d/e/1FAIpQLSc_3Pq2Bs4ytd0lfHHLsU_qoO5z0BP6Psnsqo7e5nOyBTlCjQ/viewform){:target="_blank" rel="noopener"} for registration details.
+For challenge questions, post in the [Kaggle discussion forum](https://www.kaggle.com/competitions/tartan-imu-challenge-iros2026/discussion){:target="_blank" rel="noopener"} so answers remain visible to every team. To register, join the competition on Kaggle and create your team there — see the [setup guide](/imuchallenge/setup/#quick-start) for the full walkthrough.
